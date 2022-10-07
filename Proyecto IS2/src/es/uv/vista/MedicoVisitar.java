@@ -32,7 +32,6 @@ public class MedicoVisitar extends javax.swing.JFrame {
         labelPacientes = new javax.swing.JLabel();
         labelDescripcion = new javax.swing.JLabel();
         labelNombreMedico = new javax.swing.JLabel();
-        labelNPacientes = new javax.swing.JLabel();
         labelListaPacientes = new javax.swing.JLabel();
         labelFecha = new javax.swing.JLabel();
         scrollDescripcion = new javax.swing.JScrollPane();
@@ -40,8 +39,10 @@ public class MedicoVisitar extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(750, 520));
+        setResizable(false);
 
-        panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelPrincipal.setPreferredSize(new java.awt.Dimension(750, 520));
 
         listPacientes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -50,46 +51,81 @@ public class MedicoVisitar extends javax.swing.JFrame {
         });
         scrollPacientes.setViewportView(listPacientes);
 
-        panelPrincipal.add(scrollPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 700, 150));
-
-        labelPacientes.setText("Pacientes");
-        panelPrincipal.add(labelPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        labelPacientes.setText("Pacientes (xx)");
 
         labelDescripcion.setText("Descripcion del paciente");
-        panelPrincipal.add(labelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         labelNombreMedico.setText("Nombre del medico");
-        panelPrincipal.add(labelNombreMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
-
-        labelNPacientes.setText("Nº Pacientes: XX");
-        panelPrincipal.add(labelNPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
 
         labelListaPacientes.setText("Lista de pacientes");
-        panelPrincipal.add(labelListaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         labelFecha.setText("dd-mm-aaaa");
-        panelPrincipal.add(labelFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         textADescripción.setColumns(20);
         textADescripción.setRows(5);
         scrollDescripcion.setViewportView(textADescripción);
 
-        panelPrincipal.add(scrollDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 700, 150));
-
         jButton1.setText("volver");
-        panelPrincipal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
+
+        javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
+        panelPrincipal.setLayout(panelPrincipalLayout);
+        panelPrincipalLayout.setHorizontalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(labelNombreMedico)
+                        .addGap(173, 173, 173)
+                        .addComponent(labelListaPacientes)
+                        .addGap(236, 236, 236)
+                        .addComponent(labelFecha))
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(labelPacientes))
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(scrollPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(labelDescripcion))
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(scrollDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addGap(320, 320, 320)
+                        .addComponent(jButton1)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        panelPrincipalLayout.setVerticalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNombreMedico)
+                    .addComponent(labelListaPacientes)
+                    .addComponent(labelFecha))
+                .addGap(34, 34, 34)
+                .addComponent(labelPacientes)
+                .addGap(4, 4, 4)
+                .addComponent(scrollPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(labelDescripcion)
+                .addGap(4, 4, 4)
+                .addComponent(scrollDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jButton1))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
 
         pack();
@@ -100,7 +136,6 @@ public class MedicoVisitar extends javax.swing.JFrame {
     private javax.swing.JLabel labelDescripcion;
     private javax.swing.JLabel labelFecha;
     private javax.swing.JLabel labelListaPacientes;
-    private javax.swing.JLabel labelNPacientes;
     private javax.swing.JLabel labelNombreMedico;
     private javax.swing.JLabel labelPacientes;
     private javax.swing.JList<String> listPacientes;
