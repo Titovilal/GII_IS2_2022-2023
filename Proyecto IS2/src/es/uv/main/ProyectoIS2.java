@@ -4,7 +4,7 @@
  */
 package es.uv.main;
 
-import es.uv.vista.MedicoVisitar;
+import es.uv.vista.Login;
 
 /**
  *
@@ -16,7 +16,7 @@ public class ProyectoIS2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new MedicoVisitar().setVisible(true);
+        new Login().setVisible(true);
     }
     
 }
