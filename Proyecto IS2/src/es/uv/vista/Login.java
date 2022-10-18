@@ -148,6 +148,11 @@ public class Login extends javax.swing.JFrame {
         buttonAcceder.setText("Acceder");
         buttonAcceder.setBorderPainted(false);
         buttonAcceder.setFocusPainted(false);
+        buttonAcceder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAccederActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
@@ -250,6 +255,14 @@ public class Login extends javax.swing.JFrame {
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void buttonAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAccederActionPerformed
+        EnfermeraMenu e = new EnfermeraMenu();
+        MedicoMenu m = new MedicoMenu();
+        m.setVisible(true);
+        e.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonAccederActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

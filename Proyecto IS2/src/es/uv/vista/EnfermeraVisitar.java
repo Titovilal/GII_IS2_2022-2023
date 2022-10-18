@@ -18,7 +18,7 @@ public class EnfermeraVisitar extends javax.swing.JFrame {
         textFecha = new javax.swing.JTextField();
         labelFecha = new javax.swing.JLabel();
         buttonBuscar = new javax.swing.JButton();
-        buttonVolver = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         scrollPacientes = new javax.swing.JScrollPane();
         listPacientes = new javax.swing.JList<>();
         labelPacientes = new javax.swing.JLabel();
@@ -38,7 +38,12 @@ public class EnfermeraVisitar extends javax.swing.JFrame {
 
         buttonBuscar.setText("Buscar");
 
-        buttonVolver.setText("Volver");
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         listPacientes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "506: Gonzalez Lopez Paco", "XXX: Apellido1 Apellido2 Nombre", "XXX: Apellido1 Apellido2 Nombre", "XXX: Apellido1 Apellido2 Nombre", "XXX: Apellido1 Apellido2 Nombre" };
@@ -76,7 +81,7 @@ public class EnfermeraVisitar extends javax.swing.JFrame {
                             .addComponent(labelMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelEnfermeraVisitarLayout.createSequentialGroup()
                         .addGap(331, 331, 331)
-                        .addComponent(buttonVolver)))
+                        .addComponent(btnVolver)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         panelEnfermeraVisitarLayout.setVerticalGroup(
@@ -96,7 +101,7 @@ public class EnfermeraVisitar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonVolver)
+                .addComponent(btnVolver)
                 .addGap(20, 20, 20))
         );
 
@@ -118,10 +123,16 @@ public class EnfermeraVisitar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFechaActionPerformed
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        EnfermeraMenu b = new EnfermeraMenu();
+        b.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVolver;
     private javax.swing.JButton buttonBuscar;
-    private javax.swing.JButton buttonVolver;
     private javax.swing.JLabel labelFecha;
     private javax.swing.JLabel labelMedicamentos;
     private javax.swing.JLabel labelPacientes;

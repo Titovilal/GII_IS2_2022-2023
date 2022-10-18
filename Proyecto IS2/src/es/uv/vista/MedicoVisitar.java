@@ -20,7 +20,7 @@ public class MedicoVisitar extends javax.swing.JFrame {
         labelFecha = new javax.swing.JLabel();
         scrollDescripcion = new javax.swing.JScrollPane();
         textADescripción = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(750, 520));
@@ -49,7 +49,12 @@ public class MedicoVisitar extends javax.swing.JFrame {
         textADescripción.setRows(5);
         scrollDescripcion.setViewportView(textADescripción);
 
-        jButton1.setText("volver");
+        btnVolver.setText("volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
@@ -78,7 +83,7 @@ public class MedicoVisitar extends javax.swing.JFrame {
                         .addComponent(scrollDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
                         .addGap(320, 320, 320)
-                        .addComponent(jButton1)))
+                        .addComponent(btnVolver)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         panelPrincipalLayout.setVerticalGroup(
@@ -98,7 +103,7 @@ public class MedicoVisitar extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(scrollDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(jButton1))
+                .addComponent(btnVolver))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,8 +120,14 @@ public class MedicoVisitar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        MedicoMenu m = new MedicoMenu();
+        m.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel labelDescripcion;
     private javax.swing.JLabel labelFecha;
     private javax.swing.JLabel labelListaPacientes;
