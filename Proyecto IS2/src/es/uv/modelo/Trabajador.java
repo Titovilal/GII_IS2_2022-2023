@@ -17,10 +17,10 @@ public class Trabajador {
     public Trabajador(){
     }
 
-    public Trabajador(int idTrabajador, String medico, String contraseña, Boolean esMedico) {
+    public Trabajador(int idTrabajador, String medico, String contrasenya, Boolean esMedico) {
         this.idTrabajador = idTrabajador;
         this.usuario = medico;
-        this.contra = contraseña;
+        this.contra = contrasenya;
         this.esMedico = esMedico;
     }
     
@@ -44,12 +44,12 @@ public class Trabajador {
         this.usuario = medico;
     }
 
-    public String getContraseña() {
+    public String getContrasenya() {
         return contra;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contra = contraseña;
+    public void setContrasenya(String contrasenya) {
+        this.contra = contrasenya;
     }
 
     public Boolean getEsMedico() {
