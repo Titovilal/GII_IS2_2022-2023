@@ -12,6 +12,8 @@ public class Tratamiento {
     private int idTratamiento, idEnfermedad, idMedicamento;
     private String dosis;
 
+    public Tratamiento() {
+    }
     public Tratamiento(int idTratamiento, int idEnfermedad, int idMedicamento, String dosis) {
         this.idTratamiento = idTratamiento;
         this.idEnfermedad = idEnfermedad;

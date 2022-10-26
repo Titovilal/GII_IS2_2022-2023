@@ -6,6 +6,9 @@ public class Enfermedad {
     private String sintomas;
     private Boolean contagiosa;
 
+    public Enfermedad() {
+    }
+
     public Enfermedad(int idEnfermedad, String sintomas, Boolean contagiosa) {
         this.idEnfermedad = idEnfermedad;
         this.sintomas = sintomas;

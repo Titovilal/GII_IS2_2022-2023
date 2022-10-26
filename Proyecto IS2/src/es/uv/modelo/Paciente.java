@@ -12,6 +12,9 @@ public class Paciente {
     private int idPaciente, habitacion;
     private String dni, apellidos, sintomas;
 
+    public Paciente() {
+    }
+    
     public Paciente(int idPaciente, int habitacion, String dni, String apellidos, String sintomas) {
         this.idPaciente = idPaciente;
         this.habitacion = habitacion;
