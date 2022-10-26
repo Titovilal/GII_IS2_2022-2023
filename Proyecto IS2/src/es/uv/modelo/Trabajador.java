@@ -4,6 +4,9 @@
  */
 package es.uv.modelo;
 
+import java.util.Iterator;
+import java.util.List;
+
 /**
  *
  * @author scast
@@ -26,6 +29,18 @@ public class Trabajador {
     
     public void crearPaciente(int idPaciente, int habitacion, String dni, String apellidos, String sintomas){
         Paciente paciente = new Paciente( idPaciente, habitacion, dni, apellidos, sintomas);
+    }
+    
+    public void comprobarBotiquin(int num,AccesoBD bd){
+        
+        List<Medicamento> medicamentos = bd.obtenerMedicamentosBD();
+        Iterator<Medicamento> it = medicamentos.listIterator();
+        while(it.hasNext()){
+            if(it.next().getUnidades()>=num)
+                medicamentos.remove(it);
+        }
+        //mostrar(medicamentos);
+        
     }
 
     public int getIdTrabajador() {
