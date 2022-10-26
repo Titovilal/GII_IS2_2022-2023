@@ -18,6 +18,7 @@ public class Tratamiento {
         this.idMedicamento = idMedicamento;
         this.dosis = dosis;
     }
+    
 
     public int getIdTratamiento() {
         return idTratamiento;

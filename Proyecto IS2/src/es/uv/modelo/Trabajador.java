@@ -9,14 +9,15 @@ package es.uv.modelo;
  * @author scast
  */
 public class Trabajador {
+
     private int idTrabajador;
-    private String medico, contraseña;
+    private String usuario, contra;
     private Boolean esMedico;
 
     public Trabajador(int idTrabajador, String medico, String contraseña, Boolean esMedico) {
         this.idTrabajador = idTrabajador;
-        this.medico = medico;
-        this.contraseña = contraseña;
+        this.usuario = medico;
+        this.contra = contraseña;
         this.esMedico = esMedico;
     }
 
@@ -28,20 +29,20 @@ public class Trabajador {
         this.idTrabajador = idTrabajador;
     }
 
-    public String getMedico() {
-        return medico;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setMedico(String medico) {
-        this.medico = medico;
+    public void setUsuario(String medico) {
+        this.usuario = medico;
     }
 
     public String getContraseña() {
-        return contraseña;
+        return contra;
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contra = contraseña;
     }
 
     public Boolean getEsMedico() {
