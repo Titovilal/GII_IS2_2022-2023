@@ -8,8 +8,8 @@ package es.uv.modelo;
  *
  * @author scast
  */
-public class Paciente {
-    private int idPaciente, habitacion;
-    private String dni, apellidos, sintomas;
-    
+public class Trabajador {
+    private int idTrabajador;
+    private String medico, contraseña;
+    private Boolean esMedico;
 }

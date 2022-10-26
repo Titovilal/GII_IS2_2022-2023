@@ -4,12 +4,14 @@
  */
 package es.uv.modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author scast
  */
-public class Paciente {
-    private int idPaciente, habitacion;
-    private String dni, apellidos, sintomas;
+public class Visita {
+    private int idVisita, idTrabajador, idPaciente;
+    private Date fecha;
     
 }
