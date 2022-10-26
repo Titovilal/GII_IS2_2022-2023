@@ -5,15 +5,24 @@
 
 package es.uv.vista;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author mopns
  */
-public class MedicoMedicamento extends javax.swing.JPanel {
+public class MedicoMedicamento extends javax.swing.JPanel 
+{
 
     /** Creates new form MedicoMedicamento */
-    public MedicoMedicamento() {
+    public MedicoMedicamento() 
+    {
         initComponents();
+        //Colocaremos los oyentes una vez esté generaddo el controlador aquí
+        aceptar.setActionCommand("aceptarMedicoMedicamento");
+        volver.setActionCommand("volverMedicoMedicamento");
+        restablecer.setActionCommand("restablecerMedicoMedicamento");
+        
     }
 
     /** This method is called from within the constructor to
@@ -25,20 +34,119 @@ public class MedicoMedicamento extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        introducirCodigo = new javax.swing.JTextField();
+        scroll = new javax.swing.JScrollPane();
+        listaMedicamentos = new javax.swing.JTextArea();
+        aceptar = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
+        restablecer = new javax.swing.JButton();
+
+        jLabel1.setText("Introduce un número:");
+
+        introducirCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                introducirCodigoActionPerformed(evt);
+            }
+        });
+
+        listaMedicamentos.setColumns(20);
+        listaMedicamentos.setRows(5);
+        scroll.setViewportView(listaMedicamentos);
+
+        aceptar.setText("Aceptar");
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarActionPerformed(evt);
+            }
+        });
+
+        volver.setText("Volver");
+
+        restablecer.setText("Restablecer");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(introducirCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(91, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(aceptar)
+                .addGap(272, 272, 272)
+                .addComponent(volver)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(restablecer)
+                .addGap(140, 140, 140))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(introducirCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aceptar)
+                    .addComponent(volver)
+                    .addComponent(restablecer))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * SetList
+     * 
+     * Coloca la lista de medicamentos que debe mostrarse por pantalla
+     * 
+     */
+    public void SetList()
+    {
+        //Cuando esté el modelo, en el string se introducirá la lista de todos los medicamentos que hallan sido
+        //seleccionados a partir del número introducido, mientras que la pos será la posición inicial del textArea
+        this.listaMedicamentos.insert(TOOL_TIP_TEXT_KEY, ERROR);
+    }
+    
+    /**
+     * addBotonListener
+     * 
+     * Añade a todos los botones un oyente para que puedan ser procesador por el controlador
+     * 
+     * @param oyente 
+     */
+    private void addBotonListener(ActionListener oyente)
+    {
+        aceptar.addActionListener(oyente);
+        volver.addActionListener(oyente);
+        restablecer.addActionListener(oyente);
+    }
+    
+    
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_aceptarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aceptar;
+    private javax.swing.JTextField introducirCodigo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextArea listaMedicamentos;
+    private javax.swing.JButton restablecer;
+    private javax.swing.JScrollPane scroll;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 
 }
