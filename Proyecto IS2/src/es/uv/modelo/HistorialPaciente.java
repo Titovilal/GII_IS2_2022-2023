@@ -1,13 +1,24 @@
 package es.uv.modelo;
 
+import java.util.Date;
+
 public class HistorialPaciente {
 
-    private int idHistorial, idPaciente,idEnfermedad, fechaAlta;
+    private int idHistorial, idPaciente, idEnfermedad;
+    private Date fechaAlta;
 
-    public HistorialPaciente(int idHistorial, int idPaciente, int idEnfermedad, int fechaAlta) {
+    public HistorialPaciente(int idHistorial, int idPaciente, int idEnfermedad, Date fechaAlta) {
         this.idHistorial = idHistorial;
         this.idPaciente = idPaciente;
         this.idEnfermedad = idEnfermedad;
+        this.fechaAlta = fechaAlta;
+    }
+
+    public Date getFechaAlta() {
+        return fechaAlta;
+    }
+
+    public void setFechaAlta(Date fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
 
@@ -35,13 +46,4 @@ public class HistorialPaciente {
         this.idEnfermedad = idEnfermedad;
     }
 
-    public int getFechaAlta() {
-        return fechaAlta;
-    }
-
-    public void setFechaAlta(int fechaAlta) {
-        this.fechaAlta = fechaAlta;
-    }
-    
-    
 }
