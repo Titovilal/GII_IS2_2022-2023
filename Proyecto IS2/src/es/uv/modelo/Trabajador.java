@@ -20,6 +20,10 @@ public class Trabajador {
         this.contra = contraseña;
         this.esMedico = esMedico;
     }
+    
+    public void crearPaciente(int idPaciente, int habitacion, String dni, String apellidos, String sintomas){
+        Paciente paciente = new Paciente( idPaciente, habitacion, dni, apellidos, sintomas);
+    }
 
     public int getIdTrabajador() {
         return idTrabajador;
