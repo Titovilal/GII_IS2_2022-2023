@@ -5,6 +5,7 @@
 
 package es.uv.vista;
 
+import es.uv.controlador.Controlador.medicMedicamento;
 import java.awt.event.ActionListener;
 
 /**
@@ -18,7 +19,6 @@ public class MedicoMedicamento extends javax.swing.JPanel
     public MedicoMedicamento() 
     {
         initComponents();
-        //Colocaremos los oyentes una vez esté generaddo el controlador aquí
         aceptar.setActionCommand("aceptarMedicoMedicamento");
         volver.setActionCommand("volverMedicoMedicamento");
         restablecer.setActionCommand("restablecerMedicoMedicamento");
@@ -44,22 +44,11 @@ public class MedicoMedicamento extends javax.swing.JPanel
 
         jLabel1.setText("Introduce un número:");
 
-        introducirCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                introducirCodigoActionPerformed(evt);
-            }
-        });
-
         listaMedicamentos.setColumns(20);
         listaMedicamentos.setRows(5);
         scroll.setViewportView(listaMedicamentos);
 
         aceptar.setText("Aceptar");
-        aceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aceptarActionPerformed(evt);
-            }
-        });
 
         volver.setText("Volver");
 
@@ -125,7 +114,7 @@ public class MedicoMedicamento extends javax.swing.JPanel
      * 
      * @param oyente 
      */
-    private void addBotonListener(ActionListener oyente)
+    private void addBotonListener(medicMedicamento oyente)
     {
         aceptar.addActionListener(oyente);
         volver.addActionListener(oyente);
@@ -133,12 +122,6 @@ public class MedicoMedicamento extends javax.swing.JPanel
     }
     
     
-    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_aceptarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptar;
     private javax.swing.JTextField introducirCodigo;

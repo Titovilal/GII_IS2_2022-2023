@@ -1,16 +1,61 @@
 package es.uv.vista;
 
-public class MedicoVisitar extends javax.swing.JFrame {
 
+
+import es.uv.modelo.Paciente;
+import java.awt.Component;
+import java.util.ArrayList;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
+import javax.swing.JList;
+
+public class MedicoVisitar extends javax.swing.JFrame {
+    
+    ArrayList pacientes = new ArrayList();
+    DefaultListModel modelo = new DefaultListModel();
+    
+//    private Paciente P1 = new Paciente("paco", "paco1", "paco2", "paco333333333");
+//    private Paciente P2 = new Paciente("yeeeeea", "yeeeeea1", "yeeeeea2", "yeeeeea33333333333333");
+//    private Paciente P3 = new Paciente("buaaaaa", "buaaaaa1", "buaaaaa2", "buaaaaa33333333333333");
+    
     public MedicoVisitar() {
         initComponents();
         iniciar();
     }
+    
+    public void iniciar(){
+        listPacientes.setModel(modelo);
+        modelo.removeAllElements();
+//        modelo.addElement(P1);
+//        modelo.addElement(P2);
+//        modelo.addElement(P3);
+        
+    };
+    
+    public class ResponsableCellRenderer extends DefaultListCellRenderer {
 
-    public void iniciar() {
-        
-        
-        
+        public Component getListCellRendererComponent(
+                JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+
+            JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+            if (value.toString() != null) {
+                label.setText(value.toString());
+            }
+            return label;
+        }
+    }
+    
+    public class NombreTareaCellRenderer extends DefaultListCellRenderer {
+
+        public Component getListCellRendererComponent(
+                JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+
+            JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+
+            label.setText(value.toString());
+            return label;
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -30,16 +75,10 @@ public class MedicoVisitar extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(750, 520));
         setResizable(false);
 
         panelPrincipal.setPreferredSize(new java.awt.Dimension(750, 520));
 
-        listPacientes.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         scrollPacientes.setViewportView(listPacientes);
 
         labelPacientes.setText("Pacientes (xx)");
