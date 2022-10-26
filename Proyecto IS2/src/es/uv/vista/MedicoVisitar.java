@@ -4,6 +4,13 @@ public class MedicoVisitar extends javax.swing.JFrame {
 
     public MedicoVisitar() {
         initComponents();
+        iniciar();
+    }
+
+    public void iniciar() {
+        
+        
+        
     }
 
     @SuppressWarnings("unchecked")
