@@ -7,6 +7,9 @@ public class HistorialPaciente {
     private int idHistorial, idPaciente, idEnfermedad;
     private Date fechaAlta;
 
+    public HistorialPaciente() {
+    }
+    
     public HistorialPaciente(int idHistorial, int idPaciente, int idEnfermedad, Date fechaAlta) {
         this.idHistorial = idHistorial;
         this.idPaciente = idPaciente;

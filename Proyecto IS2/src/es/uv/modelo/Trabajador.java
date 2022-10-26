@@ -13,6 +13,9 @@ public class Trabajador {
     private int idTrabajador;
     private String usuario, contra;
     private Boolean esMedico;
+    
+    public Trabajador(){
+    }
 
     public Trabajador(int idTrabajador, String medico, String contraseña, Boolean esMedico) {
         this.idTrabajador = idTrabajador;

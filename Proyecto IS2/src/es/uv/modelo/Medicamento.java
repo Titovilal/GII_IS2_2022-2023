@@ -5,6 +5,9 @@ public class Medicamento {
     private int idMedicamento, unidades;
     private String alergias, efectosSecunadarios, dosis;
 
+    public Medicamento() {
+    }
+    
     public Medicamento(int idMedicamento, int unidades, String alergias, String efectosSecunadarios, String dosis) {
         this.idMedicamento = idMedicamento;
         this.unidades = unidades;

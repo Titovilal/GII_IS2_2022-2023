@@ -14,6 +14,8 @@ public class Visita {
     private int idVisita, idTrabajador, idPaciente;
     private Date fecha;
 
+    public Visita() {
+    }
     public Visita(int idVisita, int idTrabajador, int idPaciente, Date fecha) {
         this.idVisita = idVisita;
         this.idTrabajador = idTrabajador;
