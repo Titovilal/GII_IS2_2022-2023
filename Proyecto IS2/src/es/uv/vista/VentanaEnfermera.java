@@ -210,7 +210,7 @@ public class VentanaEnfermera extends javax.swing.JFrame {
 
         labelENombreEnfermedad1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         labelENombreEnfermedad1.setForeground(new java.awt.Color(204, 204, 204));
-        labelENombreEnfermedad1.setText("Escribe el nombre del medicamento:");
+        labelENombreEnfermedad1.setText("Escribe el número máximo de existencias de los medicamentos");
         labelENombreEnfermedad1.setPreferredSize(new java.awt.Dimension(420, 20));
 
         buttonBuscarEnfermedad2.setBackground(new java.awt.Color(71, 71, 71));
@@ -278,9 +278,9 @@ public class VentanaEnfermera extends javax.swing.JFrame {
             panelBotiquin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBotiquin1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(labelENombreEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(textBuscarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelENombreEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textBuscarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(buttonBuscarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
