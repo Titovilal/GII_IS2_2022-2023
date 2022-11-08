@@ -320,8 +320,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_tfUsuarioKeyPressed
 
     private void buttonAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAccederActionPerformed
-        EnfermeraMenu e = new EnfermeraMenu();
-        MedicoMenu m = new MedicoMenu();
+        VentanaEnfermera e = new VentanaEnfermera();
+        VentanaMedico m = new VentanaMedico();
         int loggin = tipoLogin(tfUsuario.getText(), tfContra.getText() + ""); //tfContra deberia usar el método getPassword, para compararlo con la contraseña almacenada
         System.out.println(""+  tfContra.getPassword());
         if (loggin == 1) {

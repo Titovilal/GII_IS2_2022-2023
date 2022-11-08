@@ -15,19 +15,35 @@ import javax.swing.JList;
  *
  * @author scast
  */
-public class NuevaVentanaMedico extends javax.swing.JFrame {
+public class VentanaMedicoPrueba extends javax.swing.JFrame {
 
     /**
-     * Creates new form NuevaVentanaMedico
+     * Creates new form VentanaMedicoPrueba
      */
-    int xMouse, yMouse, x, y;
+    int xMouse,
 
-    public NuevaVentanaMedico() {
+    /**
+     * Creates new form VentanaMedicoPrueba
+     */
+    yMouse, 
+
+    /**
+     * Creates new form VentanaMedicoPrueba
+     */
+    x, 
+
+    /**
+     * Creates new form VentanaMedicoPrueba
+     */
+    y;
+
+    public VentanaMedicoPrueba() {
         initComponents();
         this.setLocationRelativeTo(null);
         panelBase.setLayout(new BorderLayout());
         listBuscarEnfermedades.setCellRenderer(new SelectedListCellRenderer());
         listMedicamentos.setCellRenderer(new SelectedListCellRenderer());
+        panelBase.add(panelPacientesDelDia);
     }
 
     /**
@@ -40,8 +56,25 @@ public class NuevaVentanaMedico extends javax.swing.JFrame {
     private void initComponents() {
 
         panelPacientesDelDia = new javax.swing.JPanel();
+        labelENombreEnfermedad3 = new javax.swing.JLabel();
+        scrollListaMedicamentos5 = new javax.swing.JScrollPane();
+        listBuscarEnfermedades2 = new javax.swing.JList<>();
+        labelENombreEnfermedad4 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        labelENombreEnfermedad5 = new javax.swing.JLabel();
+        labelENombreEnfermedad6 = new javax.swing.JLabel();
+        labelENombreEnfermedad7 = new javax.swing.JLabel();
         panelBuscarPaciente = new javax.swing.JPanel();
-        panelBusccarMedicamento = new javax.swing.JPanel();
+        textBuscarEnfermedad1 = new javax.swing.JTextField();
+        buttonBuscarEnfermedad1 = new javax.swing.JButton();
+        buttonBorrarEnfermedad1 = new javax.swing.JButton();
+        labelENombreEnfermedad1 = new javax.swing.JLabel();
+        buttonBuscarEnfermedad2 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        scrollListaMedicamentos4 = new javax.swing.JScrollPane();
+        listBuscarEnfermedades1 = new javax.swing.JList<>();
+        labelENombreEnfermedad2 = new javax.swing.JLabel();
         panelBuscarEnfermedad = new javax.swing.JPanel();
         buttonBorrarEnfermedad = new javax.swing.JButton();
         buttonBuscarEnfermedad = new javax.swing.JButton();
@@ -95,51 +128,249 @@ public class NuevaVentanaMedico extends javax.swing.JFrame {
         buttonPaciente = new javax.swing.JButton();
         panelBase = new javax.swing.JPanel();
 
-        panelPacientesDelDia.setBackground(new java.awt.Color(0, 102, 102));
+        panelPacientesDelDia.setBackground(new java.awt.Color(81, 81, 81));
         panelPacientesDelDia.setPreferredSize(new java.awt.Dimension(896, 512));
         panelPacientesDelDia.setRequestFocusEnabled(false);
         panelPacientesDelDia.setVerifyInputWhenFocusTarget(false);
+
+        labelENombreEnfermedad3.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        labelENombreEnfermedad3.setForeground(new java.awt.Color(204, 204, 204));
+        labelENombreEnfermedad3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelENombreEnfermedad3.setText("Fecha : viernes 4 de noviembre de 2022");
+        labelENombreEnfermedad3.setPreferredSize(new java.awt.Dimension(420, 20));
+
+        listBuscarEnfermedades2.setBackground(new java.awt.Color(71, 71, 71));
+        listBuscarEnfermedades2.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        listBuscarEnfermedades2.setForeground(new java.awt.Color(204, 204, 204));
+        listBuscarEnfermedades2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "12345678901234567890123456789012", "Item 2", "Item 3", "Item 4", "Item 5", "no hay " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listBuscarEnfermedades2.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listBuscarEnfermedades2ValueChanged(evt);
+            }
+        });
+        scrollListaMedicamentos5.setViewportView(listBuscarEnfermedades2);
+
+        labelENombreEnfermedad4.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        labelENombreEnfermedad4.setForeground(new java.awt.Color(204, 204, 204));
+        labelENombreEnfermedad4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelENombreEnfermedad4.setText("Enfermos a visitar");
+        labelENombreEnfermedad4.setPreferredSize(new java.awt.Dimension(420, 20));
+
+        jScrollPane6.setPreferredSize(new java.awt.Dimension(242, 20));
+
+        jTextArea5.setEditable(false);
+        jTextArea5.setBackground(new java.awt.Color(71, 71, 71));
+        jTextArea5.setColumns(20);
+        jTextArea5.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        jTextArea5.setForeground(new java.awt.Color(204, 204, 204));
+        jTextArea5.setRows(6);
+        jTextArea5.setTabSize(4);
+        jTextArea5.setBorder(null);
+        jTextArea5.setPreferredSize(new java.awt.Dimension(252, 20));
+        jScrollPane6.setViewportView(jTextArea5);
+
+        labelENombreEnfermedad5.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        labelENombreEnfermedad5.setForeground(new java.awt.Color(204, 204, 204));
+        labelENombreEnfermedad5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelENombreEnfermedad5.setText("paco antonio");
+        labelENombreEnfermedad5.setPreferredSize(new java.awt.Dimension(420, 20));
+
+        labelENombreEnfermedad6.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        labelENombreEnfermedad6.setForeground(new java.awt.Color(204, 204, 204));
+        labelENombreEnfermedad6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelENombreEnfermedad6.setText("Síntomas");
+        labelENombreEnfermedad6.setPreferredSize(new java.awt.Dimension(420, 20));
+
+        labelENombreEnfermedad7.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        labelENombreEnfermedad7.setForeground(new java.awt.Color(204, 204, 204));
+        labelENombreEnfermedad7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelENombreEnfermedad7.setText("Habitación 161");
+        labelENombreEnfermedad7.setPreferredSize(new java.awt.Dimension(420, 20));
 
         javax.swing.GroupLayout panelPacientesDelDiaLayout = new javax.swing.GroupLayout(panelPacientesDelDia);
         panelPacientesDelDia.setLayout(panelPacientesDelDiaLayout);
         panelPacientesDelDiaLayout.setHorizontalGroup(
             panelPacientesDelDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 896, Short.MAX_VALUE)
+            .addGroup(panelPacientesDelDiaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(panelPacientesDelDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelENombreEnfermedad3, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelPacientesDelDiaLayout.createSequentialGroup()
+                        .addGroup(panelPacientesDelDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(scrollListaMedicamentos5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                            .addComponent(labelENombreEnfermedad4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGroup(panelPacientesDelDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPacientesDelDiaLayout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addGroup(panelPacientesDelDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelENombreEnfermedad6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPacientesDelDiaLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelENombreEnfermedad5, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelPacientesDelDiaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelENombreEnfermedad7, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(24, 24, 24))
         );
         panelPacientesDelDiaLayout.setVerticalGroup(
             panelPacientesDelDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
+            .addGroup(panelPacientesDelDiaLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(labelENombreEnfermedad3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(labelENombreEnfermedad4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPacientesDelDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelPacientesDelDiaLayout.createSequentialGroup()
+                        .addComponent(labelENombreEnfermedad5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(labelENombreEnfermedad7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(labelENombreEnfermedad6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(scrollListaMedicamentos5, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
 
-        panelBuscarPaciente.setBackground(new java.awt.Color(51, 0, 204));
+        panelBuscarPaciente.setBackground(new java.awt.Color(61, 61, 61));
         panelBuscarPaciente.setPreferredSize(new java.awt.Dimension(896, 512));
         panelBuscarPaciente.setRequestFocusEnabled(false);
         panelBuscarPaciente.setVerifyInputWhenFocusTarget(false);
+
+        textBuscarEnfermedad1.setBackground(new java.awt.Color(71, 71, 71));
+        textBuscarEnfermedad1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        textBuscarEnfermedad1.setForeground(new java.awt.Color(204, 204, 204));
+        textBuscarEnfermedad1.setText("12345678A");
+        textBuscarEnfermedad1.setToolTipText("");
+        textBuscarEnfermedad1.setBorder(null);
+        textBuscarEnfermedad1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textBuscarEnfermedad1KeyPressed(evt);
+            }
+        });
+
+        buttonBuscarEnfermedad1.setBackground(new java.awt.Color(71, 71, 71));
+        buttonBuscarEnfermedad1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        buttonBuscarEnfermedad1.setForeground(new java.awt.Color(204, 204, 204));
+        buttonBuscarEnfermedad1.setText("Buscar");
+        buttonBuscarEnfermedad1.setBorderPainted(false);
+        buttonBuscarEnfermedad1.setFocusPainted(false);
+        buttonBuscarEnfermedad1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBuscarEnfermedad1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                buttonBuscarEnfermedad1MousePressed(evt);
+            }
+        });
+
+        buttonBorrarEnfermedad1.setBackground(new java.awt.Color(71, 71, 71));
+        buttonBorrarEnfermedad1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        buttonBorrarEnfermedad1.setForeground(new java.awt.Color(204, 204, 204));
+        buttonBorrarEnfermedad1.setText("Añadir historial");
+        buttonBorrarEnfermedad1.setBorderPainted(false);
+        buttonBorrarEnfermedad1.setFocusPainted(false);
+
+        labelENombreEnfermedad1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        labelENombreEnfermedad1.setForeground(new java.awt.Color(204, 204, 204));
+        labelENombreEnfermedad1.setText("Escribe el DNI del paciente (12345678A):");
+        labelENombreEnfermedad1.setPreferredSize(new java.awt.Dimension(420, 20));
+
+        buttonBuscarEnfermedad2.setBackground(new java.awt.Color(71, 71, 71));
+        buttonBuscarEnfermedad2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        buttonBuscarEnfermedad2.setForeground(new java.awt.Color(204, 204, 204));
+        buttonBuscarEnfermedad2.setText("Borrar");
+        buttonBuscarEnfermedad2.setBorderPainted(false);
+        buttonBuscarEnfermedad2.setFocusPainted(false);
+        buttonBuscarEnfermedad2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBuscarEnfermedad2MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                buttonBuscarEnfermedad2MousePressed(evt);
+            }
+        });
+
+        jPanel3.setBackground(new java.awt.Color(81, 81, 81));
+
+        listBuscarEnfermedades1.setBackground(new java.awt.Color(71, 71, 71));
+        listBuscarEnfermedades1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        listBuscarEnfermedades1.setForeground(new java.awt.Color(204, 204, 204));
+        listBuscarEnfermedades1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "12345678901234567890123456789012", "Item 2", "Item 3", "Item 4", "Item 5", "no hay " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listBuscarEnfermedades1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listBuscarEnfermedades1ValueChanged(evt);
+            }
+        });
+        scrollListaMedicamentos4.setViewportView(listBuscarEnfermedades1);
+
+        labelENombreEnfermedad2.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        labelENombreEnfermedad2.setForeground(new java.awt.Color(204, 204, 204));
+        labelENombreEnfermedad2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelENombreEnfermedad2.setText("paco antonio (1245678A)");
+        labelENombreEnfermedad2.setPreferredSize(new java.awt.Dimension(420, 20));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(scrollListaMedicamentos4)
+                    .addComponent(labelENombreEnfermedad2, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(labelENombreEnfermedad2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(scrollListaMedicamentos4, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panelBuscarPacienteLayout = new javax.swing.GroupLayout(panelBuscarPaciente);
         panelBuscarPaciente.setLayout(panelBuscarPacienteLayout);
         panelBuscarPacienteLayout.setHorizontalGroup(
             panelBuscarPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 896, Short.MAX_VALUE)
+            .addGroup(panelBuscarPacienteLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(labelENombreEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textBuscarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(buttonBuscarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(buttonBuscarEnfermedad2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(buttonBorrarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelBuscarPacienteLayout.setVerticalGroup(
             panelBuscarPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
-        );
-
-        panelBusccarMedicamento.setBackground(new java.awt.Color(0, 102, 0));
-        panelBusccarMedicamento.setRequestFocusEnabled(false);
-        panelBusccarMedicamento.setVerifyInputWhenFocusTarget(false);
-
-        javax.swing.GroupLayout panelBusccarMedicamentoLayout = new javax.swing.GroupLayout(panelBusccarMedicamento);
-        panelBusccarMedicamento.setLayout(panelBusccarMedicamentoLayout);
-        panelBusccarMedicamentoLayout.setHorizontalGroup(
-            panelBusccarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 896, Short.MAX_VALUE)
-        );
-        panelBusccarMedicamentoLayout.setVerticalGroup(
-            panelBusccarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
+            .addGroup(panelBuscarPacienteLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(panelBuscarPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelENombreEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textBuscarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonBuscarEnfermedad1)
+                    .addComponent(buttonBuscarEnfermedad2)
+                    .addComponent(buttonBorrarEnfermedad1))
+                .addGap(16, 16, 16)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelBuscarEnfermedad.setBackground(new java.awt.Color(61, 61, 61));
@@ -1086,6 +1317,34 @@ public class NuevaVentanaMedico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textBuscar1KeyPressed
 
+    private void textBuscarEnfermedad1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBuscarEnfermedad1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textBuscarEnfermedad1KeyPressed
+
+    private void buttonBuscarEnfermedad1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonBuscarEnfermedad1MouseClicked
+
+    private void buttonBuscarEnfermedad1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonBuscarEnfermedad1MousePressed
+
+    private void buttonBuscarEnfermedad2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonBuscarEnfermedad2MouseClicked
+
+    private void buttonBuscarEnfermedad2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad2MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonBuscarEnfermedad2MousePressed
+
+    private void listBuscarEnfermedades1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listBuscarEnfermedades1ValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listBuscarEnfermedades1ValueChanged
+
+    private void listBuscarEnfermedades2ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listBuscarEnfermedades2ValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listBuscarEnfermedades2ValueChanged
+
     /**
      * @param args the command line arguments
      */
@@ -1094,7 +1353,7 @@ public class NuevaVentanaMedico extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NuevaVentanaMedico().setVisible(true);
+                new VentanaMedicoPrueba().setVisible(true);
             }
         });
     }
@@ -1117,27 +1376,40 @@ public class NuevaVentanaMedico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBorrar1;
     private javax.swing.JButton buttonBorrarEnfermedad;
+    private javax.swing.JButton buttonBorrarEnfermedad1;
     private javax.swing.JButton buttonBuscar1;
     private javax.swing.JButton buttonBuscarEnfermedad;
+    private javax.swing.JButton buttonBuscarEnfermedad1;
+    private javax.swing.JButton buttonBuscarEnfermedad2;
     private javax.swing.JButton buttonEnfermedad;
     private javax.swing.JButton buttonMedicamento;
     private javax.swing.JButton buttonPaciente;
     private javax.swing.JButton buttonPaciente1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
     private javax.swing.JLabel labelBuscarEnfermedad;
     private javax.swing.JLabel labelBuscarEnfermedad1;
     private javax.swing.JLabel labelCerrarSesion;
     private javax.swing.JLabel labelDosisDiaria2;
     private javax.swing.JLabel labelDosisRecomendada2;
     private javax.swing.JLabel labelENombreEnfermedad;
+    private javax.swing.JLabel labelENombreEnfermedad1;
+    private javax.swing.JLabel labelENombreEnfermedad2;
+    private javax.swing.JLabel labelENombreEnfermedad3;
+    private javax.swing.JLabel labelENombreEnfermedad4;
+    private javax.swing.JLabel labelENombreEnfermedad5;
+    private javax.swing.JLabel labelENombreEnfermedad6;
+    private javax.swing.JLabel labelENombreEnfermedad7;
     private javax.swing.JLabel labelEnfermedadContagiosa2;
     private javax.swing.JLabel labelEnfermedadesRelacionadas2;
     private javax.swing.JLabel labelEnfermedadesRelacionadas3;
@@ -1150,6 +1422,8 @@ public class NuevaVentanaMedico extends javax.swing.JFrame {
     private javax.swing.JLabel labelNombreMedicamento;
     private javax.swing.JLabel labelSalir;
     private javax.swing.JList<String> listBuscarEnfermedades;
+    private javax.swing.JList<String> listBuscarEnfermedades1;
+    private javax.swing.JList<String> listBuscarEnfermedades2;
     private javax.swing.JList<String> listBuscarMedicamentos;
     private javax.swing.JList<String> listMedicamentos;
     private javax.swing.JPanel panelBarraSuperior;
@@ -1157,7 +1431,6 @@ public class NuevaVentanaMedico extends javax.swing.JFrame {
     private javax.swing.JPanel panelBuscarEnfermedad;
     private javax.swing.JPanel panelBuscarMedicamento1;
     private javax.swing.JPanel panelBuscarPaciente;
-    private javax.swing.JPanel panelBusccarMedicamento;
     private javax.swing.JPanel panelCerrarSesion;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelMenu;
@@ -1167,8 +1440,11 @@ public class NuevaVentanaMedico extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollListaMedicamentos1;
     private javax.swing.JScrollPane scrollListaMedicamentos2;
     private javax.swing.JScrollPane scrollListaMedicamentos3;
+    private javax.swing.JScrollPane scrollListaMedicamentos4;
+    private javax.swing.JScrollPane scrollListaMedicamentos5;
     private javax.swing.JTextField textBuscar1;
     private javax.swing.JTextField textBuscarEnfermedad;
+    private javax.swing.JTextField textBuscarEnfermedad1;
     private javax.swing.JTextArea textEnfermedadesRel;
     // End of variables declaration//GEN-END:variables
 }
