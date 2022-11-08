@@ -31,7 +31,7 @@ public class Trabajador {
         Paciente paciente = new Paciente( idPaciente, habitacion, dni, apellidos, sintomas);
     }
     
-    public void comprobarBotiquin(int num,AccesoBD bd){
+    public List<Medicamento> comprobarBotiquin(int num,AccesoBD bd){
         
         List<Medicamento> medicamentos = bd.obtenerMedicamentosBD();
         Iterator<Medicamento> it = medicamentos.listIterator();
@@ -39,8 +39,7 @@ public class Trabajador {
             if(it.next().getUnidades()>=num)
                 medicamentos.remove(it);
         }
-        //mostrar(medicamentos);
-        
+        return medicamentos;        
     }
 
     public int getIdTrabajador() {
