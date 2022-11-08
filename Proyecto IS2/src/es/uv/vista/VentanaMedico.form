@@ -20,23 +20,23 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="labelENombreEnfermedad3" min="-2" pref="848" max="-2" attributes="0"/>
+                      <Component id="labelFechaActual" min="-2" pref="848" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="scrollListaMedicamentos5" alignment="0" pref="376" max="32767" attributes="0"/>
-                              <Component id="labelENombreEnfermedad4" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="scrollListaPacientesdelDia" alignment="0" pref="376" max="32767" attributes="0"/>
+                              <Component id="labelEnfermosAVisitar" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane6" max="32767" attributes="0"/>
-                                      <Component id="labelENombreEnfermedad6" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="scrollSintomas" max="32767" attributes="0"/>
+                                      <Component id="labelSintomasPaciente" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="labelENombreEnfermedad5" min="-2" pref="429" max="-2" attributes="0"/>
+                                  <Component id="labelApellidosPaciente" min="-2" pref="429" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
@@ -53,21 +53,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                  <Component id="labelENombreEnfermedad3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelFechaActual" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                  <Component id="labelENombreEnfermedad4" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelEnfermosAVisitar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="labelENombreEnfermedad5" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelApellidosPaciente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="labelENombreEnfermedad7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="labelENombreEnfermedad6" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelSintomasPaciente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane6" max="32767" attributes="0"/>
+                          <Component id="scrollSintomas" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="scrollListaMedicamentos5" min="-2" pref="410" max="-2" attributes="0"/>
+                      <Component id="scrollListaPacientesdelDia" min="-2" pref="410" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
@@ -75,7 +75,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="labelENombreEnfermedad3">
+        <Component class="javax.swing.JLabel" name="labelFechaActual">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Gadugi" size="14" style="0"/>
@@ -90,14 +90,14 @@
             </Property>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="scrollListaMedicamentos5">
+        <Container class="javax.swing.JScrollPane" name="scrollListaPacientesdelDia">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="listBuscarEnfermedades2">
+            <Component class="javax.swing.JList" name="listPacientesDelDia">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="47" green="47" red="47" type="rgb"/>
@@ -120,7 +120,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listBuscarEnfermedades2ValueChanged"/>
+                <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listPacientesDelDiaValueChanged"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -128,7 +128,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="labelENombreEnfermedad4">
+        <Component class="javax.swing.JLabel" name="labelEnfermosAVisitar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Gadugi" size="14" style="0"/>
@@ -143,7 +143,7 @@
             </Property>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+        <Container class="javax.swing.JScrollPane" name="scrollSintomas">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[242, 20]"/>
@@ -155,7 +155,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea5">
+            <Component class="javax.swing.JTextArea" name="textASintomas">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -180,7 +180,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="labelENombreEnfermedad5">
+        <Component class="javax.swing.JLabel" name="labelApellidosPaciente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Gadugi" size="14" style="0"/>
@@ -195,7 +195,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelENombreEnfermedad6">
+        <Component class="javax.swing.JLabel" name="labelSintomasPaciente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Gadugi" size="14" style="0"/>

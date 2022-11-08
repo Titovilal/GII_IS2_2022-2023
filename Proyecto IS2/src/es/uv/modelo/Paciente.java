@@ -63,4 +63,8 @@ public class Paciente {
         this.sintomas = sintomas;
     }
     
+    public String toString() {
+        return apellidos;
+    }
+    
 }
