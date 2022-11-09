@@ -43,9 +43,18 @@ public class Controlador
                     break;
                 }
                     
+                case "comprobarBotiquin":
+                {
+                    /*
+                        vista.get(num);
+                        vista.setMed(Trabajador.comprobarBotiquin(num,bd));
+                        
+                    */
+                    break;    
+                }
                 default:
                 {
-                    break;    
+                    break;
                 }
             }
         }

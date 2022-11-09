@@ -17,6 +17,8 @@ public class Trabajador {
     private String usuario, contra;
     private Boolean esMedico;
     
+    private List<Paciente> aux; //Lista auxiliar hasta que se pueda pasar información a la base de datos
+    
     public Trabajador(){
     }
 
@@ -28,7 +30,7 @@ public class Trabajador {
     }
     
     public void crearPaciente(int idPaciente, int habitacion, String dni, String apellidos, String sintomas){
-        Paciente paciente = new Paciente( idPaciente, habitacion, dni, apellidos, sintomas);
+        aux.add(new Paciente( idPaciente, habitacion, dni, apellidos, sintomas));
     }
     
     public List<Medicamento> comprobarBotiquin(int num,AccesoBD bd){
