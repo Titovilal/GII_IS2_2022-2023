@@ -1,3 +1,10 @@
+/**
+ * VentanaMedico extends JFrame
+ * 
+ * Venta que implementa las vistas que el médico utiliza
+ * 
+ */
+
 package es.uv.vista;
 
 import es.uv.modelo.Paciente;
@@ -10,6 +17,8 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import es.uv.modelo.AccesoBD;
+import es.uv.modelo.Enfermedad;
 
 public class VentanaMedico extends javax.swing.JFrame {
 
@@ -17,6 +26,13 @@ public class VentanaMedico extends javax.swing.JFrame {
     private ArrayList<Paciente> pacientesPrueba;
     private ArrayList<Object> pacientesPruebaO;
 
+    /**
+     * VentanaMedico()
+     * 
+     * Contructor de la clase VentanaMedico que inicializa todos los componentes(ventanas de la vista, menús, información)
+     * de la clase
+     * 
+     */
     public VentanaMedico() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -42,6 +58,12 @@ public class VentanaMedico extends javax.swing.JFrame {
 
     }
 
+    /**
+     * updateListPacientesDelDia ()
+     * 
+     * Función que actualiza la lista de pacientes del día actual
+     * 
+     */
     public void updateListPacientesDelDia() {
 
         DefaultListModel listModelPacientes = new DefaultListModel();
@@ -53,6 +75,12 @@ public class VentanaMedico extends javax.swing.JFrame {
         listPacientesDelDia.setCellRenderer(new NombrePacienteCellRenderer());
     }
 
+    /**
+     * NombrePacienteCellRender extends DefaultListCellRender
+     * 
+     * Clase empotrada utilizada para representar los objetos de una lista
+     * 
+     */
     public class NombrePacienteCellRenderer extends DefaultListCellRenderer {
 
         public Component getListCellRendererComponent(
@@ -63,6 +91,32 @@ public class VentanaMedico extends javax.swing.JFrame {
             return label;
         }
     }
+    
+    /**
+     * Mostrar enfermedades(int)
+     * 
+     * Actualiza la lista de enfermedades mostrada por el panelBase en la sección "Enfermedades"
+     * 
+     * @param id (int) Identificador de la enfermedad
+     */
+    public void MostrarEnfermedades(int id)
+    {
+        DefaultListModel modelo = new DefaultListModel();
+        ArrayList<Enfermedad> c = (ArrayList<Enfermedad>) AccesoBD.obtenerEnfermedadesBD();
+        for(int i  = 0; i != c.size();i++)
+        {
+            if(c.get(i).getIdEnfermedad() == id)
+                modelo.add(id, c.get(i));
+        }
+        listBuscarEnfermedades.setModel(modelo);
+ 
+    }
+    
+    /**
+     * Controladores de la clase(todo el código generado hasta abajo, sin tener en cuenta
+     * la pesataña 'Generated Code'
+     * 
+     */
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -404,6 +458,11 @@ public class VentanaMedico extends javax.swing.JFrame {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 buttonBuscarEnfermedadMousePressed(evt);
+            }
+        });
+        buttonBuscarEnfermedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBuscarEnfermedadActionPerformed(evt);
             }
         });
 
@@ -1067,6 +1126,8 @@ public class VentanaMedico extends javax.swing.JFrame {
                 .addComponent(panelBase, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        panelBase.getAccessibleContext().setAccessibleDescription("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1079,6 +1140,8 @@ public class VentanaMedico extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        getAccessibleContext().setAccessibleParent(panelBuscarMedicamento);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1251,6 +1314,17 @@ public class VentanaMedico extends javax.swing.JFrame {
         this.dispose();
         login.setVisible(true);
     }//GEN-LAST:event_labelCerrarSesionMouseReleased
+/*
+    buttonBuscarEnfermedadActionPerdormed(ActionEvent)
+    Botón que lanza la secuencia de acciones por la cual se busca una enfermedad en concreto a partir de su id
+
+    */
+    private void buttonBuscarEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedadActionPerformed
+        // TODO add your handling code here:
+
+        MostrarEnfermedades(Integer.valueOf(textBuscarEnfermedad.getText()));
+        
+    }//GEN-LAST:event_buttonBuscarEnfermedadActionPerformed
 
     public class SelectedListCellRenderer extends DefaultListCellRenderer {
 
@@ -1266,6 +1340,11 @@ public class VentanaMedico extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * 
+     * Elementos inicializados automáticamente de la clase
+     * 
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAddHistorial;

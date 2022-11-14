@@ -14,7 +14,7 @@ import java.util.*;
 public final class AccesoBD {
 
     private static AccesoBD instanciaUnica = null;
-    private Connection conexionBD = null;
+    private static Connection conexionBD = null;
 
     public static AccesoBD getInstance() {
         if (instanciaUnica == null) {
@@ -27,7 +27,7 @@ public final class AccesoBD {
         abrirConexionBD();
     }
 
-    public void abrirConexionBD() {
+    public static void abrirConexionBD() {
         if (conexionBD == null) {
             String nombreConexionBD = "jdbc:mysql://localhost/isii"; //dirección bd
             try {
@@ -56,7 +56,7 @@ public final class AccesoBD {
     }
 
     //////////////////////////////////////////////////enfermedades//////////////////////////////////////////////////
-    public List<Enfermedad> obtenerEnfermedadesBD() { //select all
+    public static List<Enfermedad> obtenerEnfermedadesBD() { //select all
         abrirConexionBD();
         ArrayList<Enfermedad> enfermedades = new ArrayList<>();
         try {
