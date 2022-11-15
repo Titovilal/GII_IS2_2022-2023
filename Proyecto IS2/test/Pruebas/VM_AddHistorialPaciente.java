@@ -2,12 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package es.uv.vista;
+package Pruebas;
 
 import es.uv.vista.*;
 import java.awt.Color;
-import java.awt.event.ActionListener;
-import javax.swing.JTextField;
 
 /**
  *
@@ -18,35 +16,16 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     /**
      * Creates new form VM_AddHistorialPaciente
      */
-    private int x, y, xMouse, yMouse;
-
+    private int x,y,xMouse,yMouse;
     public VM_AddHistorialPaciente() {
         initComponents();
         buttonAceptar.setActionCommand("addHistorial");
     }
-
-    public void setActionListener(ActionListener al) {
-        buttonAceptar.addActionListener(al);
+    
+    public void limpiar(){
+        
     }
-
-    public void limpiar() {
-        textDNI.setText("");
-        textEnfermedad.setText("");
-        textFecha.setText("");
-    }
-
-    public String getDNI() {
-        return textDNI.getText();
-    }
-
-    public String getEnfermedad() {
-        return textEnfermedad.getText();
-    }
-
-    public String getFecha() {
-        return textFecha.getText();
-    }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -406,7 +385,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_panelSalirMouseExited
 
     private void panelSalirMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseReleased
-        this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_panelSalirMouseReleased
 
     private void panelBarraSuperiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperiorMouseDragged
@@ -429,8 +408,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAceptarMouseClicked
 
     private void buttonAceptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAceptarMousePressed
-        buttonAceptar.doClick();
-        this.setVisible(false);
+        // TODO add your handling code here:
     }//GEN-LAST:event_buttonAceptarMousePressed
 
     private void buttonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCancelarMouseClicked
@@ -438,7 +416,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelarMouseClicked
 
     private void buttonCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCancelarMousePressed
-        this.setVisible(false);
+        // TODO add your handling code here:
     }//GEN-LAST:event_buttonCancelarMousePressed
 
     private void textFechaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFechaKeyPressed
@@ -449,6 +427,20 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textEnfermedadKeyPressed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+      
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VM_AddHistorialPaciente().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAceptar;

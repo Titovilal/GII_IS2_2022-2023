@@ -1,10 +1,9 @@
 /**
  * VentanaMedico extends JFrame
- * 
+ *
  * Venta que implementa las vistas que el médico utiliza
- * 
+ *
  */
-
 package es.uv.vista;
 
 import es.uv.modelo.Paciente;
@@ -19,54 +18,84 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import es.uv.modelo.AccesoBD;
 import es.uv.modelo.Enfermedad;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class VentanaMedico extends javax.swing.JFrame {
 
+    //Variables para habilitar la movilidad de la ventana
     private int x, xMouse, yMouse, y;
+
+    //Ventana interna
     private VM_AddHistorialPaciente vAddHistorialPaciente;
+
+    //Variables necesarias para que la ventana funcione sin BBDD
     private ArrayList<Object> pacientesPrueba;
+    private ArrayList<String> addA;
 
     /**
      * VentanaMedico()
-     * 
-     * Contructor de la clase VentanaMedico que inicializa todos los componentes(ventanas de la vista, menús, información)
-     * de la clase
-     * 
+     *
+     * Contructor de la clase VentanaMedico que inicializa todos los
+     * componentes(ventanas de la vista, menús, información) de la clase
+     *
      */
     public VentanaMedico() {
+        //Iniciar ventanas
         initComponents();
-        this.setLocationRelativeTo(null);
+        vAddHistorialPaciente = new VM_AddHistorialPaciente();
+
+        //Establecer configuracion de ventana
         panelBase.setLayout(new BorderLayout());
+        panelBase.add(panelPacientesDelDia);
+        this.setLocationRelativeTo(null);
+
+        //Establecer renderizados de celda
         listBuscarEnfermedades.setCellRenderer(new SelectedListCellRenderer());
         listMedicamentos.setCellRenderer(new SelectedListCellRenderer());
         listPacientesDelDia.setCellRenderer(new SelectedListCellRenderer());
+        vAddHistorialPaciente.setActionListener(new VentanasInternasListener());
+
+        //Pruebas
+        addA = new ArrayList<>();
+
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         labelFechaActual.setText("Fecha: " + dateFormat.format(date));
-        panelBase.add(panelPacientesDelDia);
 
         pacientesPrueba = new ArrayList<>();
-
         Paciente pac1 = new Paciente(0, 100, "25252525P", "Molinos Marchantes", "Dolor de cuello");
         Paciente pac2 = new Paciente(1, 101, "35353535Q", "Caida Peliantes", "Dolor de espalda");
         Paciente pac3 = new Paciente(2, 102, "24242424R", "Lopez Bogabante", "Dolor de huevos");
-
         pacientesPrueba.add(pac1);
         pacientesPrueba.add(pac2);
         pacientesPrueba.add(pac3);
-
         updateListPacientesDelDia();
+    }
 
+    class VentanasInternasListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+
+            String command = ae.getActionCommand();
+            if (command.equals("addHistorial")) {
+                System.out.println("El actionListener funciona");
+                addA.add(vAddHistorialPaciente.getFecha()
+                        + " - " + vAddHistorialPaciente.getEnfermedad());
+                buttonBuscarDNI.doClick();
+            }
+        }
     }
 
     /**
      * updateListPacientesDelDia ()
-     * 
+     *
      * Función que actualiza la lista de pacientes del día actual
-     * 
+     *
      */
     public void updateListPacientesDelDia() {
 
@@ -81,9 +110,9 @@ public class VentanaMedico extends javax.swing.JFrame {
 
     /**
      * NombrePacienteCellRender extends DefaultListCellRender
-     * 
+     *
      * Clase empotrada utilizada para representar los objetos de una lista
-     * 
+     *
      */
     public class NombrePacienteCellRenderer extends DefaultListCellRenderer {
 
@@ -95,33 +124,32 @@ public class VentanaMedico extends javax.swing.JFrame {
             return label;
         }
     }
-    
+
     /**
      * Mostrar enfermedades(int)
-     * 
-     * Actualiza la lista de enfermedades mostrada por el panelBase en la sección "Enfermedades"
-     * 
+     *
+     * Actualiza la lista de enfermedades mostrada por el panelBase en la
+     * sección "Enfermedades"
+     *
      * @param id (int) Identificador de la enfermedad
      */
-    public void MostrarEnfermedades(int id)
-    {
+    public void MostrarEnfermedades(int id) {
         DefaultListModel modelo = new DefaultListModel();
         ArrayList<Enfermedad> c = (ArrayList<Enfermedad>) AccesoBD.obtenerEnfermedadesBD();
-        for(int i  = 0; i != c.size();i++)
-        {
-            if(c.get(i).getIdEnfermedad() == id)
+        for (int i = 0; i != c.size(); i++) {
+            if (c.get(i).getIdEnfermedad() == id) {
                 modelo.add(id, c.get(i));
+            }
         }
         listBuscarEnfermedades.setModel(modelo);
- 
-    }
-    
-    /**
-     * Controladores de la clase(todo el código generado hasta abajo, sin tener en cuenta
-     * la pesataña 'Generated Code'
-     * 
-     */
 
+    }
+
+    /**
+     * Controladores de la clase(todo el código generado hasta abajo, sin tener
+     * en cuenta la pesataña 'Generated Code'
+     *
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -337,6 +365,11 @@ public class VentanaMedico extends javax.swing.JFrame {
                 buttonBuscarDNIMousePressed(evt);
             }
         });
+        buttonBuscarDNI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBuscarDNIActionPerformed(evt);
+            }
+        });
 
         buttonAddHistorial.setBackground(new java.awt.Color(71, 71, 71));
         buttonAddHistorial.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -344,6 +377,14 @@ public class VentanaMedico extends javax.swing.JFrame {
         buttonAddHistorial.setText("Añadir historial");
         buttonAddHistorial.setBorderPainted(false);
         buttonAddHistorial.setFocusPainted(false);
+        buttonAddHistorial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonAddHistorialMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                buttonAddHistorialMousePressed(evt);
+            }
+        });
 
         labelDNI.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         labelDNI.setForeground(new java.awt.Color(204, 204, 204));
@@ -1277,19 +1318,7 @@ public class VentanaMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_textBuscarDNIKeyPressed
 
     private void buttonBuscarDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarDNIMousePressed
-        //Prueba primera historia Práctica 2 
-        if (textBuscarDNI.getText().equals("12345678A")) {
-            DefaultListModel listModelActividades = new DefaultListModel();
-            listModelActividades.addElement("21/12/21 - coronavirus");
-            listFechaEnfermedad.setModel(listModelActividades);
-            labelNombrePaciente.setText("Paco Antonio Vallecas (12345678A)");
-        }
-        if (textBuscarDNI.getText().equals("12345678B")) {
-            DefaultListModel listModelActividades = new DefaultListModel();
-            listModelActividades.addElement("21/12/21 - VIRUELA DEL MONO");
-            listFechaEnfermedad.setModel(listModelActividades);
-            labelNombrePaciente.setText("VICENTE ANDRES ESTELLES (12345678B)");
-        }
+
     }//GEN-LAST:event_buttonBuscarDNIMousePressed
 
     private void buttonBorrarDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBorrarDNIMousePressed
@@ -1302,10 +1331,10 @@ public class VentanaMedico extends javax.swing.JFrame {
 
     private void listPacientesDelDiaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPacientesDelDiaValueChanged
         if (!listPacientesDelDia.getValueIsAdjusting() && listPacientesDelDia.getSelectedValue() != null) {
-            Object paciente = listPacientesDelDia.getSelectedValue();            
-            labelApellidosPaciente.setText("Apellidos: " + ((Paciente)paciente).getApellidos());
-            textASintomas.setText(((Paciente)paciente).getSintomas());
-            labelHabitacionPaciente.setText("Habitacion: " + ((Paciente)paciente).getHabitacion());
+            Object paciente = listPacientesDelDia.getSelectedValue();
+            labelApellidosPaciente.setText("Apellidos: " + ((Paciente) paciente).getApellidos());
+            textASintomas.setText(((Paciente) paciente).getSintomas());
+            labelHabitacionPaciente.setText("Habitacion: " + ((Paciente) paciente).getHabitacion());
         }
     }//GEN-LAST:event_listPacientesDelDiaValueChanged
 
@@ -1318,17 +1347,50 @@ public class VentanaMedico extends javax.swing.JFrame {
         this.dispose();
         login.setVisible(true);
     }//GEN-LAST:event_labelCerrarSesionMouseReleased
-/*
+    /*
     buttonBuscarEnfermedadActionPerdormed(ActionEvent)
     Botón que lanza la secuencia de acciones por la cual se busca una enfermedad en concreto a partir de su id
 
-    */
+     */
     private void buttonBuscarEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedadActionPerformed
         // TODO add your handling code here:
 
         MostrarEnfermedades(Integer.valueOf(textBuscarEnfermedad.getText()));
-        
+
     }//GEN-LAST:event_buttonBuscarEnfermedadActionPerformed
+
+    private void buttonAddHistorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAddHistorialMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAddHistorialMouseClicked
+
+    private void buttonAddHistorialMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAddHistorialMousePressed
+        vAddHistorialPaciente.limpiar();
+        vAddHistorialPaciente.setLocationRelativeTo(this);
+        vAddHistorialPaciente.setVisible(true);
+
+    }//GEN-LAST:event_buttonAddHistorialMousePressed
+
+    private void buttonBuscarDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarDNIActionPerformed
+        //Prueba primera historia Práctica 2 
+        if (textBuscarDNI.getText().equals("12345678A")) {
+            DefaultListModel listModelActividades = new DefaultListModel();
+            labelNombrePaciente.setText("Paco Antonio Vallecas (12345678A)");
+            listModelActividades.addElement("21/12/21 - coronavirus");
+            if (!addA.isEmpty()) {
+                for (int i = 0; i < addA.size(); i++) {
+                    listModelActividades.addElement(addA.get(i));
+                    System.out.println(addA.get(i));
+                }
+            }
+            listFechaEnfermedad.setModel(listModelActividades);
+        }
+        if (textBuscarDNI.getText().equals("12345678B")) {
+            DefaultListModel listModelActividades = new DefaultListModel();
+            listModelActividades.addElement("21/12/21 - VIRUELA DEL MONO");
+            listFechaEnfermedad.setModel(listModelActividades);
+            labelNombrePaciente.setText("VICENTE ANDRES ESTELLES (12345678B)");
+        }
+    }//GEN-LAST:event_buttonBuscarDNIActionPerformed
 
     public class SelectedListCellRenderer extends DefaultListCellRenderer {
 
@@ -1345,9 +1407,9 @@ public class VentanaMedico extends javax.swing.JFrame {
     }
 
     /**
-     * 
+     *
      * Elementos inicializados automáticamente de la clase
-     * 
+     *
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
