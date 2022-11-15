@@ -23,8 +23,7 @@ import es.uv.modelo.Enfermedad;
 public class VentanaMedico extends javax.swing.JFrame {
 
     private int x, xMouse, yMouse, y;
-    private ArrayList<Paciente> pacientesPrueba;
-    private ArrayList<Object> pacientesPruebaO;
+    private ArrayList<Object> pacientesPrueba;
 
     /**
      * VentanaMedico()
@@ -53,7 +52,6 @@ public class VentanaMedico extends javax.swing.JFrame {
         pacientesPrueba.add(pac2);
         pacientesPrueba.add(pac3);
 
-        pacientesPruebaO = new ArrayList<>(pacientesPrueba);
         updateListPacientesDelDia();
 
     }
@@ -67,7 +65,7 @@ public class VentanaMedico extends javax.swing.JFrame {
     public void updateListPacientesDelDia() {
 
         DefaultListModel listModelPacientes = new DefaultListModel();
-        for (Object item : pacientesPruebaO) {
+        for (Object item : pacientesPrueba) {
             listModelPacientes.addElement(item);
         }
 

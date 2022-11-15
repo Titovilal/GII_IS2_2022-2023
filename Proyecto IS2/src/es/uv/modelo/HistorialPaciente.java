@@ -1,11 +1,13 @@
 package es.uv.modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class HistorialPaciente {
 
     private int idHistorial, idPaciente, idEnfermedad;
     private Date fechaAlta;
+    private ArrayList<Object> pacientesPrueba;
 
     public HistorialPaciente() {
     }
