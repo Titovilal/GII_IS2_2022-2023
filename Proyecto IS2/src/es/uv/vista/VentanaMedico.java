@@ -19,6 +19,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import es.uv.modelo.AccesoBD;
 import es.uv.modelo.Enfermedad;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class VentanaMedico extends javax.swing.JFrame {
 
@@ -40,7 +43,9 @@ public class VentanaMedico extends javax.swing.JFrame {
         listBuscarEnfermedades.setCellRenderer(new SelectedListCellRenderer());
         listMedicamentos.setCellRenderer(new SelectedListCellRenderer());
         listPacientesDelDia.setCellRenderer(new SelectedListCellRenderer());
-
+        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        labelFechaActual.setText("Fecha: " + dateFormat.format(date));
         panelBase.add(panelPacientesDelDia);
 
         pacientesPrueba = new ArrayList<>();
