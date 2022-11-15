@@ -23,6 +23,7 @@ import es.uv.modelo.Enfermedad;
 public class VentanaMedico extends javax.swing.JFrame {
 
     private int x, xMouse, yMouse, y;
+    private VM_AddHistorialPaciente vAddHistorialPaciente;
     private ArrayList<Object> pacientesPrueba;
 
     /**
