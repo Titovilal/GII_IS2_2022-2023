@@ -1,7 +1,9 @@
 package es.uv.vista;
 
+import es.uv.modelo.AccesoBD;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+
 
 public class Login extends javax.swing.JFrame {
 
@@ -10,6 +12,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        AccesoBD.abrirConexionBD();
     }
 
     @SuppressWarnings("unchecked")
