@@ -33,6 +33,7 @@ public final class AccesoBD {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conexionBD = DriverManager.getConnection(nombreConexionBD, "root", ""); //por defecto user: root, contra:""
+                System.out.println("conexión con éxito");
             } catch (Exception e) {
                 System.out.println("error conectando a base de datos"); // por algun motivo, a netbeans no le gusta el system.err
             }
