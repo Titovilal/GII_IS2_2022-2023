@@ -83,9 +83,9 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         textMedicamentosPacienteDia = new javax.swing.JTextArea();
         panelBotiquin = new javax.swing.JPanel();
         textBuscarEnfermedad1 = new javax.swing.JTextField();
-        buttonBuscarEnfermedad1 = new javax.swing.JButton();
+        buttonBuscarExistencias = new javax.swing.JButton();
         labelENombreEnfermedad1 = new javax.swing.JLabel();
-        buttonBuscarEnfermedad2 = new javax.swing.JButton();
+        buttonBorrarExistencias = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         scrollListaMedicamentos4 = new javax.swing.JScrollPane();
         listBuscarEnfermedades1 = new javax.swing.JList<>();
@@ -103,7 +103,7 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         jTextArea4 = new javax.swing.JTextArea();
         buttonBuscarEnfermedad4 = new javax.swing.JButton();
         buttonBuscarEnfermedad = new javax.swing.JButton();
-        panelFondo1 = new javax.swing.JPanel();
+        panelFondo = new javax.swing.JPanel();
         panelBarraSuperior1 = new javax.swing.JPanel();
         panelEMinimizar = new javax.swing.JPanel();
         labelMinimizar1 = new javax.swing.JLabel();
@@ -112,9 +112,9 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         panelCerrarSesion = new javax.swing.JPanel();
         labelCerrarSesion = new javax.swing.JLabel();
         panelMenu = new javax.swing.JPanel();
-        buttonPaciente1 = new javax.swing.JButton();
-        buttonEnfermedad = new javax.swing.JButton();
-        buttonEnfermedad1 = new javax.swing.JButton();
+        buttonPacientes = new javax.swing.JButton();
+        buttonBotiquin = new javax.swing.JButton();
+        buttonCrearPaciente = new javax.swing.JButton();
         panelBase = new javax.swing.JPanel();
 
         panelPacientesDelDia.setBackground(new java.awt.Color(81, 81, 81));
@@ -242,40 +242,24 @@ public class VentanaEnfermera extends javax.swing.JFrame {
             }
         });
 
-        buttonBuscarEnfermedad1.setBackground(new java.awt.Color(71, 71, 71));
-        buttonBuscarEnfermedad1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        buttonBuscarEnfermedad1.setForeground(new java.awt.Color(204, 204, 204));
-        buttonBuscarEnfermedad1.setText("Buscar");
-        buttonBuscarEnfermedad1.setBorderPainted(false);
-        buttonBuscarEnfermedad1.setFocusPainted(false);
-        buttonBuscarEnfermedad1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonBuscarEnfermedad1MouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                buttonBuscarEnfermedad1MousePressed(evt);
-            }
-        });
+        buttonBuscarExistencias.setBackground(new java.awt.Color(71, 71, 71));
+        buttonBuscarExistencias.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        buttonBuscarExistencias.setForeground(new java.awt.Color(204, 204, 204));
+        buttonBuscarExistencias.setText("Buscar");
+        buttonBuscarExistencias.setBorderPainted(false);
+        buttonBuscarExistencias.setFocusPainted(false);
 
         labelENombreEnfermedad1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         labelENombreEnfermedad1.setForeground(new java.awt.Color(204, 204, 204));
         labelENombreEnfermedad1.setText("Escribe el número máximo de existencias de los medicamentos");
         labelENombreEnfermedad1.setPreferredSize(new java.awt.Dimension(420, 20));
 
-        buttonBuscarEnfermedad2.setBackground(new java.awt.Color(71, 71, 71));
-        buttonBuscarEnfermedad2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        buttonBuscarEnfermedad2.setForeground(new java.awt.Color(204, 204, 204));
-        buttonBuscarEnfermedad2.setText("Borrar");
-        buttonBuscarEnfermedad2.setBorderPainted(false);
-        buttonBuscarEnfermedad2.setFocusPainted(false);
-        buttonBuscarEnfermedad2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonBuscarEnfermedad2MouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                buttonBuscarEnfermedad2MousePressed(evt);
-            }
-        });
+        buttonBorrarExistencias.setBackground(new java.awt.Color(71, 71, 71));
+        buttonBorrarExistencias.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        buttonBorrarExistencias.setForeground(new java.awt.Color(204, 204, 204));
+        buttonBorrarExistencias.setText("Borrar");
+        buttonBorrarExistencias.setBorderPainted(false);
+        buttonBorrarExistencias.setFocusPainted(false);
 
         jPanel3.setBackground(new java.awt.Color(81, 81, 81));
 
@@ -286,11 +270,6 @@ public class VentanaEnfermera extends javax.swing.JFrame {
             String[] strings = { "12345678901234567890123456789012", "Item 2", "Item 3", "Item 4", "Item 5", "no hay " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
-        });
-        listBuscarEnfermedades1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                listBuscarEnfermedades1ValueChanged(evt);
-            }
         });
         scrollListaMedicamentos4.setViewportView(listBuscarEnfermedades1);
 
@@ -331,9 +310,9 @@ public class VentanaEnfermera extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textBuscarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addComponent(buttonBuscarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonBuscarExistencias, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addComponent(buttonBuscarEnfermedad2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonBorrarExistencias, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -344,8 +323,8 @@ public class VentanaEnfermera extends javax.swing.JFrame {
                 .addGroup(panelBotiquinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelENombreEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textBuscarEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonBuscarEnfermedad1)
-                    .addComponent(buttonBuscarEnfermedad2))
+                    .addComponent(buttonBuscarExistencias)
+                    .addComponent(buttonBorrarExistencias))
                 .addGap(16, 16, 16)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -367,11 +346,6 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         textBuscarEnfermedad2.setText("12345678A");
         textBuscarEnfermedad2.setToolTipText("");
         textBuscarEnfermedad2.setBorder(null);
-        textBuscarEnfermedad2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textBuscarEnfermedad2KeyPressed(evt);
-            }
-        });
 
         labelENombreEnfermedad11.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         labelENombreEnfermedad11.setForeground(new java.awt.Color(204, 204, 204));
@@ -403,11 +377,6 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         textBuscarEnfermedad6.setText("12345678A");
         textBuscarEnfermedad6.setToolTipText("");
         textBuscarEnfermedad6.setBorder(null);
-        textBuscarEnfermedad6.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textBuscarEnfermedad6KeyPressed(evt);
-            }
-        });
 
         textBuscarEnfermedad7.setBackground(new java.awt.Color(71, 71, 71));
         textBuscarEnfermedad7.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
@@ -415,11 +384,6 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         textBuscarEnfermedad7.setText("12345678A");
         textBuscarEnfermedad7.setToolTipText("");
         textBuscarEnfermedad7.setBorder(null);
-        textBuscarEnfermedad7.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textBuscarEnfermedad7KeyPressed(evt);
-            }
-        });
 
         jScrollPane5.setPreferredSize(new java.awt.Dimension(242, 20));
 
@@ -440,14 +404,6 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         buttonBuscarEnfermedad4.setText("Añadir paciente");
         buttonBuscarEnfermedad4.setBorderPainted(false);
         buttonBuscarEnfermedad4.setFocusPainted(false);
-        buttonBuscarEnfermedad4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonBuscarEnfermedad4MouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                buttonBuscarEnfermedad4MousePressed(evt);
-            }
-        });
 
         buttonBuscarEnfermedad.setBackground(new java.awt.Color(71, 71, 71));
         buttonBuscarEnfermedad.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -455,14 +411,6 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         buttonBuscarEnfermedad.setText("Cancelar");
         buttonBuscarEnfermedad.setBorderPainted(false);
         buttonBuscarEnfermedad.setFocusPainted(false);
-        buttonBuscarEnfermedad.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonBuscarEnfermedadMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                buttonBuscarEnfermedadMousePressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelCrearPacienteLayout = new javax.swing.GroupLayout(panelCrearPaciente);
         panelCrearPaciente.setLayout(panelCrearPacienteLayout);
@@ -535,7 +483,7 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        panelFondo1.setBackground(new java.awt.Color(90, 90, 90));
+        panelFondo.setBackground(new java.awt.Color(90, 90, 90));
 
         panelBarraSuperior1.setBackground(new java.awt.Color(51, 51, 51));
         panelBarraSuperior1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -550,26 +498,12 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         });
 
         panelEMinimizar.setBackground(new java.awt.Color(51, 51, 51));
-        panelEMinimizar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                panelEMinimizarFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                panelEMinimizarFocusLost(evt);
-            }
-        });
         panelEMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelEMinimizarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelEMinimizarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelEMinimizarMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelEMinimizarMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 panelEMinimizarMouseReleased(evt);
@@ -583,11 +517,6 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         labelMinimizar1.setMaximumSize(new java.awt.Dimension(14, 30));
         labelMinimizar1.setMinimumSize(new java.awt.Dimension(14, 30));
         labelMinimizar1.setPreferredSize(new java.awt.Dimension(14, 30));
-        labelMinimizar1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                labelMinimizar1FocusGained(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelEMinimizarLayout = new javax.swing.GroupLayout(panelEMinimizar);
         panelEMinimizar.setLayout(panelEMinimizarLayout);
@@ -601,18 +530,7 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         );
 
         panelESalir.setBackground(new java.awt.Color(51, 51, 51));
-        panelESalir.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                panelESalirFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                panelESalirFocusLost(evt);
-            }
-        });
         panelESalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelESalirMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelESalirMouseEntered(evt);
             }
@@ -641,26 +559,15 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         );
 
         panelCerrarSesion.setBackground(new java.awt.Color(51, 51, 51));
-        panelCerrarSesion.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                panelCerrarSesionFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                panelCerrarSesionFocusLost(evt);
-            }
-        });
         panelCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelCerrarSesionMouseClicked(evt);
+                ouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelCerrarSesionMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelCerrarSesionMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelCerrarSesionMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 panelCerrarSesionMouseReleased(evt);
@@ -674,16 +581,6 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         labelCerrarSesion.setMaximumSize(new java.awt.Dimension(14, 30));
         labelCerrarSesion.setMinimumSize(new java.awt.Dimension(14, 30));
         labelCerrarSesion.setPreferredSize(new java.awt.Dimension(14, 30));
-        labelCerrarSesion.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                labelCerrarSesionFocusGained(evt);
-            }
-        });
-        labelCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                labelCerrarSesionMouseReleased(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelCerrarSesionLayout = new javax.swing.GroupLayout(panelCerrarSesion);
         panelCerrarSesion.setLayout(panelCerrarSesionLayout);
@@ -719,61 +616,42 @@ public class VentanaEnfermera extends javax.swing.JFrame {
 
         panelMenu.setBackground(new java.awt.Color(51, 51, 51));
 
-        buttonPaciente1.setBackground(new java.awt.Color(68, 68, 68));
-        buttonPaciente1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        buttonPaciente1.setForeground(new java.awt.Color(204, 204, 204));
-        buttonPaciente1.setText("Pacientes del día");
-        buttonPaciente1.setBorderPainted(false);
-        buttonPaciente1.setFocusPainted(false);
-        buttonPaciente1.setPreferredSize(new java.awt.Dimension(140, 26));
-        buttonPaciente1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonPaciente1MouseClicked(evt);
-            }
+        buttonPacientes.setBackground(new java.awt.Color(68, 68, 68));
+        buttonPacientes.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        buttonPacientes.setForeground(new java.awt.Color(204, 204, 204));
+        buttonPacientes.setText("Pacientes del día");
+        buttonPacientes.setBorderPainted(false);
+        buttonPacientes.setFocusPainted(false);
+        buttonPacientes.setPreferredSize(new java.awt.Dimension(140, 26));
+        buttonPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                buttonPaciente1MousePressed(evt);
+                buttonPacientesMousePressed(evt);
             }
         });
 
-        buttonEnfermedad.setBackground(new java.awt.Color(68, 68, 68));
-        buttonEnfermedad.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        buttonEnfermedad.setForeground(new java.awt.Color(204, 204, 204));
-        buttonEnfermedad.setText("Botiquín");
-        buttonEnfermedad.setBorderPainted(false);
-        buttonEnfermedad.setFocusPainted(false);
-        buttonEnfermedad.setPreferredSize(new java.awt.Dimension(140, 26));
-        buttonEnfermedad.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonEnfermedadMouseClicked(evt);
-            }
+        buttonBotiquin.setBackground(new java.awt.Color(68, 68, 68));
+        buttonBotiquin.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        buttonBotiquin.setForeground(new java.awt.Color(204, 204, 204));
+        buttonBotiquin.setText("Botiquín");
+        buttonBotiquin.setBorderPainted(false);
+        buttonBotiquin.setFocusPainted(false);
+        buttonBotiquin.setPreferredSize(new java.awt.Dimension(140, 26));
+        buttonBotiquin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                buttonEnfermedadMousePressed(evt);
-            }
-        });
-        buttonEnfermedad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEnfermedadActionPerformed(evt);
+                buttonBotiquinMousePressed(evt);
             }
         });
 
-        buttonEnfermedad1.setBackground(new java.awt.Color(68, 68, 68));
-        buttonEnfermedad1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        buttonEnfermedad1.setForeground(new java.awt.Color(204, 204, 204));
-        buttonEnfermedad1.setText("Crear Paciente");
-        buttonEnfermedad1.setBorderPainted(false);
-        buttonEnfermedad1.setFocusPainted(false);
-        buttonEnfermedad1.setPreferredSize(new java.awt.Dimension(140, 26));
-        buttonEnfermedad1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonEnfermedad1MouseClicked(evt);
-            }
+        buttonCrearPaciente.setBackground(new java.awt.Color(68, 68, 68));
+        buttonCrearPaciente.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        buttonCrearPaciente.setForeground(new java.awt.Color(204, 204, 204));
+        buttonCrearPaciente.setText("Crear Paciente");
+        buttonCrearPaciente.setBorderPainted(false);
+        buttonCrearPaciente.setFocusPainted(false);
+        buttonCrearPaciente.setPreferredSize(new java.awt.Dimension(140, 26));
+        buttonCrearPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                buttonEnfermedad1MousePressed(evt);
-            }
-        });
-        buttonEnfermedad1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEnfermedad1ActionPerformed(evt);
+                buttonCrearPacienteMousePressed(evt);
             }
         });
 
@@ -783,11 +661,11 @@ public class VentanaEnfermera extends javax.swing.JFrame {
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
                 .addGap(102, 102, 102)
-                .addComponent(buttonPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104)
-                .addComponent(buttonEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonBotiquin, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102)
-                .addComponent(buttonEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonCrearPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102))
         );
         panelMenuLayout.setVerticalGroup(
@@ -795,9 +673,9 @@ public class VentanaEnfermera extends javax.swing.JFrame {
             .addGroup(panelMenuLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonEnfermedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonBotiquin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCrearPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16))
         );
 
@@ -814,17 +692,17 @@ public class VentanaEnfermera extends javax.swing.JFrame {
             .addGap(0, 512, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout panelFondo1Layout = new javax.swing.GroupLayout(panelFondo1);
-        panelFondo1.setLayout(panelFondo1Layout);
-        panelFondo1Layout.setHorizontalGroup(
-            panelFondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
+        panelFondo.setLayout(panelFondoLayout);
+        panelFondoLayout.setHorizontalGroup(
+            panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelBarraSuperior1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(panelBase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(panelMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        panelFondo1Layout.setVerticalGroup(
-            panelFondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelFondo1Layout.createSequentialGroup()
+        panelFondoLayout.setVerticalGroup(
+            panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFondoLayout.createSequentialGroup()
                 .addComponent(panelBarraSuperior1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -837,32 +715,16 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelFondo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void labelMinimizar1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_labelMinimizar1FocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_labelMinimizar1FocusGained
-
-    private void panelEMinimizarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelEMinimizarFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelEMinimizarFocusGained
-
-    private void panelEMinimizarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelEMinimizarFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelEMinimizarFocusLost
-
-    private void panelEMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEMinimizarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelEMinimizarMouseClicked
 
     private void panelEMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEMinimizarMouseEntered
         panelEMinimizar.setBackground(new Color(71, 71, 71));
@@ -872,25 +734,9 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         panelEMinimizar.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_panelEMinimizarMouseExited
 
-    private void panelEMinimizarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEMinimizarMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelEMinimizarMousePressed
-
     private void panelEMinimizarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEMinimizarMouseReleased
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_panelEMinimizarMouseReleased
-
-    private void panelESalirFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelESalirFocusGained
-
-    }//GEN-LAST:event_panelESalirFocusGained
-
-    private void panelESalirFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelESalirFocusLost
-
-    }//GEN-LAST:event_panelESalirFocusLost
-
-    private void panelESalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelESalirMouseClicked
-
-    }//GEN-LAST:event_panelESalirMouseClicked
 
     private void panelESalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelESalirMouseEntered
         panelESalir.setBackground(new Color(192, 0, 0));
@@ -904,21 +750,9 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_panelESalirMouseReleased
 
-    private void labelCerrarSesionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_labelCerrarSesionFocusGained
+    private void ouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_labelCerrarSesionFocusGained
-
-    private void panelCerrarSesionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelCerrarSesionFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelCerrarSesionFocusGained
-
-    private void panelCerrarSesionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelCerrarSesionFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelCerrarSesionFocusLost
-
-    private void panelCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelCerrarSesionMouseClicked
+    }//GEN-LAST:event_ouseClicked
 
     private void panelCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseEntered
         panelCerrarSesion.setBackground(new Color(71, 71, 71));
@@ -928,12 +762,8 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         panelCerrarSesion.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_panelCerrarSesionMouseExited
 
-    private void panelCerrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelCerrarSesionMousePressed
-
     private void panelCerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseReleased
-        // TODO add your handling code here:
+        //FALTA CERRAR SESIÓN
     }//GEN-LAST:event_panelCerrarSesionMouseReleased
 
     private void panelBarraSuperior1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperior1MouseDragged
@@ -947,46 +777,26 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_panelBarraSuperior1MousePressed
 
-    private void buttonPaciente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonPaciente1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonPaciente1MouseClicked
-
-    private void buttonPaciente1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonPaciente1MousePressed
+    private void buttonPacientesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonPacientesMousePressed
         panelBase.removeAll();
         panelBase.add(panelPacientesDelDia);
         panelBase.revalidate();
         panelBase.repaint();
-    }//GEN-LAST:event_buttonPaciente1MousePressed
+    }//GEN-LAST:event_buttonPacientesMousePressed
 
-    private void buttonEnfermedadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEnfermedadMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEnfermedadMouseClicked
-
-    private void buttonEnfermedadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEnfermedadMousePressed
+    private void buttonBotiquinMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBotiquinMousePressed
         panelBase.removeAll();
         panelBase.add(panelBotiquin);
         panelBase.revalidate();
         panelBase.repaint();
-    }//GEN-LAST:event_buttonEnfermedadMousePressed
+    }//GEN-LAST:event_buttonBotiquinMousePressed
 
-    private void buttonEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnfermedadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEnfermedadActionPerformed
-
-    private void buttonEnfermedad1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEnfermedad1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEnfermedad1MouseClicked
-
-    private void buttonEnfermedad1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEnfermedad1MousePressed
+    private void buttonCrearPacienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCrearPacienteMousePressed
         panelBase.removeAll();
         panelBase.add(panelCrearPaciente);
         panelBase.revalidate();
         panelBase.repaint();
-    }//GEN-LAST:event_buttonEnfermedad1MousePressed
-
-    private void buttonEnfermedad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnfermedad1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEnfermedad1ActionPerformed
+    }//GEN-LAST:event_buttonCrearPacienteMousePressed
 
     private void listPacientesDelDiaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPacientesDelDiaValueChanged
         if (!listPacientesDelDia.getValueIsAdjusting() && listPacientesDelDia.getSelectedValue() != null) {
@@ -1005,72 +815,18 @@ public class VentanaEnfermera extends javax.swing.JFrame {
     }//GEN-LAST:event_listPacientesDelDiaValueChanged
 
     private void textBuscarEnfermedad1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBuscarEnfermedad1KeyPressed
-        // TODO add your handling code here:
+        // FALTA AÑADIR SHOTCUT
     }//GEN-LAST:event_textBuscarEnfermedad1KeyPressed
-
-    private void buttonBuscarEnfermedad1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBuscarEnfermedad1MouseClicked
-
-    private void buttonBuscarEnfermedad1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBuscarEnfermedad1MousePressed
-
-    private void buttonBuscarEnfermedad2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBuscarEnfermedad2MouseClicked
-
-    private void buttonBuscarEnfermedad2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad2MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBuscarEnfermedad2MousePressed
-
-    private void listBuscarEnfermedades1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listBuscarEnfermedades1ValueChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listBuscarEnfermedades1ValueChanged
-
-    private void textBuscarEnfermedad2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBuscarEnfermedad2KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textBuscarEnfermedad2KeyPressed
-
-    private void textBuscarEnfermedad6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBuscarEnfermedad6KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textBuscarEnfermedad6KeyPressed
-
-    private void textBuscarEnfermedad7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBuscarEnfermedad7KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textBuscarEnfermedad7KeyPressed
-
-    private void buttonBuscarEnfermedad4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBuscarEnfermedad4MouseClicked
-
-    private void buttonBuscarEnfermedad4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedad4MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBuscarEnfermedad4MousePressed
-
-    private void buttonBuscarEnfermedadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedadMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBuscarEnfermedadMouseClicked
-
-    private void buttonBuscarEnfermedadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedadMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonBuscarEnfermedadMousePressed
-
-    private void labelCerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCerrarSesionMouseReleased
-        Login login = new Login();
-        this.dispose();
-        login.setVisible(true);
-    }//GEN-LAST:event_labelCerrarSesionMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBorrarExistencias;
+    private javax.swing.JButton buttonBotiquin;
     private javax.swing.JButton buttonBuscarEnfermedad;
-    private javax.swing.JButton buttonBuscarEnfermedad1;
-    private javax.swing.JButton buttonBuscarEnfermedad2;
     private javax.swing.JButton buttonBuscarEnfermedad4;
-    private javax.swing.JButton buttonEnfermedad;
-    private javax.swing.JButton buttonEnfermedad1;
-    private javax.swing.JButton buttonPaciente1;
+    private javax.swing.JButton buttonBuscarExistencias;
+    private javax.swing.JButton buttonCrearPaciente;
+    private javax.swing.JButton buttonPacientes;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextArea jTextArea4;
@@ -1098,7 +854,7 @@ public class VentanaEnfermera extends javax.swing.JFrame {
     private javax.swing.JPanel panelCrearPaciente;
     private javax.swing.JPanel panelEMinimizar;
     private javax.swing.JPanel panelESalir;
-    private javax.swing.JPanel panelFondo1;
+    private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelMenu;
     private javax.swing.JPanel panelPacientesDelDia;
     private javax.swing.JScrollPane scrollListaMedicamentos4;

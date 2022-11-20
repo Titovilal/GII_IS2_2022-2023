@@ -22,9 +22,9 @@ public class Login extends javax.swing.JFrame {
         panelFondo = new javax.swing.JPanel();
         panelBarraSuperior = new javax.swing.JPanel();
         panelMinimizar = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        labelMinimizar = new javax.swing.JLabel();
         panelSalir = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        labelSalir = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -38,11 +38,6 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                formKeyPressed(evt);
-            }
-        });
 
         panelFondo.setBackground(new java.awt.Color(61, 61, 61));
 
@@ -61,44 +56,25 @@ public class Login extends javax.swing.JFrame {
 
         panelMinimizar.setBackground(new java.awt.Color(51, 51, 51));
         panelMinimizar.setPreferredSize(new java.awt.Dimension(46, 40));
-        panelMinimizar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                panelMinimizarFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                panelMinimizarFocusLost(evt);
-            }
-        });
         panelMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelMinimizarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelMinimizarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelMinimizarMouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelMinimizarMousePressed(evt);
-            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 panelMinimizarMouseReleased(evt);
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("-");
-        jLabel13.setMaximumSize(new java.awt.Dimension(14, 30));
-        jLabel13.setMinimumSize(new java.awt.Dimension(14, 30));
-        jLabel13.setPreferredSize(new java.awt.Dimension(14, 30));
-        jLabel13.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jLabel13FocusGained(evt);
-            }
-        });
+        labelMinimizar.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        labelMinimizar.setForeground(new java.awt.Color(204, 204, 204));
+        labelMinimizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelMinimizar.setText("-");
+        labelMinimizar.setMaximumSize(new java.awt.Dimension(14, 30));
+        labelMinimizar.setMinimumSize(new java.awt.Dimension(14, 30));
+        labelMinimizar.setPreferredSize(new java.awt.Dimension(14, 30));
 
         javax.swing.GroupLayout panelMinimizarLayout = new javax.swing.GroupLayout(panelMinimizar);
         panelMinimizar.setLayout(panelMinimizarLayout);
@@ -106,28 +82,17 @@ public class Login extends javax.swing.JFrame {
             panelMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMinimizarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(labelMinimizar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelMinimizarLayout.setVerticalGroup(
             panelMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(labelMinimizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         panelSalir.setBackground(new java.awt.Color(51, 51, 51));
         panelSalir.setPreferredSize(new java.awt.Dimension(46, 40));
-        panelSalir.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                panelSalirFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                panelSalirFocusLost(evt);
-            }
-        });
         panelSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelSalirMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelSalirMouseEntered(evt);
             }
@@ -139,9 +104,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel9.setText("x");
+        labelSalir.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        labelSalir.setForeground(new java.awt.Color(204, 204, 204));
+        labelSalir.setText("x");
 
         javax.swing.GroupLayout panelSalirLayout = new javax.swing.GroupLayout(panelSalir);
         panelSalir.setLayout(panelSalirLayout);
@@ -149,12 +114,12 @@ public class Login extends javax.swing.JFrame {
             panelSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSalirLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel9)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(labelSalir)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         panelSalirLayout.setVerticalGroup(
             panelSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(labelSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelBarraSuperiorLayout = new javax.swing.GroupLayout(panelBarraSuperior);
@@ -306,10 +271,6 @@ public class Login extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_panelBarraSuperiorMousePressed
 
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-
-    }//GEN-LAST:event_formKeyPressed
-
     private void tfContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfContraKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             buttonAcceder.doClick();
@@ -344,18 +305,6 @@ public class Login extends javax.swing.JFrame {
         this.setVisible(false); */
     }//GEN-LAST:event_buttonAccederActionPerformed
 
-    private void panelSalirFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelSalirFocusGained
-
-    }//GEN-LAST:event_panelSalirFocusGained
-
-    private void panelSalirFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelSalirFocusLost
-
-    }//GEN-LAST:event_panelSalirFocusLost
-
-    private void panelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseClicked
-
-    }//GEN-LAST:event_panelSalirMouseClicked
-
     private void panelSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseEntered
         panelSalir.setBackground(new Color(192, 0, 0));
     }//GEN-LAST:event_panelSalirMouseEntered
@@ -368,22 +317,6 @@ public class Login extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_panelSalirMouseReleased
 
-    private void jLabel13FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel13FocusGained
-
-    }//GEN-LAST:event_jLabel13FocusGained
-
-    private void panelMinimizarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelMinimizarFocusGained
-
-    }//GEN-LAST:event_panelMinimizarFocusGained
-
-    private void panelMinimizarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelMinimizarFocusLost
-
-    }//GEN-LAST:event_panelMinimizarFocusLost
-
-    private void panelMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseClicked
-
-    }//GEN-LAST:event_panelMinimizarMouseClicked
-
     private void panelMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseEntered
         panelMinimizar.setBackground(new Color(61, 61, 61));
     }//GEN-LAST:event_panelMinimizarMouseEntered
@@ -391,10 +324,6 @@ public class Login extends javax.swing.JFrame {
     private void panelMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseExited
         panelMinimizar.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_panelMinimizarMouseExited
-
-    private void panelMinimizarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelMinimizarMousePressed
 
     private void panelMinimizarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseReleased
         this.setExtendedState(ICONIFIED);
@@ -422,13 +351,13 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAcceder;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel labelMinimizar;
+    private javax.swing.JLabel labelSalir;
     private javax.swing.JPanel panelBarraSuperior;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelMinimizar;
