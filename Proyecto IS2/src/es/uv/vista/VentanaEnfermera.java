@@ -1,5 +1,7 @@
 package es.uv.vista;
 
+import es.uv.modelo.AccesoBD;
+import es.uv.modelo.Medicamento;
 import es.uv.modelo.Paciente;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -64,6 +66,36 @@ public class VentanaEnfermera extends javax.swing.JFrame {
             JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
             label.setText(value.toString());
             return label;
+        }
+    }
+    
+    /**
+     * MostrarMedicamentos(int)
+     * 
+     * Muestra los medicamentos que cumplen con el stock introducido
+     * 
+     * @param cantidad (int) Cantidad en stock 
+     * 
+     */
+    public void MostrarMedicamentos(int cantidad)
+    {
+        DefaultListModel modelo = new DefaultListModel();
+        ArrayList<Medicamento> m = (ArrayList<Medicamento>) AccesoBD.obtenerMedicamentosBD();
+        //Busco en la lista de medicamentos
+        for(int i = 0; i < m.size();i++)
+        {
+            //Si encuentro uno con la cantidad adecuada lo reviso
+            if(m.get(i).getUnidades()<cantidad)
+            {
+                //Si la cantidad es 0 o menos el programa devuelve una excepción
+                if(m.get(i).getUnidades()<=0)
+                    throw new UnsupportedOperationException();
+                //En caso contrario lo añade al modelo para actualizar la lista
+                else
+                {
+                    modelo.add(m.get(i).getIdMedicamento(), m.get(i));
+                }
+            }
         }
     }
 
@@ -248,6 +280,11 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         buttonBuscarExistencias.setText("Buscar");
         buttonBuscarExistencias.setBorderPainted(false);
         buttonBuscarExistencias.setFocusPainted(false);
+        buttonBuscarExistencias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBuscarExistenciasActionPerformed(evt);
+            }
+        });
 
         labelENombreEnfermedad1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         labelENombreEnfermedad1.setForeground(new java.awt.Color(204, 204, 204));
@@ -817,6 +854,16 @@ public class VentanaEnfermera extends javax.swing.JFrame {
     private void textBuscarEnfermedad1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBuscarEnfermedad1KeyPressed
         // FALTA AÑADIR SHOTCUT
     }//GEN-LAST:event_textBuscarEnfermedad1KeyPressed
+    /*
+    buttonBuscarExistenciasActionPerformed(ActionEvent)
+    Botón que lanza la secuencia de acciones por la cual se buscan los medicamentos a partir de la cantidad insertada
+
+     */
+    private void buttonBuscarExistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarExistenciasActionPerformed
+        // TODO add your handling code here:
+        MostrarMedicamentos(Integer.valueOf(textBuscarEnfermedad1.getText()));
+        
+    }//GEN-LAST:event_buttonBuscarExistenciasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

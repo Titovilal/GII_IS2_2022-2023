@@ -18,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import es.uv.modelo.AccesoBD;
 import es.uv.modelo.Enfermedad;
+import es.uv.modelo.Medicamento;
+import es.uv.modelo.Tratamiento;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -135,14 +137,40 @@ public class VentanaMedico extends javax.swing.JFrame {
      */
     public void MostrarEnfermedades(int id) {
         DefaultListModel modelo = new DefaultListModel();
-        ArrayList<Enfermedad> c = (ArrayList<Enfermedad>) AccesoBD.obtenerEnfermedadesBD();
-        for (int i = 0; i != c.size(); i++) {
-            if (c.get(i).getIdEnfermedad() == id) {
-                modelo.add(id, c.get(i));
+        DefaultListModel modelo2 = new DefaultListModel();
+        ArrayList<Enfermedad> e = (ArrayList<Enfermedad>) AccesoBD.obtenerEnfermedadesBD();
+        ArrayList<Tratamiento> t = (ArrayList<Tratamiento>) AccesoBD.obtenerTratamientoBD();
+        ArrayList<Medicamento> m = (ArrayList<Medicamento>) AccesoBD.obtenerMedicamentosBD();
+        
+        //Bucle que busca la enfermedad introducida por el usuario
+        for (int i = 0; i != e.size(); i++) 
+        {
+            //Si encuentra la enfermedad busca los tratamientos en los que aparece
+            if (e.get(i).getIdEnfermedad() == id) 
+            {
+                //Busca tratamientos
+                for( int c = 0; c != t.size(); c++)
+                {
+                    //Si encuentra un tratamiento, busca el medicamento que tenga relacionado
+                    if(t.get(c).getIdEnfermedad()==id)
+                    {
+                        //Busca medicamentos
+                        for(int z = 0; z != m.size(); z++)
+                        {
+                            //Si encuentra un medicamento relacionado, lo añade al modelo
+                            if(m.get(z).getIdMedicamento() == t.get(c).getIdMedicamento())
+                            {
+                                modelo2.add(m.get(z).getIdMedicamento(), m.get(z));
+                            }
+                        }
+                    }
+                }
+                //Finalmente añade la enfermedad al modelo
+                modelo.add(id, e.get(i));
             }
         }
         listBuscarEnfermedades.setModel(modelo);
-
+        listMedicamentos.setModel(modelo2);
     }
 
     /**
