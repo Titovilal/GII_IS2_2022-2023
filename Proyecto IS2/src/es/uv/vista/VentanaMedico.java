@@ -6,6 +6,7 @@
  */
 package es.uv.vista;
 
+import es.uv.modelo.AccesoBD;
 import es.uv.modelo.Paciente;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -25,6 +26,7 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class VentanaMedico extends javax.swing.JFrame {
 
@@ -35,7 +37,6 @@ public class VentanaMedico extends javax.swing.JFrame {
     private VM_AddHistorialPaciente vAddHistorialPaciente;
 
     //Variables necesarias para que la ventana funcione sin BBDD
-    private ArrayList<Object> pacientesPrueba;
     private ArrayList<String> addA;
 
     /**
@@ -64,17 +65,12 @@ public class VentanaMedico extends javax.swing.JFrame {
         //Pruebas
         addA = new ArrayList<>();
 
+        //Actualiza la fecha del panel Pacientes del dia
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         labelFechaActual.setText("Fecha: " + dateFormat.format(date));
-
-        pacientesPrueba = new ArrayList<>();
-        Paciente pac1 = new Paciente(0, 100, "25252525P", "Molinos Marchantes", "Dolor de cuello");
-        Paciente pac2 = new Paciente(1, 101, "35353535Q", "Caida Peliantes", "Dolor de espalda");
-        Paciente pac3 = new Paciente(2, 102, "24242424R", "Lopez Bogabante", "Dolor de huevos");
-        pacientesPrueba.add(pac1);
-        pacientesPrueba.add(pac2);
-        pacientesPrueba.add(pac3);
+        
+        //Rellena la lista del panel Pacientes del dia
         updateListPacientesDelDia();
     }
 
@@ -102,7 +98,7 @@ public class VentanaMedico extends javax.swing.JFrame {
     public void updateListPacientesDelDia() {
 
         DefaultListModel listModelPacientes = new DefaultListModel();
-        for (Object item : pacientesPrueba) {
+        for (Object item : AccesoBD.obtenerPacientesDelDiaBD()) {
             listModelPacientes.addElement(item);
         }
 

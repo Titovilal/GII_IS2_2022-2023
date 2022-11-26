@@ -135,7 +135,32 @@ public final class AccesoBD {
             String con;
             Statement s = conexionBD.createStatement();
 
-            con = "SELECT idPaciente,DNI,apellidos,habitacion,sintomas FROM paciente";
+            con = "SELECT idPaciente,DNI,apellidos,habitacion,sintomas FROM pacientes";
+            ResultSet resultados = s.executeQuery(con);
+            while (resultados.next()) {
+                Paciente p = new Paciente();
+                p.setIdPaciente(resultados.getInt("idPaciente"));
+                p.setDni(resultados.getString("DNI"));
+                p.setApellidos(resultados.getString("apellidos"));
+                p.setHabitacion(resultados.getInt("habitacion"));
+                p.setSintomas(resultados.getString("sintomas"));
+                pacientes.add(p);
+            }
+        } catch (Exception e) {
+            System.out.println("error obteniendo pacientes");
+        }
+        return pacientes;
+    }
+    
+    //////////////////////////////////////////////////pacientes//////////////////////////////////////////////////
+    public static List<Paciente> obtenerPacientesDelDiaBD() { //Te quedas solo con los pacientes que tengan habitación y sintomas
+        abrirConexionBD();
+        ArrayList<Paciente> pacientes = new ArrayList<>();
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+
+            con = "SELECT idPaciente,DNI,apellidos,habitacion,sintomas FROM pacientes WHERE habitacion!=\"null\" AND sintomas!=\"null\"";
             ResultSet resultados = s.executeQuery(con);
             while (resultados.next()) {
                 Paciente p = new Paciente();
