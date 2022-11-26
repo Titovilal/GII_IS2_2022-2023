@@ -68,9 +68,9 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         buttonCancelar = new javax.swing.JButton();
         labelHabitacionDelPaciente1 = new javax.swing.JLabel();
         textFecha = new javax.swing.JTextField();
-        labelHabitacionDelPaciente2 = new javax.swing.JLabel();
+        labelEnfermedad = new javax.swing.JLabel();
         textEnfermedad = new javax.swing.JTextField();
-        labelHabitacionDelPaciente3 = new javax.swing.JLabel();
+        labelTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -92,26 +92,12 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
 
         panelMinimizar.setBackground(new java.awt.Color(51, 51, 51));
         panelMinimizar.setPreferredSize(new java.awt.Dimension(46, 40));
-        panelMinimizar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                panelMinimizarFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                panelMinimizarFocusLost(evt);
-            }
-        });
         panelMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelMinimizarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelMinimizarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelMinimizarMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelMinimizarMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 panelMinimizarMouseReleased(evt);
@@ -125,11 +111,6 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         jLabel13.setMaximumSize(new java.awt.Dimension(14, 30));
         jLabel13.setMinimumSize(new java.awt.Dimension(14, 30));
         jLabel13.setPreferredSize(new java.awt.Dimension(14, 30));
-        jLabel13.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jLabel13FocusGained(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelMinimizarLayout = new javax.swing.GroupLayout(panelMinimizar);
         panelMinimizar.setLayout(panelMinimizarLayout);
@@ -147,18 +128,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
 
         panelSalir.setBackground(new java.awt.Color(51, 51, 51));
         panelSalir.setPreferredSize(new java.awt.Dimension(46, 40));
-        panelSalir.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                panelSalirFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                panelSalirFocusLost(evt);
-            }
-        });
         panelSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelSalirMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelSalirMouseEntered(evt);
             }
@@ -214,11 +184,6 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         textDNI.setForeground(new java.awt.Color(204, 204, 204));
         textDNI.setToolTipText("");
         textDNI.setBorder(null);
-        textDNI.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textDNIKeyPressed(evt);
-            }
-        });
 
         buttonAceptar.setBackground(new java.awt.Color(71, 71, 71));
         buttonAceptar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -227,9 +192,6 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         buttonAceptar.setBorderPainted(false);
         buttonAceptar.setFocusPainted(false);
         buttonAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonAceptarMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 buttonAceptarMousePressed(evt);
             }
@@ -242,9 +204,6 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         buttonCancelar.setBorderPainted(false);
         buttonCancelar.setFocusPainted(false);
         buttonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonCancelarMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 buttonCancelarMousePressed(evt);
             }
@@ -260,33 +219,23 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         textFecha.setForeground(new java.awt.Color(204, 204, 204));
         textFecha.setToolTipText("");
         textFecha.setBorder(null);
-        textFecha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textFechaKeyPressed(evt);
-            }
-        });
 
-        labelHabitacionDelPaciente2.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        labelHabitacionDelPaciente2.setForeground(new java.awt.Color(204, 204, 204));
-        labelHabitacionDelPaciente2.setText("Enfermedad ");
-        labelHabitacionDelPaciente2.setPreferredSize(new java.awt.Dimension(420, 20));
+        labelEnfermedad.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        labelEnfermedad.setForeground(new java.awt.Color(204, 204, 204));
+        labelEnfermedad.setText("Enfermedad ");
+        labelEnfermedad.setPreferredSize(new java.awt.Dimension(420, 20));
 
         textEnfermedad.setBackground(new java.awt.Color(71, 71, 71));
         textEnfermedad.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         textEnfermedad.setForeground(new java.awt.Color(204, 204, 204));
         textEnfermedad.setToolTipText("");
         textEnfermedad.setBorder(null);
-        textEnfermedad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textEnfermedadKeyPressed(evt);
-            }
-        });
 
-        labelHabitacionDelPaciente3.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
-        labelHabitacionDelPaciente3.setForeground(new java.awt.Color(204, 204, 204));
-        labelHabitacionDelPaciente3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHabitacionDelPaciente3.setText("Añadir Historial Paciente");
-        labelHabitacionDelPaciente3.setPreferredSize(new java.awt.Dimension(420, 20));
+        labelTitulo.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
+        labelTitulo.setForeground(new java.awt.Color(204, 204, 204));
+        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo.setText("Añadir Historial Paciente");
+        labelTitulo.setPreferredSize(new java.awt.Dimension(420, 20));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -303,7 +252,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(labelHabitacionDelPaciente2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelHabitacionDelPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(labelHabitacionDelPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -311,7 +260,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
                             .addComponent(textDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(labelHabitacionDelPaciente3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48))
         );
         jPanel1Layout.setVerticalGroup(
@@ -319,7 +268,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(panelBarraSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(labelHabitacionDelPaciente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHabitacionDelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,7 +279,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
                     .addComponent(textFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelHabitacionDelPaciente2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -353,22 +302,6 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel13FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel13FocusGained
-
-    }//GEN-LAST:event_jLabel13FocusGained
-
-    private void panelMinimizarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelMinimizarFocusGained
-
-    }//GEN-LAST:event_panelMinimizarFocusGained
-
-    private void panelMinimizarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelMinimizarFocusLost
-
-    }//GEN-LAST:event_panelMinimizarFocusLost
-
-    private void panelMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseClicked
-
-    }//GEN-LAST:event_panelMinimizarMouseClicked
-
     private void panelMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseEntered
         panelMinimizar.setBackground(new Color(61, 61, 61));
     }//GEN-LAST:event_panelMinimizarMouseEntered
@@ -377,25 +310,9 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         panelMinimizar.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_panelMinimizarMouseExited
 
-    private void panelMinimizarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelMinimizarMousePressed
-
     private void panelMinimizarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseReleased
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_panelMinimizarMouseReleased
-
-    private void panelSalirFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelSalirFocusGained
-
-    }//GEN-LAST:event_panelSalirFocusGained
-
-    private void panelSalirFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelSalirFocusLost
-
-    }//GEN-LAST:event_panelSalirFocusLost
-
-    private void panelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseClicked
-
-    }//GEN-LAST:event_panelSalirMouseClicked
 
     private void panelSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseEntered
         panelSalir.setBackground(new Color(192, 0, 0));
@@ -420,34 +337,14 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_panelBarraSuperiorMousePressed
 
-    private void textDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textDNIKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textDNIKeyPressed
-
-    private void buttonAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAceptarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAceptarMouseClicked
-
     private void buttonAceptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAceptarMousePressed
         buttonAceptar.doClick();
         this.setVisible(false);
     }//GEN-LAST:event_buttonAceptarMousePressed
 
-    private void buttonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCancelarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCancelarMouseClicked
-
     private void buttonCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCancelarMousePressed
         this.setVisible(false);
     }//GEN-LAST:event_buttonCancelarMousePressed
-
-    private void textFechaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFechaKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFechaKeyPressed
-
-    private void textEnfermedadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textEnfermedadKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textEnfermedadKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -456,10 +353,10 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelEnfermedad;
     private javax.swing.JLabel labelHabitacionDelPaciente;
     private javax.swing.JLabel labelHabitacionDelPaciente1;
-    private javax.swing.JLabel labelHabitacionDelPaciente2;
-    private javax.swing.JLabel labelHabitacionDelPaciente3;
+    private javax.swing.JLabel labelTitulo;
     private javax.swing.JPanel panelBarraSuperior;
     private javax.swing.JPanel panelMinimizar;
     private javax.swing.JPanel panelSalir;

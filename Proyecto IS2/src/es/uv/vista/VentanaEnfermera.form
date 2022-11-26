@@ -243,9 +243,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="textBuscarEnfermedad1" min="-2" pref="180" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="buttonBuscarEnfermedad1" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="buttonBuscarExistencias" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="buttonBuscarEnfermedad2" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="buttonBorrarExistencias" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
               <Component id="jPanel3" alignment="1" max="32767" attributes="0"/>
@@ -258,8 +258,8 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelENombreEnfermedad1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="textBuscarEnfermedad1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="buttonBuscarEnfermedad1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonBuscarEnfermedad2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonBuscarExistencias" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonBorrarExistencias" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="jPanel3" max="32767" attributes="0"/>
@@ -289,7 +289,7 @@
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textBuscarEnfermedad1KeyPressed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonBuscarEnfermedad1">
+        <Component class="javax.swing.JButton" name="buttonBuscarExistencias">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="47" green="47" red="47" type="rgb"/>
@@ -305,8 +305,7 @@
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonBuscarEnfermedad1MouseClicked"/>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonBuscarEnfermedad1MousePressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBuscarExistenciasActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelENombreEnfermedad1">
@@ -323,7 +322,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonBuscarEnfermedad2">
+        <Component class="javax.swing.JButton" name="buttonBorrarExistencias">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="47" green="47" red="47" type="rgb"/>
@@ -338,10 +337,6 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonBuscarEnfermedad2MouseClicked"/>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonBuscarEnfermedad2MousePressed"/>
-          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
@@ -405,9 +400,6 @@
                       </StringArray>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listBuscarEnfermedades1ValueChanged"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -567,9 +559,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textBuscarEnfermedad2KeyPressed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelENombreEnfermedad11">
           <Properties>
@@ -648,9 +637,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textBuscarEnfermedad6KeyPressed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="textBuscarEnfermedad7">
           <Properties>
@@ -669,9 +655,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textBuscarEnfermedad7KeyPressed"/>
-          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane5">
           <Properties>
@@ -725,10 +708,6 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonBuscarEnfermedad4MouseClicked"/>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonBuscarEnfermedad4MousePressed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonBuscarEnfermedad">
           <Properties>
@@ -745,10 +724,6 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonBuscarEnfermedadMouseClicked"/>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonBuscarEnfermedadMousePressed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -777,19 +752,19 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="panelFondo1" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Component id="panelFondo" alignment="0" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelFondo1" alignment="0" min="-2" max="-2" attributes="0"/>
+          <Component id="panelFondo" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="panelFondo1">
+    <Container class="javax.swing.JPanel" name="panelFondo">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="5a" green="5a" red="5a" type="rgb"/>
@@ -861,12 +836,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="panelEMinimizarFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="panelEMinimizarFocusLost"/>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelEMinimizarMouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelEMinimizarMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelEMinimizarMouseExited"/>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelEMinimizarMousePressed"/>
                 <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelEMinimizarMouseReleased"/>
               </Events>
 
@@ -903,9 +874,6 @@
                       <Dimension value="[14, 30]"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="labelMinimizar1FocusGained"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -916,9 +884,6 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="panelESalirFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="panelESalirFocusLost"/>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelESalirMouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelESalirMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelESalirMouseExited"/>
                 <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelESalirMouseReleased"/>
@@ -958,12 +923,9 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="panelCerrarSesionFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="panelCerrarSesionFocusLost"/>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseExited"/>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMousePressed"/>
                 <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseReleased"/>
               </Events>
 
@@ -1000,10 +962,6 @@
                       <Dimension value="[14, 30]"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="labelCerrarSesionFocusGained"/>
-                    <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelCerrarSesionMouseReleased"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1021,11 +979,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                      <Component id="buttonPaciente1" min="-2" pref="162" max="-2" attributes="0"/>
+                      <Component id="buttonPacientes" min="-2" pref="162" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                      <Component id="buttonEnfermedad" min="-2" pref="162" max="-2" attributes="0"/>
+                      <Component id="buttonBotiquin" min="-2" pref="162" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                      <Component id="buttonEnfermedad1" min="-2" pref="162" max="-2" attributes="0"/>
+                      <Component id="buttonCrearPaciente" min="-2" pref="162" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1035,9 +993,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonPaciente1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="buttonEnfermedad" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="buttonEnfermedad1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="buttonPacientes" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="buttonBotiquin" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="buttonCrearPaciente" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
@@ -1045,7 +1003,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="buttonPaciente1">
+            <Component class="javax.swing.JButton" name="buttonPacientes">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="44" green="44" red="44" type="rgb"/>
@@ -1064,11 +1022,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonPaciente1MouseClicked"/>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonPaciente1MousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonPacientesMousePressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonEnfermedad">
+            <Component class="javax.swing.JButton" name="buttonBotiquin">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="44" green="44" red="44" type="rgb"/>
@@ -1087,12 +1044,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonEnfermedadMouseClicked"/>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonEnfermedadMousePressed"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEnfermedadActionPerformed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonBotiquinMousePressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonEnfermedad1">
+            <Component class="javax.swing.JButton" name="buttonCrearPaciente">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="44" green="44" red="44" type="rgb"/>
@@ -1111,9 +1066,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonEnfermedad1MouseClicked"/>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonEnfermedad1MousePressed"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEnfermedad1ActionPerformed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonCrearPacienteMousePressed"/>
               </Events>
             </Component>
           </SubComponents>

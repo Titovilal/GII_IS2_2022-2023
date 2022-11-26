@@ -4,9 +4,6 @@
  * Objeto que representa una enfermedad dentro del sistema
  * 
  */
-
-
-
 package es.uv.modelo;
 
 public class Enfermedad {
