@@ -80,7 +80,7 @@ public final class AccesoBD {
     }
 
     //////////////////////////////////////////////////historial//////////////////////////////////////////////////
-    public List<HistorialPaciente> obtenerHistorialBD() { //select all
+    public static List<HistorialPaciente> obtenerHistorialBD() { //select all
         abrirConexionBD();
         ArrayList<HistorialPaciente> historial = new ArrayList<>();
         try {
@@ -104,7 +104,7 @@ public final class AccesoBD {
     }
 
     //////////////////////////////////////////////////medicamentos//////////////////////////////////////////////////
-    public List<Medicamento> obtenerMedicamentosBD() { //select all
+    public static List<Medicamento> obtenerMedicamentosBD() { //select all
         abrirConexionBD();
         ArrayList<Medicamento> medicamentos = new ArrayList<>();
         try {
@@ -128,7 +128,7 @@ public final class AccesoBD {
     }
 
     //////////////////////////////////////////////////pacientes//////////////////////////////////////////////////
-    public List<Paciente> obtenerPacientesBD() { //select all
+    public static List<Paciente> obtenerPacientesBD() { //select all
         abrirConexionBD();
         ArrayList<Paciente> pacientes = new ArrayList<>();
         try {
@@ -178,7 +178,7 @@ public final class AccesoBD {
     }
 
     //////////////////////////////////////////////////trabajadores//////////////////////////////////////////////////
-    public List<Trabajador> obtenerTrabajadoresBD() { //select all
+    public static List<Trabajador> obtenerTrabajadoresBD() { //select all
         abrirConexionBD();
         ArrayList<Trabajador> trabajadores = new ArrayList<>();
         try {
@@ -202,7 +202,7 @@ public final class AccesoBD {
     }
 
     //////////////////////////////////////////////////trabajadores//////////////////////////////////////////////////
-    public List<Tratamiento> obtenerTratamientoBD() { //select all
+    public static List<Tratamiento> obtenerTratamientoBD() { //select all
         abrirConexionBD();
         ArrayList<Tratamiento> tratamientos = new ArrayList<>();
         try {
@@ -226,7 +226,7 @@ public final class AccesoBD {
     }
     
         //////////////////////////////////////////////////trabajadores//////////////////////////////////////////////////
-    public List<Visita> obtenerVisitasBD() { //select all
+    public static List<Visita> obtenerVisitasBD() { //select all
         abrirConexionBD();
         ArrayList<Visita> visitas = new ArrayList<>();
         try {
