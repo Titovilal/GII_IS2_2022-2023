@@ -1,20 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package es.uv.modelo;
 
-/**
- *
- * @author scast
- */
 public class Paciente {
+
     private int idPaciente, habitacion;
     private String dni, apellidos, sintomas;
 
     public Paciente() {
     }
-    
+
     public Paciente(int idPaciente, int habitacion, String dni, String apellidos, String sintomas) {
         this.idPaciente = idPaciente;
         this.habitacion = habitacion;
@@ -62,9 +55,9 @@ public class Paciente {
     public void setSintomas(String sintomas) {
         this.sintomas = sintomas;
     }
-    
+
     public String toString() {
         return apellidos;
     }
-    
+
 }

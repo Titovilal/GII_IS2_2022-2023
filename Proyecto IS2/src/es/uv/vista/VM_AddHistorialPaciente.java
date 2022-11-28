@@ -19,7 +19,8 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
      * Creates new form VM_AddHistorialPaciente
      */
     private int x, y, xMouse, yMouse;
-
+    
+ 
     public VM_AddHistorialPaciente() {
         initComponents();
         buttonAceptar.setActionCommand("addHistorial");
