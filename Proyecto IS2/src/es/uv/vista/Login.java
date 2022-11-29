@@ -1,9 +1,9 @@
 package es.uv.vista;
 
 import es.uv.modelo.AccesoBD;
+import es.uv.modelo.Trabajador;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-
 
 public class Login extends javax.swing.JFrame {
 
@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
         panelSalir = new javax.swing.JPanel();
         labelSalir = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        txtIniciar = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         tfUsuario = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -115,7 +115,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(panelSalirLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(labelSalir)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         panelSalirLayout.setVerticalGroup(
             panelSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,10 +142,10 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Contraseña");
 
-        jLabel5.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Iniciar Sesión");
+        txtIniciar.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
+        txtIniciar.setForeground(new java.awt.Color(204, 204, 204));
+        txtIniciar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtIniciar.setText("Iniciar Sesión");
 
         jLabel6.setFont(new java.awt.Font("Gadugi", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
@@ -198,7 +198,7 @@ public class Login extends javax.swing.JFrame {
             .addComponent(panelBarraSuperior, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                .addComponent(txtIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -226,7 +226,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addComponent(panelBarraSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(txtIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtError, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -284,9 +284,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_tfUsuarioKeyPressed
 
     private void buttonAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAccederActionPerformed
-       
-        
-        
+
+        VentanaEnfermera e = new VentanaEnfermera();
+        VentanaMedico m = new VentanaMedico();
+
+        Trabajador t = new Trabajador();
+
+        t = AccesoBD.loginTrabajador(tfUsuario.getText(), tfContra.getText());
+        if (!(t==null)) {
+            if (t.getEsMedico()) {
+                m.setVisible(true);
+                this.setVisible(false);
+            } else {
+                e.setVisible(true);
+                this.setVisible(false);
+            }
+        } else {
+            txtIniciar.setText("usuario o contraseña incorrecta");
+        }
         /* VentanaEnfermera e = new VentanaEnfermera();
         VentanaMedico m = new VentanaMedico();
         int loggin = tipoLogin(tfUsuario.getText(), tfContra.getText() + ""); //tfContra deberia usar el método getPassword, para compararlo con la contraseña almacenada
@@ -303,7 +318,7 @@ public class Login extends javax.swing.JFrame {
                 txtError.setText("nombre o contraseña incorrecta");
             }
         } */
-        /* m.setVisible(true);
+ /* m.setVisible(true);
         e.setVisible(true);
         this.setVisible(false); */
     }//GEN-LAST:event_buttonAccederActionPerformed
@@ -355,7 +370,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAcceder;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -368,5 +382,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField tfContra;
     private javax.swing.JTextField tfUsuario;
     private javax.swing.JLabel txtError;
+    private javax.swing.JLabel txtIniciar;
     // End of variables declaration//GEN-END:variables
 }

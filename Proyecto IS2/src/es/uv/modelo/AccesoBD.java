@@ -185,11 +185,11 @@ public final class AccesoBD {
             String con;
             Statement s = conexionBD.createStatement();
 
-            con = "SELECT idTrabajador,medico,usuario,contra FROM trabajador";
+            con = "SELECT idTrabajador,medico,usuario,contra FROM trabajadores";
             ResultSet resultados = s.executeQuery(con);
             while (resultados.next()) {
                 Trabajador t = new Trabajador();
-                t.setIdTrabajador(resultados.getInt("idPaciente"));
+                t.setIdTrabajador(resultados.getInt("idTrabajador"));
                 t.setEsMedico(resultados.getBoolean("medico"));
                 t.setUsuario(resultados.getString("usuario"));
                 t.setContrasenya(resultados.getString("contra"));
@@ -204,17 +204,18 @@ public final class AccesoBD {
     public static Trabajador loginTrabajador(String usuario, String contra) {
         abrirConexionBD();
         Trabajador t = new Trabajador();
+        
         try {
             Statement s = conexionBD.createStatement();
-            String con = "SELECT idTrabajador,medico,usuario,contra FROM trabajador WHERE usuario='" + usuario + "' and contra ='" + contra + "'";
+            String con = "SELECT idTrabajador,medico,usuario,contra FROM trabajadores WHERE usuario='" + usuario + "' AND contra ='" + contra + "'";
+            
             ResultSet resultados = s.executeQuery(con);
-
+            
             resultados.next();
-            t.setIdTrabajador(resultados.getInt("idPaciente"));
+            t.setIdTrabajador(resultados.getInt("idTrabajador"));
             t.setEsMedico(resultados.getBoolean("medico"));
             t.setUsuario(resultados.getString("usuario"));
             t.setContrasenya(resultados.getString("contra"));
-
         } catch (Exception e) {
             System.out.println("error realizando login");
         }
