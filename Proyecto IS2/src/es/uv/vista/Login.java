@@ -284,7 +284,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_tfUsuarioKeyPressed
 
     private void buttonAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAccederActionPerformed
-        VentanaEnfermera e = new VentanaEnfermera();
+       
+        
+        
+        /* VentanaEnfermera e = new VentanaEnfermera();
         VentanaMedico m = new VentanaMedico();
         int loggin = tipoLogin(tfUsuario.getText(), tfContra.getText() + ""); //tfContra deberia usar el método getPassword, para compararlo con la contraseña almacenada
         System.out.println(""+  tfContra.getPassword());
@@ -299,7 +302,7 @@ public class Login extends javax.swing.JFrame {
                 txtError.setForeground(Color.red);
                 txtError.setText("nombre o contraseña incorrecta");
             }
-        }
+        } */
         /* m.setVisible(true);
         e.setVisible(true);
         this.setVisible(false); */

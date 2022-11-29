@@ -151,7 +151,7 @@ public final class AccesoBD {
         }
         return pacientes;
     }
-    
+
     //////////////////////////////////////////////////pacientes//////////////////////////////////////////////////
     public static List<Paciente> obtenerPacientesDelDiaBD() { //Te quedas solo con los pacientes que tengan habitación y sintomas
         abrirConexionBD();
@@ -201,6 +201,27 @@ public final class AccesoBD {
         return trabajadores;
     }
 
+    public static Trabajador loginTrabajador(String usuario, String contra) {
+        abrirConexionBD();
+        Trabajador t = new Trabajador();
+        try {
+            Statement s = conexionBD.createStatement();
+            String con = "SELECT idTrabajador,medico,usuario,contra FROM trabajador WHERE usuario='" + usuario + "' and contra ='" + contra + "'";
+            ResultSet resultados = s.executeQuery(con);
+
+            resultados.next();
+            t.setIdTrabajador(resultados.getInt("idPaciente"));
+            t.setEsMedico(resultados.getBoolean("medico"));
+            t.setUsuario(resultados.getString("usuario"));
+            t.setContrasenya(resultados.getString("contra"));
+
+        } catch (Exception e) {
+            System.out.println("error realizando login");
+        }
+
+        return t;
+    }
+
     //////////////////////////////////////////////////trabajadores//////////////////////////////////////////////////
     public static List<Tratamiento> obtenerTratamientoBD() { //select all
         abrirConexionBD();
@@ -224,8 +245,8 @@ public final class AccesoBD {
         }
         return tratamientos;
     }
-    
-        //////////////////////////////////////////////////trabajadores//////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////trabajadores//////////////////////////////////////////////////
     public static List<Visita> obtenerVisitasBD() { //select all
         abrirConexionBD();
         ArrayList<Visita> visitas = new ArrayList<>();

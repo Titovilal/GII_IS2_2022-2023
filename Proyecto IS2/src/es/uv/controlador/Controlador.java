@@ -1,5 +1,7 @@
 package es.uv.controlador;
 
+import static es.uv.modelo.AccesoBD.loginTrabajador;
+import es.uv.modelo.Trabajador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -57,6 +59,14 @@ public class Controlador
                     break;
                 }
             }
+        }
+        public Trabajador realizarLogin(String usuario, String contra){
+            Trabajador t = new Trabajador();
+            
+            t = loginTrabajador(usuario, contra);
+            
+            return t;
+            
         }
         
     }
