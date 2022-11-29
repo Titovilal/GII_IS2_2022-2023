@@ -3,11 +3,14 @@ package es.uv.vista;
 import es.uv.modelo.AccesoBD;
 import es.uv.modelo.Trabajador;
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 public class Login extends javax.swing.JFrame {
 
     int xMouse, yMouse, x, y;
+    VentanaEnfermera e;
+    VentanaMedico m;
 
     public Login() {
         initComponents();
@@ -285,8 +288,8 @@ public class Login extends javax.swing.JFrame {
 
     private void buttonAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAccederActionPerformed
 
-        VentanaEnfermera e = new VentanaEnfermera();
-        VentanaMedico m = new VentanaMedico();
+        e = new VentanaEnfermera();
+        m = new VentanaMedico();
 
         Trabajador t = new Trabajador();
 
@@ -365,6 +368,28 @@ public class Login extends javax.swing.JFrame {
 
         return tipo;
 
+    }
+    
+    public String enfermera_getDNI(){
+        return e.getDNI();
+    }
+    public String enfermera_getNombre(){
+        return e.getNombre();
+    }
+    public String enfermera_getApellidos(){
+        return e.getApellidos();
+    }
+    public int enfermera_getHabitacion(){
+        return e.getHabitacion();
+    }
+    public String enfermera_getSintomas(){
+            return e.getSintomas();
+    }
+    
+    //Action Listeners
+    public void setActionListener(ActionListener al)
+    {
+        e.setActionListener(al);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
