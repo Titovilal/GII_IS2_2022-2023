@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -19,7 +20,6 @@ import javax.swing.JList;
 public class VentanaEnfermera extends javax.swing.JFrame {
 
     int x, y, xMouse, yMouse;
-    private ArrayList<Object> pacientesPrueba;
 
     public VentanaEnfermera() {
         initComponents();
@@ -29,16 +29,6 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         labelFechaActual.setText("Fecha: " + dateFormat.format(date));
         panelBase.add(panelPacientesDelDia);
-        
-        pacientesPrueba = new ArrayList<>();
-
-        Paciente pac1 = new Paciente(0, 100, "25252525P", "Molinos Marchantes", "Dolor de cuello");
-        Paciente pac2 = new Paciente(1, 101, "35353535Q", "Caida Peliantes", "Dolor de espalda");
-        Paciente pac3 = new Paciente(2, 102, "24242424R", "Lopez Bogabante", "Dolor de huevos");
-
-        pacientesPrueba.add(pac1);
-        pacientesPrueba.add(pac2);
-        pacientesPrueba.add(pac3);
 
         updateListPacientesDelDia();
     }
@@ -46,7 +36,7 @@ public class VentanaEnfermera extends javax.swing.JFrame {
     public void updateListPacientesDelDia() {
 
         DefaultListModel listModelPacientes = new DefaultListModel();
-        for (Object item : pacientesPrueba) {
+        for (Object item : AccesoBD.obtenerPacientesDelDiaBD()) {
             listModelPacientes.addElement(item);
         }
 
@@ -837,17 +827,16 @@ public class VentanaEnfermera extends javax.swing.JFrame {
 
     private void listPacientesDelDiaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPacientesDelDiaValueChanged
         if (!listPacientesDelDia.getValueIsAdjusting() && listPacientesDelDia.getSelectedValue() != null) {
-            Object paciente = listPacientesDelDia.getSelectedValue();            
-            labelApellidosDelPaciente.setText("Apellidos: " + ((Paciente)paciente).getApellidos());
-            if(((Paciente)paciente).getApellidos()=="Molinos Marchantes")
-                textMedicamentosPacienteDia.setText("Paracetamol");
-            else if(((Paciente)paciente).getApellidos()=="Caida Peliantes")
-                textMedicamentosPacienteDia.setText("Ibuprofeno");
-            else
-                textMedicamentosPacienteDia.setText("Lexotiroxina sódica");
-            
-            
-            labelHabitacionDelPaciente.setText("Habitacion: " + ((Paciente)paciente).getHabitacion());
+            Object paciente = listPacientesDelDia.getSelectedValue();
+            List<String> medicamentos = AccesoBD.obtenerMedicamentosPacienteBD(String.valueOf(((Paciente) paciente).getIdPaciente()));
+            String medicamentosText = "";
+            labelApellidosDelPaciente.setText("Apellidos: " + ((Paciente) paciente).getApellidos());
+            labelHabitacionDelPaciente.setText("Habitacion: " + ((Paciente) paciente).getHabitacion());
+            for(String x : medicamentos)
+            {
+                medicamentosText += x + "\n";
+            }
+            textMedicamentosPacienteDia.setText(medicamentosText);
         }
     }//GEN-LAST:event_listPacientesDelDiaValueChanged
 

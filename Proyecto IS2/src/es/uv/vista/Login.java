@@ -291,7 +291,7 @@ public class Login extends javax.swing.JFrame {
         Trabajador t = new Trabajador();
 
         t = AccesoBD.loginTrabajador(tfUsuario.getText(), tfContra.getText());
-        if (!(t==null)) {
+        if (!(t.getEsMedico()==null)) {
             if (t.getEsMedico()) {
                 m.setVisible(true);
                 this.setVisible(false);

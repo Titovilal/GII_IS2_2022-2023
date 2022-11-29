@@ -115,7 +115,8 @@ public final class AccesoBD {
             ResultSet resultados = s.executeQuery(con);
             while (resultados.next()) {
                 Medicamento m = new Medicamento();
-                m.setIdMedicamento(resultados.getInt("idMedicamentos"));
+                m.setIdMedicamento(resultados.getInt("idMedicamento"));
+                m.setNombre(resultados.getString("nombre"));
                 m.setUnidades(resultados.getInt("unidades"));
                 m.setAlergias(resultados.getString("alergias"));
                 m.setEfectosSecunadarios(resultados.getString("efectosSecundarios"));
@@ -123,6 +124,29 @@ public final class AccesoBD {
             }
         } catch (Exception e) {
             System.out.println("error obteniendo medicamentos");
+        }
+        return medicamentos;
+    }
+    
+    //////////////////////////////////////////////////medicamentos//////////////////////////////////////////////////
+    //Te devuelve una lista con los medicamentos del paciente pasado como argumento.
+    public static List<String> obtenerMedicamentosPacienteBD(String idPaciente) { 
+        abrirConexionBD();
+        ArrayList<String> medicamentos = new ArrayList<>();
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+
+            con = "SELECT mm.nombre FROM enfermedadespaciente ep " +
+                  "INNER JOIN tratamientos tt ON ep.idEnfermedad = tt.idEnfermedad " +
+                  "INNER JOIN medicamentos mm ON mm.idMedicamento = tt.idMedicamento " +
+                  "WHERE ep.idPaciente = " + idPaciente;
+            ResultSet resultados = s.executeQuery(con);
+            while (resultados.next()) {
+                medicamentos.add(resultados.getString("nombre"));
+            }
+        } catch (Exception e) {
+            System.out.println("error obteniendo medicamentos del paciente");
         }
         return medicamentos;
     }
@@ -200,7 +224,8 @@ public final class AccesoBD {
         }
         return trabajadores;
     }
-
+    
+    //////////////////////////////////////////////////trabajadores//////////////////////////////////////////////////
     public static Trabajador loginTrabajador(String usuario, String contra) {
         abrirConexionBD();
         Trabajador t = new Trabajador();
