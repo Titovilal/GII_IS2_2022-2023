@@ -90,6 +90,7 @@ public class VentanaEnfermera extends javax.swing.JFrame {
                 }
             }
         }
+        listBuscarEnfermedades1.setModel(modelo);
     }
 
     @SuppressWarnings("unchecked")

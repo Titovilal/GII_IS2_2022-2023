@@ -636,7 +636,7 @@
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="labelENombreEnfermedad" min="-2" pref="318" max="-2" attributes="0"/>
+                              <Component id="labelElNombreEnfermedad" min="-2" pref="318" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="labelEnfermedadContagiosa2" min="-2" pref="190" max="-2" attributes="0"/>
                           </Group>
@@ -664,7 +664,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelENombreEnfermedad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelElNombreEnfermedad" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelEnfermedadContagiosa2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -690,7 +690,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="labelENombreEnfermedad">
+            <Component class="javax.swing.JLabel" name="labelElNombreEnfermedad">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Gadugi" size="14" style="0"/>
@@ -874,11 +874,11 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="labelBuscarEnfermedad1" alignment="1" pref="0" max="32767" attributes="0"/>
-                              <Component id="textBuscar1" alignment="1" pref="180" max="32767" attributes="0"/>
+                              <Component id="textBuscarMedicamento" alignment="1" pref="180" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="buttonBuscar1" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="buttonBuscarMedicamento" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                               <Component id="buttonBorrar1" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -893,8 +893,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textBuscar1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="buttonBuscar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textBuscarMedicamento" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="buttonBuscarMedicamento" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -926,7 +926,7 @@
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonBuscar1">
+        <Component class="javax.swing.JButton" name="buttonBuscarMedicamento">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="47" green="47" red="47" type="rgb"/>
@@ -941,6 +941,9 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBuscarMedicamentoActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="scrollListaMedicamentos2">
           <AuxValues>
@@ -978,7 +981,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="textBuscar1">
+        <Component class="javax.swing.JTextField" name="textBuscarMedicamento">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="47" green="47" red="47" type="rgb"/>
@@ -1024,7 +1027,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="labelListaMedicamentos5" max="32767" attributes="0"/>
+                          <Component id="Nombre_medicamento_label" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="labelEnfermedadesRelacionadas3" max="32767" attributes="0"/>
@@ -1048,7 +1051,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="labelListaMedicamentos5" min="-2" max="-2" attributes="0"/>
+                      <Component id="Nombre_medicamento_label" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane5" min="-2" pref="128" max="-2" attributes="0"/>
@@ -1119,7 +1122,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea2">
+                <Component class="javax.swing.JTextArea" name="Efectos_secundarios_jTA">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1168,7 +1171,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea3">
+                <Component class="javax.swing.JTextArea" name="Posibles_alergias_jTA">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1205,7 +1208,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea4">
+                <Component class="javax.swing.JTextArea" name="Enfermedades_cura_jTA">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1230,7 +1233,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="labelListaMedicamentos5">
+            <Component class="javax.swing.JLabel" name="Nombre_medicamento_label">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Gadugi" size="14" style="0"/>

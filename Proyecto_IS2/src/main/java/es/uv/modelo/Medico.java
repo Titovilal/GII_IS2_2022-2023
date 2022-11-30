@@ -1,48 +1,126 @@
 package es.uv.modelo;
 
+/**
+ * class Medico
+ * 
+ * Clase que implementa la interfaz de trabajador y que representa a un médico dentro de la aplicación
+ * 
+ * @author mopns
+ * @since 30/11/22
+ * @version 1.0
+ * 
+ */
+
 public class Medico implements InterTrabajador {
 
-    //HAY QUE ACABAR LA CLASE ENTERAAAAAA
+    private int id;
+    private String usuario,contra;
+    private Boolean esMedico;
     
     
+    /**
+     * getIdTrabajador()
+     * 
+     * Devuelve el id del trabajador
+     * 
+     * @return id (int) ID del trabajador
+     * 
+     */
     @Override
-    public int getIdTrabajador() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int getIdTrabajador() 
+    {
+        return this.id;
     }
-
+    
+    /**
+     * setIdTrabajador(int)
+     * 
+     * Establece el id del trabajador
+     * 
+     * @param idTrabajador (int) ID del trabajador
+     * 
+     */
     @Override
     public void setIdTrabajador(int idTrabajador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.id = idTrabajador;
     }
-
+    
+    /**
+     * getUsuario()
+     * 
+     * Devuelve el nombre del usuario
+     * 
+     * @return usuario(String) Nombre del usuario 
+     * 
+     */
     @Override
     public String getUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.usuario;
     }
 
+     /**
+     * setUsuario(String)
+     * 
+     * Establece el nombre del usuario
+     * 
+     * @param medico(String) Nombre del usuario 
+     * 
+     */
     @Override
     public void setUsuario(String medico) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.usuario = medico;
     }
 
+    /**
+     * getContrasenya()
+     * 
+     * Devuelve la contraseña del usuario
+     * 
+     * @return contra(String) Contraseña del usuario
+     * 
+     */
     @Override
     public String getContrasenya() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.contra;
     }
-
+    
+    /**
+     * setContrasenya(String)
+     * 
+     * Establece la contraseña del usuario
+     * 
+     * @param contrasenya(String) Contraseña del usuario
+     * 
+     */
     @Override
     public void setContrasenya(String contrasenya) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.contra = contrasenya;
     }
 
+    /**
+     * getEsMedico()
+     * 
+     * Informa por medio de un bool si el usuario es o no un médico
+     * 
+     * @return esMedico(bool) Valor que determina si el usuario es o no médico
+     * 
+     */
     @Override
     public Boolean getEsMedico() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.esMedico;
     }
 
+    /**
+     * setEsMedico(Boolean)
+     * 
+     * Establece el valor que determina si el usuario es o no médico
+     * 
+     * @param esMedico (Boolean) Valor que determina si el usuario es o no médico
+     * 
+     */
     @Override
     public void setEsMedico(Boolean esMedico) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.esMedico = esMedico;
     }
 
 }
