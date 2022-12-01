@@ -27,17 +27,20 @@ public final class AccesoBD {
         abrirConexionBD();
     }
 
-    public static void abrirConexionBD() {
+    public static Boolean abrirConexionBD() {
+        Boolean res = false;
         if (conexionBD == null) {
             String nombreConexionBD = "jdbc:mysql://localhost/isii"; //dirección bd
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conexionBD = DriverManager.getConnection(nombreConexionBD, "root", ""); //por defecto user: root, contra:""
                 System.out.println("conexión con éxito");
+                res = true;
             } catch (Exception e) {
                 System.out.println("error conectando a base de datos"); // por algun motivo, a netbeans no le gusta el system.err
             }
         }
+        return res;
     }
 
     public boolean comprobarAcceso() {
