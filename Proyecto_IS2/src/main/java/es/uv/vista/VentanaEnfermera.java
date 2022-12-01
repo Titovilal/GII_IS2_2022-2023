@@ -6,11 +6,9 @@ import es.uv.modelo.Paciente;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.TextArea;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultListCellRenderer;
@@ -34,7 +32,7 @@ public class VentanaEnfermera extends javax.swing.JFrame {
 
         updateListPacientesDelDia();
     }
-    
+
     public void updateListPacientesDelDia() {
 
         DefaultListModel listModelPacientes = new DefaultListModel();
@@ -43,14 +41,14 @@ public class VentanaEnfermera extends javax.swing.JFrame {
         }
 
         listPacientesDelDia.setModel(listModelPacientes);
-        
+
         listPacientesDelDia.setCellRenderer(new NombrePacienteCellRenderer());
     }
 
     private String forma(Date date) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
     public class NombrePacienteCellRenderer extends DefaultListCellRenderer {
 
         public Component getListCellRendererComponent(
@@ -61,31 +59,27 @@ public class VentanaEnfermera extends javax.swing.JFrame {
             return label;
         }
     }
-    
+
     /**
      * MostrarMedicamentos(int)
-     * 
+     *
      * Muestra los medicamentos que cumplen con el stock introducido
-     * 
-     * @param cantidad (int) Cantidad en stock 
-     * 
+     *
+     * @param cantidad (int) Cantidad en stock
+     *
      */
-    public void MostrarMedicamentos(int cantidad)
-    {
+    public void MostrarMedicamentos(int cantidad) {
         DefaultListModel modelo = new DefaultListModel();
         ArrayList<Medicamento> m = (ArrayList<Medicamento>) AccesoBD.obtenerMedicamentosBD();
         //Busco en la lista de medicamentos
-        for(int i = 0; i < m.size();i++)
-        {
+        for (int i = 0; i < m.size(); i++) {
             //Si encuentro uno con la cantidad adecuada lo reviso
-            if(m.get(i).getUnidades()<cantidad)
-            {
+            if (m.get(i).getUnidades() < cantidad) {
                 //Si la cantidad es 0 o menos el programa devuelve una excepción
-                if(m.get(i).getUnidades()<=0)
+                if (m.get(i).getUnidades() <= 0) {
                     throw new UnsupportedOperationException();
-                //En caso contrario lo añade al modelo para actualizar la lista
-                else
-                {
+                } //En caso contrario lo añade al modelo para actualizar la lista
+                else {
                     modelo.add(m.get(i).getIdMedicamento(), m.get(i));
                 }
             }
@@ -818,7 +812,9 @@ public class VentanaEnfermera extends javax.swing.JFrame {
     }//GEN-LAST:event_panelCerrarSesionMouseExited
 
     private void panelCerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseReleased
-        //FALTA CERRAR SESIÓN
+        Login login = new Login();
+        this.dispose();
+        login.setVisible(true);
     }//GEN-LAST:event_panelCerrarSesionMouseReleased
 
     private void panelBarraSuperior1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperior1MouseDragged
@@ -860,8 +856,7 @@ public class VentanaEnfermera extends javax.swing.JFrame {
             String medicamentosText = "";
             labelApellidosDelPaciente.setText("Apellidos: " + ((Paciente) paciente).getApellidos());
             labelHabitacionDelPaciente.setText("Habitacion: " + ((Paciente) paciente).getHabitacion());
-            for(String x : medicamentos)
-            {
+            for (String x : medicamentos) {
                 medicamentosText += x + "\n";
             }
             textMedicamentosPacienteDia.setText(medicamentosText);
@@ -871,34 +866,41 @@ public class VentanaEnfermera extends javax.swing.JFrame {
     private void textBuscarEnfermedad1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBuscarEnfermedad1KeyPressed
         // FALTA AÑADIR SHOTCUT
     }//GEN-LAST:event_textBuscarEnfermedad1KeyPressed
-    /*
-    buttonBuscarExistenciasActionPerformed(ActionEvent)
-    Botón que lanza la secuencia de acciones por la cual se buscan los medicamentos a partir de la cantidad insertada
-
+    /**
+     * buttonBuscarExistenciasActionPerformed(ActionEvent)
+     * 
+     * Botón que lanza la secuencia de acciones por la cual se buscan los medicamentos a partir de la cantidad insertada
+     * 
+     * @param evt 
      */
     private void buttonBuscarExistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarExistenciasActionPerformed
         // TODO add your handling code here:
         MostrarMedicamentos(Integer.valueOf(textBuscarEnfermedad1.getText()));
-        
+
     }//GEN-LAST:event_buttonBuscarExistenciasActionPerformed
 
-    public String getDNI(){
-            return textBuscarEnfermedad2.getText();
+    public String getDNI() {
+        return textBuscarEnfermedad2.getText();
     }
-    public String getNombre(){
-            return textBuscarEnfermedad6.getText();
+
+    public String getNombre() {
+        return textBuscarEnfermedad6.getText();
     }
-    public String getApellidos(){
-            return textBuscarEnfermedad8.getText();
+
+    public String getApellidos() {
+        return textBuscarEnfermedad8.getText();
     }
-    public int getHabitacion(){
+
+    public int getHabitacion() {
         return Integer.parseInt(textBuscarEnfermedad7.getText());
     }
-    public String getSintomas(){
-            return jTextArea4.getText();
+
+    public String getSintomas() {
+        return jTextArea4.getText();
     }
-    public void setActionListener(ActionListener al){
-            buttonEnfermeraCrearPaciente.addActionListener(al);
+
+    public void setActionListener(ActionListener al) {
+        buttonEnfermeraCrearPaciente.addActionListener(al);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

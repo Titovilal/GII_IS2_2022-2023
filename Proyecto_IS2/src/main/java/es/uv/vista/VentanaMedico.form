@@ -1473,6 +1473,7 @@
               <Events>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseExited"/>
+                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseReleased"/>
               </Events>
 
               <Layout>
@@ -1508,9 +1509,6 @@
                       <Dimension value="[14, 30]"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelCerrarSesionMouseReleased"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>

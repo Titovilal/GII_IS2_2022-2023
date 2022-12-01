@@ -6,7 +6,6 @@
  */
 package es.uv.vista;
 
-import es.uv.modelo.AccesoBD;
 import es.uv.modelo.Paciente;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import es.uv.modelo.AccesoBD;
 import es.uv.modelo.Enfermedad;
+import es.uv.modelo.HistorialPaciente;
 import es.uv.modelo.Medicamento;
 import es.uv.modelo.Tratamiento;
 import java.awt.event.ActionEvent;
@@ -26,7 +26,6 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Vector;
 
 public class VentanaMedico extends javax.swing.JFrame {
@@ -70,7 +69,7 @@ public class VentanaMedico extends javax.swing.JFrame {
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         labelFechaActual.setText("Fecha: " + dateFormat.format(date));
-        
+
         //Rellena la lista del panel Pacientes del dia
         updateListPacientesDelDia();
     }
@@ -115,6 +114,7 @@ public class VentanaMedico extends javax.swing.JFrame {
      */
     public class NombrePacienteCellRenderer extends DefaultListCellRenderer {
 
+        @Override
         public Component getListCellRendererComponent(
                 JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
 
@@ -134,49 +134,40 @@ public class VentanaMedico extends javax.swing.JFrame {
      */
     public void MostrarEnfermedades(int id) {
         Vector<DefaultListModel> modelos;
-        modelos = new Vector<DefaultListModel>();
-        
-        for(int i = 0; i < 2; i++)
-        {
+        modelos = new Vector<>();
+
+        for (int i = 0; i < 2; i++) {
             modelos.add(new DefaultListModel());
         }
-        
+
         ArrayList<Enfermedad> e = (ArrayList<Enfermedad>) AccesoBD.obtenerEnfermedadesBD();
         ArrayList<Tratamiento> t = (ArrayList<Tratamiento>) AccesoBD.obtenerTratamientoBD();
         ArrayList<Medicamento> m = (ArrayList<Medicamento>) AccesoBD.obtenerMedicamentosBD();
-        
+
         //Bucle que busca la enfermedad introducida por el usuario
-        for (int i = 0; i != e.size(); i++) 
-        {
+        for (int i = 0; i != e.size(); i++) {
             //Si encuentra la enfermedad busca los tratamientos en los que aparece
-            if (e.get(i).getIdEnfermedad() == id) 
-            {
+            if (e.get(i).getIdEnfermedad() == id) {
                 //Configura varios labels
                 labelElNombreEnfermedad.setText("Enfermedad: " + e.get(i).getIdEnfermedad());
-                if(e.get(i).getContagiosa())
-                {
+                if (e.get(i).getContagiosa()) {
                     labelEnfermedadContagiosa2.setText("Enfermedad contagiosa");
                     labelEnfermedadContagiosa2.setForeground(Color.red);
-                }
-                else
+                } else {
                     labelEnfermedadContagiosa2.setText("Enfermedad no contagiosa");
-                
-                
+                }
+
                 //Busca tratamientos
-                for( int c = 0; c != t.size(); c++)
-                {
+                for (int c = 0; c != t.size(); c++) {
                     //Si encuentra un tratamiento, busca el medicamento que tenga relacionado
-                    if(t.get(c).getIdEnfermedad()==id)
-                    {
+                    if (t.get(c).getIdEnfermedad() == id) {
                         //Busca medicamentos
-                        for(int z = 0; z != m.size(); z++)
-                        {
+                        for (int z = 0; z != m.size(); z++) {
                             //Si encuentra un medicamento relacionado, lo añade al modelo
-                            if(m.get(z).getIdMedicamento() == t.get(c).getIdMedicamento())
-                            {
+                            if (m.get(z).getIdMedicamento() == t.get(c).getIdMedicamento()) {
                                 modelos.get(0).add(m.get(z).getIdMedicamento(), m.get(z));
                                 //Rellena el label de dosis recomendada
-                                labelDosisDiaria2.setText("Dosis recomendada: "+ m.get(z).getDosis());
+                                labelDosisDiaria2.setText("Dosis recomendada: " + m.get(z).getDosis());
                             }
                         }
                     }
@@ -188,57 +179,49 @@ public class VentanaMedico extends javax.swing.JFrame {
         listBuscarEnfermedades.setModel(modelos.get(1));
         listMedicamentos.setModel(modelos.get(0));
     }
-    
-     /**
+
+    /**
      * MostrarMedicamentos(int)
-     * 
+     *
      * Actualiza la lista de medicamentos mostrada por el panelBase en la
      * sección "Medicamentos"
-     * 
+     *
      * @param id (int) Identificador del medicamento
-     * 
+     *
      */
-    public void MostrarMedicamentos(int id)
-    {
+    public void MostrarMedicamentos(int id) {
         DefaultListModel modelo = new DefaultListModel();
 
         ArrayList<Enfermedad> e = (ArrayList<Enfermedad>) AccesoBD.obtenerEnfermedadesBD();
         ArrayList<Tratamiento> t = (ArrayList<Tratamiento>) AccesoBD.obtenerTratamientoBD();
         ArrayList<Medicamento> m = (ArrayList<Medicamento>) AccesoBD.obtenerMedicamentosBD();
-        
+
         //Bucle que busca el medicamento introducido por el usuario
-        for (int i = 0; i != e.size(); i++) 
-        {
+        for (int i = 0; i != e.size(); i++) {
             //Si encuentra el medicamento busca los tratamientos en los que aparece
-            if (m.get(i).getIdMedicamento() == id)
-            {
+            if (m.get(i).getIdMedicamento() == id) {
                 modelo.add(m.get(i).getIdMedicamento(), m.get(i));
                 //Establece el texto de varios JText
                 Nombre_medicamento_label.setText(m.get(i).getNombre());
-                Posibles_alergias_jTA.append(m.get(i).getAlergias()+"\n");
-                Efectos_secundarios_jTA.append(m.get(i).getEfectosSecunadarios()+"\n");
-                 //Busca tratamientos
-                for( int c = 0; c != t.size(); c++)
-                {
+                Posibles_alergias_jTA.append(m.get(i).getAlergias() + "\n");
+                Efectos_secundarios_jTA.append(m.get(i).getEfectosSecunadarios() + "\n");
+                //Busca tratamientos
+                for (int c = 0; c != t.size(); c++) {
                     //Si encuentra un tratamiento, busca la enfermedad que tenga relacionado
-                    if(t.get(c).getIdEnfermedad()==id)
-                    {
+                    if (t.get(c).getIdEnfermedad() == id) {
                         //Busca enfermedades
-                        for(int z = 0; z != m.size(); z++)
-                        {
+                        for (int z = 0; z != m.size(); z++) {
                             //Si encuentra una enfermedad relacionada, añade su información
-                            if(e.get(z).getIdEnfermedad() == t.get(c).getIdEnfermedad())
-                            {
-                                Enfermedades_cura_jTA.append(String.valueOf(e.get(z).getIdEnfermedad())+"\n");
+                            if (e.get(z).getIdEnfermedad() == t.get(c).getIdEnfermedad()) {
+                                Enfermedades_cura_jTA.append(String.valueOf(e.get(z).getIdEnfermedad()) + "\n");
                             }
                         }
                     }
                 }
                 listBuscarMedicamentos.setModel(modelo);
             }
-        } 
+        }
     }
-
 
     /**
      * Controladores de la clase(todo el código generado hasta abajo, sin tener
@@ -1054,6 +1037,9 @@ public class VentanaMedico extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelCerrarSesionMouseExited(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                panelCerrarSesionMouseReleased(evt);
+            }
         });
 
         labelCerrarSesion.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
@@ -1063,11 +1049,6 @@ public class VentanaMedico extends javax.swing.JFrame {
         labelCerrarSesion.setMaximumSize(new java.awt.Dimension(14, 30));
         labelCerrarSesion.setMinimumSize(new java.awt.Dimension(14, 30));
         labelCerrarSesion.setPreferredSize(new java.awt.Dimension(14, 30));
-        labelCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                labelCerrarSesionMouseReleased(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelCerrarSesionLayout = new javax.swing.GroupLayout(panelCerrarSesion);
         panelCerrarSesion.setLayout(panelCerrarSesionLayout);
@@ -1298,10 +1279,6 @@ public class VentanaMedico extends javax.swing.JFrame {
         panelBase.repaint();
     }//GEN-LAST:event_buttonPacienteMousePressed
 
-    private void panelCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseExited
-        panelCerrarSesion.setBackground(new Color(51, 51, 51));
-    }//GEN-LAST:event_panelCerrarSesionMouseExited
-
     private void textBuscarEnfermedadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBuscarEnfermedadKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             buttonBuscarEnfermedad.doClick();
@@ -1332,24 +1309,14 @@ public class VentanaMedico extends javax.swing.JFrame {
             labelHabitacionPaciente.setText("Habitacion: " + ((Paciente) paciente).getHabitacion());
         }
     }//GEN-LAST:event_listPacientesDelDiaValueChanged
-
-    private void panelCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseEntered
-        panelCerrarSesion.setBackground(new Color(71, 71, 71));
-    }//GEN-LAST:event_panelCerrarSesionMouseEntered
-
-    private void labelCerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCerrarSesionMouseReleased
-        Login login = new Login();
-        this.dispose();
-        login.setVisible(true);
-    }//GEN-LAST:event_labelCerrarSesionMouseReleased
-    /*
-    buttonBuscarEnfermedadActionPerdormed(ActionEvent)
-    Botón que lanza la secuencia de acciones por la cual se busca una enfermedad en concreto a partir de su id
-
+    /**
+     * buttonBuscarEnfermedadActionPerdormed(ActionEvent)
+     * 
+     * Botón que lanza la secuencia de acciones por la cual se busca una enfermedad en concreto a partir de su id
+     * 
+     * @param evt 
      */
     private void buttonBuscarEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedadActionPerformed
-        // TODO add your handling code here:
-
         MostrarEnfermedades(Integer.valueOf(textBuscarEnfermedad.getText()));
 
     }//GEN-LAST:event_buttonBuscarEnfermedadActionPerformed
@@ -1363,6 +1330,7 @@ public class VentanaMedico extends javax.swing.JFrame {
 
     private void buttonBuscarDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarDNIActionPerformed
         //Prueba primera historia Práctica 2 
+        HistorialPaciente p = AccesoBD.obtenerHistorialBD(textBuscarDNI.getText());
         if (textBuscarDNI.getText().equals("12345678A")) {
             DefaultListModel listModelActividades = new DefaultListModel();
             labelNombrePaciente.setText("Paco Antonio Vallecas (12345678A)");
@@ -1382,15 +1350,32 @@ public class VentanaMedico extends javax.swing.JFrame {
             labelNombrePaciente.setText("VICENTE ANDRES ESTELLES (12345678B)");
         }
     }//GEN-LAST:event_buttonBuscarDNIActionPerformed
-     /*
-    buttonBuscarMedicamentoActionPerdormed(ActionEvent)
-    Botón que lanza la secuencia de acciones por la cual se busca un medicamento en concreto a partir de su id
 
+    /**
+     * buttonBuscarMedicamentoActionPerdormed(ActionEvent)
+     * 
+     * Lanza la secuencia de acciones por la cual se busca un medicamento en concreto a partir de su id
+     * 
+     * @param evt 
      */
     private void buttonBuscarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarMedicamentoActionPerformed
 
         MostrarMedicamentos(Integer.valueOf(textBuscarMedicamento.getText()));
     }//GEN-LAST:event_buttonBuscarMedicamentoActionPerformed
+
+    private void panelCerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseReleased
+        Login login = new Login();
+        this.dispose();
+        login.setVisible(true);
+    }//GEN-LAST:event_panelCerrarSesionMouseReleased
+
+    private void panelCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseEntered
+        panelCerrarSesion.setBackground(new Color(71, 71, 71));
+    }//GEN-LAST:event_panelCerrarSesionMouseEntered
+
+    private void panelCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseExited
+        panelCerrarSesion.setBackground(new Color(51, 51, 51));
+    }//GEN-LAST:event_panelCerrarSesionMouseExited
 
     public class SelectedListCellRenderer extends DefaultListCellRenderer {
 
@@ -1407,7 +1392,6 @@ public class VentanaMedico extends javax.swing.JFrame {
     }
 
     /**
-     *
      * Elementos inicializados automáticamente de la clase
      *
      */

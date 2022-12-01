@@ -83,27 +83,62 @@ public final class AccesoBD {
     }
 
     //////////////////////////////////////////////////historial//////////////////////////////////////////////////
-    public static List<HistorialPaciente> obtenerHistorialBD() { //select all
+//    public static List<HistorialPaciente> obtenerHistorialBD() { //select all
+//        abrirConexionBD();
+//        ArrayList<HistorialPaciente> historial = new ArrayList<>();
+//        try {
+//            String con;
+//            Statement s = conexionBD.createStatement();
+//
+//            con = "SELECT idHistorial,idPaciente,fechaAlta,idEnfermedad FROM enfermedades";
+//            ResultSet resultados = s.executeQuery(con);
+//            while (resultados.next()) {
+//                HistorialPaciente h = new HistorialPaciente();
+//                h.setIdHistorial(resultados.getInt("idHistorial"));
+//                h.setIdPaciente(resultados.getInt("idPaciente"));
+//                h.setFechaAlta(resultados.getDate("fechaAlta"));
+//                h.setIdEnfermedad(resultados.getInt("idEnfermedad"));
+//                historial.add(h);
+//            }
+//        } catch (Exception e) {
+//            System.out.println("error obteniendo historial");
+//        }
+//        return historial;
+//    }
+    //POR ACABAR
+    public static HistorialPaciente obtenerHistorialBD(String dni) { //select all
         abrirConexionBD();
-        ArrayList<HistorialPaciente> historial = new ArrayList<>();
+        HistorialPaciente h = new HistorialPaciente();
         try {
             String con;
             Statement s = conexionBD.createStatement();
+            /*
+            con = 
+            "SELECT p.apellidos, e.nombre, h.fechaAlta 
+            FROM pacientes p INNER JOIN historial h ON p.idPaciente = h.idPaciente
+            JOIN enfermedades e ON h.idEnfermedad = e.idEnfermedad
+            WHERE p.DNI = " + dniPaciente;
+             */
 
-            con = "SELECT idHistorial,idPaciente,fechaAlta,idEnfermedad FROM enfermedades";
+            con
+                    = "SELECT apellidos , nombre, fechaAlta"
+                    + "FROM pacientes p INNER JOIN historial h ON p.idPaciente = h.idPaciente"
+                    + "JOIN enfermedades e ON h.idEnfermedad = e.idEnfermedad"
+                    + "WHERE p.DNI = '" + dni + " '";
             ResultSet resultados = s.executeQuery(con);
+
+            h.setApellidosPaciente(resultados.getString("apellidos"));
+            System.out.println(resultados.getString("apellidos"));
+            h.setDniPaciente(resultados.getString("dni"));
+
             while (resultados.next()) {
-                HistorialPaciente h = new HistorialPaciente();
-                h.setIdHistorial(resultados.getInt("idHistorial"));
-                h.setIdPaciente(resultados.getInt("idPaciente"));
-                h.setFechaAlta(resultados.getDate("fechaAlta"));
-                h.setIdEnfermedad(resultados.getInt("idEnfermedad"));
-                historial.add(h);
+                //Añadir par fecha enfermad al paciente
+                h.addParFechaEnfermedad(resultados.getDate("fechaAlta"), resultados.getString("nombre"));
             }
         } catch (Exception e) {
             System.out.println("error obteniendo historial");
         }
-        return historial;
+        return h;
     }
 
     //////////////////////////////////////////////////medicamentos//////////////////////////////////////////////////
@@ -130,20 +165,20 @@ public final class AccesoBD {
         }
         return medicamentos;
     }
-    
+
     //////////////////////////////////////////////////medicamentos//////////////////////////////////////////////////
     //Te devuelve una lista con los medicamentos del paciente pasado como argumento.
-    public static List<String> obtenerMedicamentosPacienteBD(String idPaciente) { 
+    public static List<String> obtenerMedicamentosPacienteBD(String idPaciente) {
         abrirConexionBD();
         ArrayList<String> medicamentos = new ArrayList<>();
         try {
             String con;
             Statement s = conexionBD.createStatement();
 
-            con = "SELECT mm.nombre FROM enfermedadespaciente ep " +
-                  "INNER JOIN tratamientos tt ON ep.idEnfermedad = tt.idEnfermedad " +
-                  "INNER JOIN medicamentos mm ON mm.idMedicamento = tt.idMedicamento " +
-                  "WHERE ep.idPaciente = " + idPaciente;
+            con = "SELECT mm.nombre FROM enfermedadespaciente ep "
+                    + "INNER JOIN tratamientos tt ON ep.idEnfermedad = tt.idEnfermedad "
+                    + "INNER JOIN medicamentos mm ON mm.idMedicamento = tt.idMedicamento "
+                    + "WHERE ep.idPaciente = " + idPaciente;
             ResultSet resultados = s.executeQuery(con);
             while (resultados.next()) {
                 medicamentos.add(resultados.getString("nombre"));
@@ -227,18 +262,18 @@ public final class AccesoBD {
         }
         return trabajadores;
     }
-    
+
     //////////////////////////////////////////////////trabajadores//////////////////////////////////////////////////
     public static Trabajador loginTrabajador(String usuario, String contra) {
         abrirConexionBD();
         Trabajador t = new Trabajador();
-        
+
         try {
             Statement s = conexionBD.createStatement();
             String con = "SELECT idTrabajador,medico,usuario,contra FROM trabajadores WHERE usuario='" + usuario + "' AND contra ='" + contra + "'";
-            
+
             ResultSet resultados = s.executeQuery(con);
-            
+
             resultados.next();
             t.setIdTrabajador(resultados.getInt("idTrabajador"));
             t.setEsMedico(resultados.getBoolean("medico"));

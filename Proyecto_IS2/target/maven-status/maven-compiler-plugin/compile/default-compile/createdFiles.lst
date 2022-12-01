@@ -41,7 +41,6 @@ es\uv\vista\VentanaEnfermera$9.class
 es\uv\controlador\Factoria.class
 es\uv\vista\VM_AddHistorialPaciente$3.class
 es\uv\vista\VentanaMedico$15.class
-es\uv\vista\VentanaMedico$25.class
 es\uv\vista\VentanaMedico$4.class
 es\uv\main\ProyectoIS2.class
 es\uv\vista\VentanaEnfermera.class
@@ -49,12 +48,14 @@ es\uv\vista\VentanaMedico$1.class
 es\uv\vista\VentanaMedico$12.class
 es\uv\vista\VentanaMedico$22.class
 es\uv\modelo\Trabajador.class
+Test\testRaul.class
 es\uv\modelo\Enfermera.class
 es\uv\vista\Login$6.class
 es\uv\vista\Login$3.class
 es\uv\vista\VentanaEnfermera$3.class
 es\uv\vista\VentanaEnfermera$6.class
 es\uv\vista\Login.class
+.netbeans_automatic_build
 es\uv\modelo\Visita.class
 es\uv\vista\VentanaEnfermera$5.class
 es\uv\vista\VentanaMedico$14.class
