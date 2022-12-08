@@ -23,6 +23,8 @@ public class testRaul {
         Boolean res;
         res = AccesoBD.abrirConexionBD();
         assertTrue(res);
+        fail("el test falla");
+
     }
     
     @Test
@@ -38,7 +40,8 @@ public class testRaul {
         arrayRes = AccesoBD.obtenerEnfermedadesBD();
         
         //assertArrayEquals(arrayEjemplo, arrayRes); no entiendo por que no funciona
-        
+        fail("el test falla");
+
     }
     
     @Test
@@ -54,6 +57,8 @@ public class testRaul {
         
         assertEquals(resBien, tEjemploBien);
         assertEquals(resMal, tEjemploMal);
+        fail("el test falla");
+
     }
 
 }
