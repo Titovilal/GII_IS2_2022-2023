@@ -423,7 +423,7 @@ public class VentanaMedico extends javax.swing.JFrame {
         textBuscarDNI.setBackground(new java.awt.Color(71, 71, 71));
         textBuscarDNI.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         textBuscarDNI.setForeground(new java.awt.Color(204, 204, 204));
-        textBuscarDNI.setText("12345678A");
+        textBuscarDNI.setText("01234567A");
         textBuscarDNI.setToolTipText("");
         textBuscarDNI.setBorder(null);
 
@@ -1311,10 +1311,11 @@ public class VentanaMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_listPacientesDelDiaValueChanged
     /**
      * buttonBuscarEnfermedadActionPerdormed(ActionEvent)
-     * 
-     * Botón que lanza la secuencia de acciones por la cual se busca una enfermedad en concreto a partir de su id
-     * 
-     * @param evt 
+     *
+     * Botón que lanza la secuencia de acciones por la cual se busca una
+     * enfermedad en concreto a partir de su id
+     *
+     * @param evt
      */
     private void buttonBuscarEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedadActionPerformed
         MostrarEnfermedades(Integer.valueOf(textBuscarEnfermedad.getText()));
@@ -1325,38 +1326,39 @@ public class VentanaMedico extends javax.swing.JFrame {
         vAddHistorialPaciente.limpiar();
         vAddHistorialPaciente.setLocationRelativeTo(this);
         vAddHistorialPaciente.setVisible(true);
-
+        vAddHistorialPaciente.setTextDNI(textBuscarDNI.getText());
     }//GEN-LAST:event_buttonAddHistorialMousePressed
 
+    /**
+     * buttonBuscarDNIActionPerformed(java.awt.event.ActionEvent evt)
+     *
+     * @param evt
+     */
     private void buttonBuscarDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarDNIActionPerformed
-        //Prueba primera historia Práctica 2 
+
         HistorialPaciente p = AccesoBD.obtenerHistorialBD(textBuscarDNI.getText());
-        if (textBuscarDNI.getText().equals("12345678A")) {
+        labelNombrePaciente.setText(p.apellidosPaciente + " (" + p.dniPaciente + ")");
+
+        if (!p.getParesFechaEnfermedad().isEmpty()) {
             DefaultListModel listModelActividades = new DefaultListModel();
-            labelNombrePaciente.setText("Paco Antonio Vallecas (12345678A)");
-            listModelActividades.addElement("21/12/21 - coronavirus");
-            if (!addA.isEmpty()) {
-                for (int i = 0; i < addA.size(); i++) {
-                    listModelActividades.addElement(addA.get(i));
-                    System.out.println(addA.get(i));
-                }
+            for (int i = 0; i < p.getParesFechaEnfermedad().size(); i++) {
+
+                listModelActividades.addElement(
+                        p.getParesFechaEnfermedad().get(i).fecha.toString()
+                        + " - "
+                        + p.getParesFechaEnfermedad().get(i).enfermedad);
             }
             listFechaEnfermedad.setModel(listModelActividades);
-        }
-        if (textBuscarDNI.getText().equals("12345678B")) {
-            DefaultListModel listModelActividades = new DefaultListModel();
-            listModelActividades.addElement("21/12/21 - VIRUELA DEL MONO");
-            listFechaEnfermedad.setModel(listModelActividades);
-            labelNombrePaciente.setText("VICENTE ANDRES ESTELLES (12345678B)");
         }
     }//GEN-LAST:event_buttonBuscarDNIActionPerformed
 
     /**
      * buttonBuscarMedicamentoActionPerdormed(ActionEvent)
-     * 
-     * Lanza la secuencia de acciones por la cual se busca un medicamento en concreto a partir de su id
-     * 
-     * @param evt 
+     *
+     * Lanza la secuencia de acciones por la cual se busca un medicamento en
+     * concreto a partir de su id
+     *
+     * @param evt
      */
     private void buttonBuscarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarMedicamentoActionPerformed
 

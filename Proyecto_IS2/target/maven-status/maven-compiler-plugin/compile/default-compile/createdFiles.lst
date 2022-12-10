@@ -4,6 +4,7 @@ es\uv\vista\VentanaEnfermera$10.class
 es\uv\vista\VentanaMedico$9.class
 es\uv\controlador\Controlador.class
 es\uv\vista\VentanaMedico$VentanasInternasListener.class
+es\uv\modelo\HistorialPaciente$ParFechaEnfermedad.class
 es\uv\vista\VentanaMedico$10.class
 es\uv\vista\VentanaMedico$20.class
 es\uv\modelo\Medicamento.class
@@ -55,7 +56,6 @@ es\uv\vista\Login$3.class
 es\uv\vista\VentanaEnfermera$3.class
 es\uv\vista\VentanaEnfermera$6.class
 es\uv\vista\Login.class
-.netbeans_automatic_build
 es\uv\modelo\Visita.class
 es\uv\vista\VentanaEnfermera$5.class
 es\uv\vista\VentanaMedico$14.class
@@ -63,6 +63,7 @@ es\uv\vista\VentanaMedico$5.class
 es\uv\vista\VentanaMedico$8.class
 es\uv\modelo\Enfermedad.class
 es\uv\vista\VentanaMedico$NombrePacienteCellRenderer.class
+es\uv\vista\VM_AddHistorialPaciente$7.class
 es\uv\vista\VM_AddHistorialPaciente$4.class
 es\uv\vista\Login$7.class
 es\uv\vista\VentanaEnfermera$13.class

@@ -4,9 +4,19 @@
  */
 package es.uv.vista;
 
+import es.uv.modelo.AccesoBD;
 import es.uv.vista.*;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 /**
@@ -19,8 +29,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
      * Creates new form VM_AddHistorialPaciente
      */
     private int x, y, xMouse, yMouse;
-    
- 
+
     public VM_AddHistorialPaciente() {
         initComponents();
         buttonAceptar.setActionCommand("addHistorial");
@@ -28,6 +37,10 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
 
     public void setActionListener(ActionListener al) {
         buttonAceptar.addActionListener(al);
+    }
+
+    public void setTextDNI(String str) {
+        textDNI.setText(str);
     }
 
     public void limpiar() {
@@ -197,6 +210,11 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
                 buttonAceptarMousePressed(evt);
             }
         });
+        buttonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAceptarActionPerformed(evt);
+            }
+        });
 
         buttonCancelar.setBackground(new java.awt.Color(71, 71, 71));
         buttonCancelar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -212,7 +230,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
 
         labelHabitacionDelPaciente1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         labelHabitacionDelPaciente1.setForeground(new java.awt.Color(204, 204, 204));
-        labelHabitacionDelPaciente1.setText("Fecha (dd/mm/aaaa)");
+        labelHabitacionDelPaciente1.setText("Fecha (aaaa-mm-dd)");
         labelHabitacionDelPaciente1.setPreferredSize(new java.awt.Dimension(420, 20));
 
         textFecha.setBackground(new java.awt.Color(71, 71, 71));
@@ -346,6 +364,11 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     private void buttonCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCancelarMousePressed
         this.setVisible(false);
     }//GEN-LAST:event_buttonCancelarMousePressed
+
+    private void buttonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAceptarActionPerformed
+
+        AccesoBD.addHistorialPacienteBD(textDNI.getText(), textFecha.getText(), textEnfermedad.getText());
+    }//GEN-LAST:event_buttonAceptarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,16 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package es.uv.modelo;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-/**
- *
- * @author raul
- */
 public final class AccesoBD {
 
     private static AccesoBD instanciaUnica = null;
@@ -83,65 +80,76 @@ public final class AccesoBD {
     }
 
     //////////////////////////////////////////////////historial//////////////////////////////////////////////////
-//    public static List<HistorialPaciente> obtenerHistorialBD() { //select all
-//        abrirConexionBD();
-//        ArrayList<HistorialPaciente> historial = new ArrayList<>();
-//        try {
-//            String con;
-//            Statement s = conexionBD.createStatement();
-//
-//            con = "SELECT idHistorial,idPaciente,fechaAlta,idEnfermedad FROM enfermedades";
-//            ResultSet resultados = s.executeQuery(con);
-//            while (resultados.next()) {
-//                HistorialPaciente h = new HistorialPaciente();
-//                h.setIdHistorial(resultados.getInt("idHistorial"));
-//                h.setIdPaciente(resultados.getInt("idPaciente"));
-//                h.setFechaAlta(resultados.getDate("fechaAlta"));
-//                h.setIdEnfermedad(resultados.getInt("idEnfermedad"));
-//                historial.add(h);
-//            }
-//        } catch (Exception e) {
-//            System.out.println("error obteniendo historial");
-//        }
-//        return historial;
-//    }
-    //POR ACABAR
-    public static HistorialPaciente obtenerHistorialBD(String dni) { //select all
+    /**
+     * HistorialPaciente obtenerHistorialBD(String dni)
+     *
+     * SELECT p.apellidos, e.nombre, h.fechaAlta FROM pacientes INNER JOIN
+     * historial ON pacientes.idPaciente = historial.idPaciente JOIN
+     * enfermedades ON historial.idEnfermedad = enfermedades.idEnfermedad WHERE
+     * pacientes.DNI = dni;
+     *
+     * @param dni Cadena a buscar en la BBDD
+     * @return Historial del paciente con el dni correspondente
+     */
+    public static HistorialPaciente obtenerHistorialBD(String dni) {
         abrirConexionBD();
         HistorialPaciente h = new HistorialPaciente();
+        boolean primeraEscritura = true;
         try {
             String con;
             Statement s = conexionBD.createStatement();
-            /*
-            con = 
-            "SELECT p.apellidos, e.nombre, h.fechaAlta 
-            FROM pacientes p INNER JOIN historial h ON p.idPaciente = h.idPaciente
-            JOIN enfermedades e ON h.idEnfermedad = e.idEnfermedad
-            WHERE p.DNI = " + dniPaciente;
-             */
-
             con
-                    = "SELECT apellidos , nombre, fechaAlta"
-                    + "FROM pacientes p INNER JOIN historial h ON p.idPaciente = h.idPaciente"
-                    + "JOIN enfermedades e ON h.idEnfermedad = e.idEnfermedad"
-                    + "WHERE p.DNI = '" + dni + " '";
+                    = "SELECT DNI, apellidos, nombre, fechaAlta"
+                    + " FROM pacientes p INNER JOIN historial h ON p.idPaciente = h.idPaciente"
+                    + " INNER JOIN enfermedades e ON h.idEnfermedad = e.idEnfermedad"
+                    + " WHERE p.DNI = '" + dni + "'";
             ResultSet resultados = s.executeQuery(con);
 
-            h.setApellidosPaciente(resultados.getString("apellidos"));
-            System.out.println(resultados.getString("apellidos"));
-            h.setDniPaciente(resultados.getString("dni"));
-
             while (resultados.next()) {
-                //Añadir par fecha enfermad al paciente
+                if (primeraEscritura) {
+                    h.setDniPaciente(resultados.getString("DNI"));
+                    h.setApellidosPaciente(resultados.getString("apellidos"));
+                    primeraEscritura = false;
+                }
                 h.addParFechaEnfermedad(resultados.getDate("fechaAlta"), resultados.getString("nombre"));
             }
         } catch (Exception e) {
-            System.out.println("error obteniendo historial");
+            System.out.println("Error obteniendo historial:");
+            System.out.println(e);
         }
         return h;
     }
 
-    //////////////////////////////////////////////////medicamentos//////////////////////////////////////////////////
+    /**
+     * addHistorialPacienteBD(String dni, Date fecha, String enfermedad)
+     *
+     * @param dni
+     * @param fecha
+     * @param enfermedad
+     * @return
+     */
+    public static boolean addHistorialPacienteBD(String dni, String fecha, String enfermedad) {
+        abrirConexionBD();
+
+        boolean ok = true;
+        try {
+            Statement s = conexionBD.createStatement();
+            String con;
+            System.out.println(fecha);
+            con = "INSERT INTO historial( idPaciente, fechaAlta, idEnfermedad) VALUES("
+                    + "(SELECT idPaciente FROM pacientes p WHERE p.DNI = '" + dni + "'), "
+                    + "DATE '" + fecha + "', "
+                    + "(SELECT idEnfermedad FROM enfermedades e WHERE e.nombre = '" + enfermedad + "'))";
+            s.executeUpdate(con);
+        } catch (Exception e) {
+            System.out.println("Error añadiendo historial:");
+            System.out.println(e);
+            ok = false;
+        }
+        return ok;
+    }
+
+//////////////////////////////////////////////////medicamentos//////////////////////////////////////////////////
     public static List<Medicamento> obtenerMedicamentosBD() { //select all
         abrirConexionBD();
         ArrayList<Medicamento> medicamentos = new ArrayList<>();

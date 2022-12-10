@@ -289,6 +289,7 @@
           </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonAceptarMousePressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAceptarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonCancelar">
@@ -318,7 +319,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Fecha (dd/mm/aaaa)"/>
+            <Property name="text" type="java.lang.String" value="Fecha (aaaa-mm-dd)"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[420, 20]"/>
             </Property>

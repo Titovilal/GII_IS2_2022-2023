@@ -1,7 +1,5 @@
 package es.uv.modelo;
 
-//import com.mysql.cj.conf.ConnectionUrlParser.Pair;
-//import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,7 +10,7 @@ public class HistorialPaciente {
      *
      * Clase empotrada para almacenar un par de variables tipo Date y String
      */
-    class ParFechaEnfermedad {
+    public class ParFechaEnfermedad {
 
         public Date fecha;
         public String enfermedad;
@@ -30,10 +28,16 @@ public class HistorialPaciente {
     public String dniPaciente;
     //Variables de la tabla historialPaciente
     private int idHistorial, idPaciente;
-    private Date fechaAlta;
     private ArrayList<ParFechaEnfermedad> paresFechaEnfermedad;
 
     public HistorialPaciente() {
+        paresFechaEnfermedad = new ArrayList<>();
+    }
+
+    public HistorialPaciente(int idHistorial, int idPaciente, Date fechaAlta, ArrayList<ParFechaEnfermedad> paresFechaEnfermedad) {
+        this.idHistorial = idHistorial;
+        this.idPaciente = idPaciente;
+        this.paresFechaEnfermedad = paresFechaEnfermedad;
     }
 
     public String getApellidosPaciente() {
@@ -52,13 +56,6 @@ public class HistorialPaciente {
         this.dniPaciente = dniPaciente;
     }
 
-    public HistorialPaciente(int idHistorial, int idPaciente, Date fechaAlta, ArrayList<ParFechaEnfermedad> paresFechaEnfermedad) {
-        this.idHistorial = idHistorial;
-        this.idPaciente = idPaciente;
-        this.fechaAlta = fechaAlta;
-        this.paresFechaEnfermedad = paresFechaEnfermedad;
-    }
-
     public ArrayList<ParFechaEnfermedad> getParesFechaEnfermedad() {
         return paresFechaEnfermedad;
     }
@@ -66,16 +63,9 @@ public class HistorialPaciente {
     public void setParesFechaEnfermedad(ArrayList<ParFechaEnfermedad> paresFechaEnfermedad) {
         this.paresFechaEnfermedad = paresFechaEnfermedad;
     }
-    
-    public void addParFechaEnfermedad (Date fecha, String enfermedad){
-        paresFechaEnfermedad.add(new ParFechaEnfermedad(fecha, enfermedad));
-    }
-    public Date getFechaAlta() {
-        return fechaAlta;
-    }
 
-    public void setFechaAlta(Date fechaAlta) {
-        this.fechaAlta = fechaAlta;
+    public void addParFechaEnfermedad(Date fecha, String enfermedad) {
+        paresFechaEnfermedad.add(new ParFechaEnfermedad(fecha, enfermedad));
     }
 
     public int getIdHistorial() {
@@ -93,5 +83,4 @@ public class HistorialPaciente {
     public void setIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
     }
-
 }
