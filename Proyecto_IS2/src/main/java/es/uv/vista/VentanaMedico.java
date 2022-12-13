@@ -423,9 +423,13 @@ public class VentanaMedico extends javax.swing.JFrame {
         textBuscarDNI.setBackground(new java.awt.Color(71, 71, 71));
         textBuscarDNI.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         textBuscarDNI.setForeground(new java.awt.Color(204, 204, 204));
-        textBuscarDNI.setText("01234567A");
         textBuscarDNI.setToolTipText("");
         textBuscarDNI.setBorder(null);
+        textBuscarDNI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textBuscarDNIKeyPressed(evt);
+            }
+        });
 
         buttonBuscarDNI.setBackground(new java.awt.Color(71, 71, 71));
         buttonBuscarDNI.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -473,11 +477,6 @@ public class VentanaMedico extends javax.swing.JFrame {
         listFechaEnfermedad.setBackground(new java.awt.Color(71, 71, 71));
         listFechaEnfermedad.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         listFechaEnfermedad.setForeground(new java.awt.Color(204, 204, 204));
-        listFechaEnfermedad.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "12345678901234567890123456789012", "Item 2", "Item 3", "Item 4", "Item 5", "no hay " };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         listFechaEnfermedad.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 listFechaEnfermedadValueChanged(evt);
@@ -488,7 +487,7 @@ public class VentanaMedico extends javax.swing.JFrame {
         labelNombrePaciente.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         labelNombrePaciente.setForeground(new java.awt.Color(204, 204, 204));
         labelNombrePaciente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNombrePaciente.setText("paco antonio (1245678A)");
+        labelNombrePaciente.setText("Apellidos (DNI)");
         labelNombrePaciente.setPreferredSize(new java.awt.Dimension(420, 20));
 
         javax.swing.GroupLayout panelBaseHistorialPacientesLayout = new javax.swing.GroupLayout(panelBaseHistorialPacientes);
@@ -1295,6 +1294,8 @@ public class VentanaMedico extends javax.swing.JFrame {
 
     private void buttonBorrarDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBorrarDNIMousePressed
         textBuscarDNI.setText("");
+        labelNombrePaciente.setText("Apellidos(DNI)");
+        listFechaEnfermedad.setModel(new DefaultListModel());
     }//GEN-LAST:event_buttonBorrarDNIMousePressed
 
     private void listFechaEnfermedadValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listFechaEnfermedadValueChanged
@@ -1335,20 +1336,27 @@ public class VentanaMedico extends javax.swing.JFrame {
      * @param evt
      */
     private void buttonBuscarDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarDNIActionPerformed
-
         HistorialPaciente p = AccesoBD.obtenerHistorialBD(textBuscarDNI.getText());
-        labelNombrePaciente.setText(p.apellidosPaciente + " (" + p.dniPaciente + ")");
+        System.out.println(p.getApellidosPaciente());
+        if (p.getApellidosPaciente() == null) {
+            labelNombrePaciente.setText("Ingresa un DNI válido para ver y añadir historial al paciente");
+            labelNombrePaciente.setForeground(Color.RED);
+            
+        } else {
 
-        if (!p.getParesFechaEnfermedad().isEmpty()) {
-            DefaultListModel listModelActividades = new DefaultListModel();
-            for (int i = 0; i < p.getParesFechaEnfermedad().size(); i++) {
+            labelNombrePaciente.setText(p.getApellidosPaciente() + " (" + p.getDniPaciente() + ")");
+            labelNombrePaciente.setForeground(new Color(204,204,204));
+            if (!p.getParesFechaEnfermedad().isEmpty()) {
+                DefaultListModel listModelActividades = new DefaultListModel();
+                for (int i = 0; i < p.getParesFechaEnfermedad().size(); i++) {
 
-                listModelActividades.addElement(
-                        p.getParesFechaEnfermedad().get(i).fecha.toString()
-                        + " - "
-                        + p.getParesFechaEnfermedad().get(i).enfermedad);
+                    listModelActividades.addElement(
+                            p.getParesFechaEnfermedad().get(i).fecha.toString()
+                            + " - "
+                            + p.getParesFechaEnfermedad().get(i).enfermedad);
+                }
+                listFechaEnfermedad.setModel(listModelActividades);
             }
-            listFechaEnfermedad.setModel(listModelActividades);
         }
     }//GEN-LAST:event_buttonBuscarDNIActionPerformed
 
@@ -1378,6 +1386,12 @@ public class VentanaMedico extends javax.swing.JFrame {
     private void panelCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseExited
         panelCerrarSesion.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_panelCerrarSesionMouseExited
+
+    private void textBuscarDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBuscarDNIKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            buttonBuscarDNI.doClick();
+        }
+    }//GEN-LAST:event_textBuscarDNIKeyPressed
 
     public class SelectedListCellRenderer extends DefaultListCellRenderer {
 

@@ -23,9 +23,9 @@ public class HistorialPaciente {
             this.enfermedad = enfermedad;
         }
     }
-    //Variables fuera de la tabla historialPaciente para hacer consultas
-    public String apellidosPaciente;
-    public String dniPaciente;
+    //Variables fuera de la tabla historialPaciente para hacer consultas    // ¿Se podría poner en public?
+    private String apellidosPaciente; 
+    private String dniPaciente;
     //Variables de la tabla historialPaciente
     private int idHistorial, idPaciente;
     private ArrayList<ParFechaEnfermedad> paresFechaEnfermedad;

@@ -47,6 +47,12 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         textDNI.setText("");
         textEnfermedad.setText("");
         textFecha.setText("");
+        labelError.setForeground(new Color(61, 61, 61));
+    }
+
+    public void throwError(String str) {
+        labelError.setForeground(Color.RED);
+        labelError.setText(str);
     }
 
     public String getDNI() {
@@ -85,6 +91,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         labelEnfermedad = new javax.swing.JLabel();
         textEnfermedad = new javax.swing.JTextField();
         labelTitulo = new javax.swing.JLabel();
+        labelError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -193,6 +200,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         labelHabitacionDelPaciente.setText("DNI");
         labelHabitacionDelPaciente.setPreferredSize(new java.awt.Dimension(420, 20));
 
+        textDNI.setEditable(false);
         textDNI.setBackground(new java.awt.Color(71, 71, 71));
         textDNI.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         textDNI.setForeground(new java.awt.Color(204, 204, 204));
@@ -256,6 +264,12 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
         labelTitulo.setText("Añadir Historial Paciente");
         labelTitulo.setPreferredSize(new java.awt.Dimension(420, 20));
 
+        labelError.setFont(new java.awt.Font("Gadugi", 0, 12)); // NOI18N
+        labelError.setForeground(new java.awt.Color(255, 0, 0));
+        labelError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelError.setText("Label Error (Hidden until hit)");
+        labelError.setToolTipText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -268,27 +282,28 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
                         .addComponent(buttonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(labelEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelHabitacionDelPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(labelHabitacionDelPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelHabitacionDelPaciente1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(labelTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                    .addComponent(labelError, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(panelBarraSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHabitacionDelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -304,7 +319,9 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAceptar)
                     .addComponent(buttonCancelar))
-                .addGap(48, 48, 48))
+                .addGap(18, 18, 18)
+                .addComponent(labelError)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -357,8 +374,12 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_panelBarraSuperiorMousePressed
 
     private void buttonAceptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAceptarMousePressed
-        buttonAceptar.doClick();
-        this.setVisible(false);
+        if (textDNI.getText().isBlank() || textEnfermedad.getText().isBlank() || textFecha.getText().isBlank()) {
+            throwError("Rellena todos los campos para añadir historial");
+        } else {
+            buttonAceptar.doClick();
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_buttonAceptarMousePressed
 
     private void buttonCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCancelarMousePressed
@@ -378,6 +399,7 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelEnfermedad;
+    private javax.swing.JLabel labelError;
     private javax.swing.JLabel labelHabitacionDelPaciente;
     private javax.swing.JLabel labelHabitacionDelPaciente1;
     private javax.swing.JLabel labelTitulo;
