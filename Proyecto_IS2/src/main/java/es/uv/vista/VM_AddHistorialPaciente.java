@@ -1,33 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package es.uv.vista;
 
 import es.uv.modelo.AccesoBD;
-import es.uv.vista.*;
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JTextField;
 
-/**
- *
- * @author scast
- */
 public class VM_AddHistorialPaciente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VM_AddHistorialPaciente
-     */
     private int x, y, xMouse, yMouse;
 
     public VM_AddHistorialPaciente() {

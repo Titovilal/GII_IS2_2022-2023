@@ -4,6 +4,9 @@
  */
 package Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
 /**
  *
  * @author scast
@@ -16,7 +19,16 @@ public class testSalva {
      * Que no sea formato dni
      * Que no hayas escrito nada
      */
-    
+    @Test
+    void sumaTest() {
+
+        Integer resultadoEsperado = 7;
+        Integer a = 3;
+        Integer b = 4;
+
+        Integer resultado = a + b;
+        assertEquals(resultado, resultadoEsperado);
+    }
     /**
      * Lista de test en añadir paciente
      * 
