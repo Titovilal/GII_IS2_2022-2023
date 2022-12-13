@@ -148,6 +148,7 @@ public class AccesoBDTest {
         System.out.println("obtenerMedicamentosBD");
         List<Medicamento> expResult = null;
         List<Medicamento> result = AccesoBD.obtenerMedicamentosBD();
+        
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -161,10 +162,14 @@ public class AccesoBDTest {
         System.out.println("obtenerMedicamentosPacienteBD");
         String idPaciente = "";
         List<String> expResult = null;
-        List<String> result = AccesoBD.obtenerMedicamentosPacienteBD(idPaciente);
+        List<String> result = AccesoBD.obtenerMedicamentosPacienteBD("1");
+        
+        String s1 = "Frenador";
+        expResult.add(s1);
+        
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("PAcooo2");
     }
 
     /**
@@ -186,11 +191,17 @@ public class AccesoBDTest {
     @Test
     public void testObtenerPacientesDelDiaBD() {
         System.out.println("obtenerPacientesDelDiaBD");
-        List<Paciente> expResult = null;
         List<Paciente> result = AccesoBD.obtenerPacientesDelDiaBD();
+        List<Paciente> expResult = null;
+        
+        Paciente p1 = new Paciente(1, 101, "20202020A", "Lopez Guijarro", "Dolor de cabeza");
+        Paciente p2 = new Paciente(2, 102, "20202020B", "Agüero Penales", "Fiebre");
+        expResult.add(p1);
+        expResult.add(p2);
+        
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("PAcooooooooo");
     }
 
     /**
