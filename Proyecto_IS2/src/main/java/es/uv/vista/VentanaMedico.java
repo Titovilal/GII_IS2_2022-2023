@@ -34,11 +34,9 @@ public class VentanaMedico extends javax.swing.JFrame {
     private int x, xMouse, yMouse, y;
 
     //Ventana interna
-    private VM_AddHistorialPaciente vAddHistorialPaciente;
-    boolean lastQueryCorrect = false;
-
-    //Variables necesarias para que la ventana funcione sin BBDD
-    private ArrayList<String> addA;
+    private VM_AddHistorialPaciente frameAddHistorial;
+    boolean lastCorrectQuery = false;
+    private HistorialPaciente ultimoHistorial;
 
     /**
      * VentanaMedico()
@@ -48,23 +46,8 @@ public class VentanaMedico extends javax.swing.JFrame {
      *
      */
     public VentanaMedico() {
-        //Iniciar ventanas
-        initComponents();
-        vAddHistorialPaciente = new VM_AddHistorialPaciente();
-
-        //Establecer configuracion de ventana
-        panelBase.setLayout(new BorderLayout());
-        panelBase.add(panelPacientesDelDia);
-        this.setLocationRelativeTo(null);
-
-        //Establecer renderizados de celda
-        listBuscarEnfermedades.setCellRenderer(new SelectedListCellRenderer());
-        listMedicamentos.setCellRenderer(new SelectedListCellRenderer());
-        listPacientesDelDia.setCellRenderer(new SelectedListCellRenderer());
-        vAddHistorialPaciente.setActionListener(new VentanasInternasListener());
-
-        //Pruebas
-        addA = new ArrayList<>();
+        //Inicializar la configuracion de la ventana
+        initFrameConfig();
 
         //Actualiza la fecha del panel Pacientes del dia
         Date date = new Date();
@@ -75,17 +58,51 @@ public class VentanaMedico extends javax.swing.JFrame {
         updateListPacientesDelDia();
     }
 
+    public void initFrameConfig() {
+
+        //Inicializar los componentes
+        initComponents();
+        frameAddHistorial = new VM_AddHistorialPaciente();
+
+        //Establecer configuracion de ventana
+        panelBase.setLayout(new BorderLayout());
+        panelBase.add(panelPacientesDelDia);
+        this.setLocationRelativeTo(null);
+
+        //Establecer renderizados de celda
+        listBuscarEnfermedades.setCellRenderer(new SelectedListCellRenderer());
+        listMedicamentos.setCellRenderer(new SelectedListCellRenderer());
+        listPacientesDelDia.setCellRenderer(new SelectedListCellRenderer());
+        frameAddHistorial.setActionListener(new VentanasInternasListener());
+    }
+
     class VentanasInternasListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
+            if (ae.getActionCommand().equals("addHistorial")) {
 
-            String command = ae.getActionCommand();
-            if (command.equals("addHistorial")) {
-                System.out.println("El actionListener funciona");
-                addA.add(vAddHistorialPaciente.getFecha()
-                        + " - " + vAddHistorialPaciente.getEnfermedad());
-                buttonBuscarDNI.doClick();
+                if (frameAddHistorial.getDNI().isBlank() || frameAddHistorial.getFecha().isBlank()
+                        || frameAddHistorial.getEnfermedad().isBlank()) {
+                    //Si los campos estan en blanco, lanzar error
+                    frameAddHistorial.throwError("Rellena todos los campos para añadir historial");
+                } else {
+                    //Si no estan en blanco, realizar sentencia
+                    boolean ok;
+                    ok = AccesoBD.addHistorialPacienteBD(
+                            frameAddHistorial.getDNI(),
+                            frameAddHistorial.getFecha(),
+                            frameAddHistorial.getEnfermedad());
+                    if (ok) {
+                        //Si se ha completado la sentencia, actualizar la  interfaz
+                        frameAddHistorial.setVisible(false);
+                        textBuscarDNI.setText(frameAddHistorial.getDNI());
+                        buttonBuscarDNI.doClick();
+                    } else {
+                        //Si no se ha compledao, lanzar error
+                        frameAddHistorial.throwError("Rellena los campos con datos válidos");
+                    }
+                }
             }
         }
     }
@@ -496,11 +513,14 @@ public class VentanaMedico extends javax.swing.JFrame {
         panelBaseHistorialPacientesLayout.setHorizontalGroup(
             panelBaseHistorialPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBaseHistorialPacientesLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(panelBaseHistorialPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(scrollFechaEnfermedad)
-                    .addComponent(labelNombrePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE))
-                .addGap(24, 24, 24))
+                .addGroup(panelBaseHistorialPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBaseHistorialPacientesLayout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(scrollFechaEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBaseHistorialPacientesLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(labelNombrePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 846, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         panelBaseHistorialPacientesLayout.setVerticalGroup(
             panelBaseHistorialPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1294,11 +1314,11 @@ public class VentanaMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_listMedicamentosValueChanged
 
     private void buttonBorrarDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBorrarDNIMousePressed
-        lastQueryCorrect = false;
+        lastCorrectQuery = false;
         textBuscarDNI.setText("");
         labelNombrePaciente.setForeground(new Color(204, 204, 204));
         labelNombrePaciente.setText("Apellidos(DNI)");
-        listFechaEnfermedad.setModel(new DefaultListModel());
+        ((DefaultListModel) listFechaEnfermedad.getModel()).removeAllElements();
     }//GEN-LAST:event_buttonBorrarDNIMousePressed
 
     private void listFechaEnfermedadValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listFechaEnfermedadValueChanged
@@ -1327,11 +1347,11 @@ public class VentanaMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonBuscarEnfermedadActionPerformed
 
     private void buttonAddHistorialMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAddHistorialMousePressed
-        if (lastQueryCorrect) {
-            vAddHistorialPaciente.limpiar();
-            vAddHistorialPaciente.setLocationRelativeTo(this);
-            vAddHistorialPaciente.setVisible(true);
-            vAddHistorialPaciente.setTextDNI(textBuscarDNI.getText());
+        if (lastCorrectQuery) {
+            frameAddHistorial.limpiar();
+            frameAddHistorial.setLocationRelativeTo(this);
+            frameAddHistorial.setVisible(true);
+            frameAddHistorial.setTextDNI(textBuscarDNI.getText());
         } else {
             labelNombrePaciente.setText("Ingresa un DNI válido para ver y añadir historial al paciente");
             labelNombrePaciente.setForeground(Color.RED);
@@ -1344,24 +1364,24 @@ public class VentanaMedico extends javax.swing.JFrame {
      * @param evt
      */
     private void buttonBuscarDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarDNIActionPerformed
-        HistorialPaciente p = AccesoBD.obtenerHistorialBD(textBuscarDNI.getText());
-        System.out.println(p.getApellidosPaciente());
-        if (p.getApellidosPaciente() == null) {
-            lastQueryCorrect = false;
+        ultimoHistorial = AccesoBD.obtenerHistorialBD(textBuscarDNI.getText());
+        if (ultimoHistorial.getApellidosPaciente() == null) {
+            lastCorrectQuery = false;
             labelNombrePaciente.setText("Ingresa un DNI válido para ver y añadir historial al paciente");
             labelNombrePaciente.setForeground(Color.RED);
+            ((DefaultListModel) listFechaEnfermedad.getModel()).removeAllElements();
         } else {
-            lastQueryCorrect = true;
-            labelNombrePaciente.setText(p.getApellidosPaciente() + " (" + p.getDniPaciente() + ")");
+            lastCorrectQuery = true;
+            labelNombrePaciente.setText(ultimoHistorial.getApellidosPaciente() + " (" + ultimoHistorial.getDniPaciente() + ")");
             labelNombrePaciente.setForeground(new Color(204, 204, 204));
-            if (!p.getParesFechaEnfermedad().isEmpty()) {
+            if (!ultimoHistorial.getParesFechaEnfermedad().isEmpty()) {
                 DefaultListModel listModelActividades = new DefaultListModel();
-                for (int i = 0; i < p.getParesFechaEnfermedad().size(); i++) {
+                for (int i = 0; i < ultimoHistorial.getParesFechaEnfermedad().size(); i++) {
 
                     listModelActividades.addElement(
-                            p.getParesFechaEnfermedad().get(i).fecha.toString()
+                            ultimoHistorial.getParesFechaEnfermedad().get(i).fecha.toString()
                             + " - "
-                            + p.getParesFechaEnfermedad().get(i).enfermedad);
+                            + ultimoHistorial.getParesFechaEnfermedad().get(i).enfermedad);
                 }
                 listFechaEnfermedad.setModel(listModelActividades);
             }

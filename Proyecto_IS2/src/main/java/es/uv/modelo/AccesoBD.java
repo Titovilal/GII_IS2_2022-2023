@@ -3,7 +3,10 @@ package es.uv.modelo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -102,10 +105,12 @@ public final class AccesoBD {
                     = "SELECT DNI, apellidos, nombre, fechaAlta"
                     + " FROM pacientes p INNER JOIN historial h ON p.idPaciente = h.idPaciente"
                     + " INNER JOIN enfermedades e ON h.idEnfermedad = e.idEnfermedad"
-                    + " WHERE p.DNI = '" + dni + "'";
+                    + " WHERE p.DNI = '" + dni + "'"
+                    + " ORDER BY fechaAlta ASC";
             ResultSet resultados = s.executeQuery(con);
 
             while (resultados.next()) {
+                //Si es la primera escritura, rellenar campos de solo un valor
                 if (primeraEscritura) {
                     h.setDniPaciente(resultados.getString("DNI"));
                     h.setApellidosPaciente(resultados.getString("apellidos"));
@@ -113,9 +118,8 @@ public final class AccesoBD {
                 }
                 h.addParFechaEnfermedad(resultados.getDate("fechaAlta"), resultados.getString("nombre"));
             }
-        } catch (Exception e) {
-            System.out.println("Error obteniendo historial:");
-            System.out.println(e);
+        } catch (SQLException e) {
+            System.out.println("Error obteniendo historial:\n" + e);
         }
         return h;
     }
@@ -129,24 +133,37 @@ public final class AccesoBD {
      * @return
      */
     public static boolean addHistorialPacienteBD(String dni, String fecha, String enfermedad) {
-        abrirConexionBD();
-
-        boolean ok = true;
         try {
-            Statement s = conexionBD.createStatement();
-            String con;
-            System.out.println(fecha);
-            con = "INSERT INTO historial( idPaciente, fechaAlta, idEnfermedad) VALUES("
-                    + "(SELECT idPaciente FROM pacientes p WHERE p.DNI = '" + dni + "'), "
-                    + "DATE '" + fecha + "', "
-                    + "(SELECT idEnfermedad FROM enfermedades e WHERE e.nombre = '" + enfermedad + "'))";
-            s.executeUpdate(con);
-        } catch (Exception e) {
-            System.out.println("Error añadiendo historial:");
-            System.out.println(e);
-            ok = false;
+            //Variables para comprobar la validez de la fecha
+            boolean ok;
+            Date fechaActual = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date fechaHistorial = formatter.parse(fecha);
+
+            //Se comprueba si la fecha es anterior a la actual
+            if (fechaHistorial.after(fechaActual)) {
+                ok = false;
+                //Si es correcta, entonces se ejecuta la sentencia
+            } else {
+                abrirConexionBD();
+                Statement s = conexionBD.createStatement();
+                String con;
+                con = "INSERT INTO historial( idPaciente, fechaAlta, idEnfermedad) VALUES("
+                        + "(SELECT idPaciente FROM pacientes p WHERE p.DNI = '" + dni + "'), "
+                        + "DATE '" + fecha + "', "
+                        + "(SELECT idEnfermedad FROM enfermedades e WHERE e.nombre = '" + enfermedad + "'))";
+
+                s.executeUpdate(con);
+                ok = true;
+            }
+            return ok;
+        } catch (SQLException e) {
+            System.out.println("Error añadiendo historial:\n" + e);
+            return false;
+        } catch (ParseException ex) {
+            System.out.println("Error añadiendo historial, la fecha no es valida:\n" + ex);
+            return false;
         }
-        return ok;
     }
 
 //////////////////////////////////////////////////medicamentos//////////////////////////////////////////////////

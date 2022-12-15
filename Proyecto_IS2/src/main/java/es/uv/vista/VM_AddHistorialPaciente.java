@@ -1,6 +1,5 @@
 package es.uv.vista;
 
-import es.uv.modelo.AccesoBD;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 
@@ -196,11 +195,6 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
                 buttonAceptarMousePressed(evt);
             }
         });
-        buttonAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAceptarActionPerformed(evt);
-            }
-        });
 
         buttonCancelar.setBackground(new java.awt.Color(71, 71, 71));
         buttonCancelar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -352,22 +346,12 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_panelBarraSuperiorMousePressed
 
     private void buttonAceptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAceptarMousePressed
-        if (textDNI.getText().isBlank() || textEnfermedad.getText().isBlank() || textFecha.getText().isBlank()) {
-            throwError("Rellena todos los campos para añadir historial");
-        } else {
-            buttonAceptar.doClick();
-            this.setVisible(false);
-        }
+        buttonAceptar.doClick();
     }//GEN-LAST:event_buttonAceptarMousePressed
 
     private void buttonCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCancelarMousePressed
         this.setVisible(false);
     }//GEN-LAST:event_buttonCancelarMousePressed
-
-    private void buttonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAceptarActionPerformed
-
-        AccesoBD.addHistorialPacienteBD(textDNI.getText(), textFecha.getText(), textEnfermedad.getText());
-    }//GEN-LAST:event_buttonAceptarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -293,7 +293,6 @@
           </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonAceptarMousePressed"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAceptarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonCancelar">
