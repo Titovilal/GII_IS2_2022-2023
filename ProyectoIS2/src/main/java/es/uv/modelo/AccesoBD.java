@@ -104,6 +104,7 @@ public final class AccesoBD {
                     + " ORDER BY fechaAlta ASC";
 
             ResultSet resultados = s.executeQuery(selectQuery);
+            
             return rellenarHistorialPaciente(resultados);
         } catch (SQLException ex) {
             Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, ex);
@@ -176,7 +177,7 @@ public final class AccesoBD {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date fechaHistorial = formatter.parse(fecha);
 
-        return !fechaHistorial.after(fechaActual);
+        return fechaHistorial.after(fechaActual);
     }
 
 //////////////////////////////////////////////////medicamentos//////////////////////////////////////////////////
