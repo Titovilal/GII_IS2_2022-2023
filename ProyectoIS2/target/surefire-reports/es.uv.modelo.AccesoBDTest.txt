@@ -1,0 +1,80 @@
+-------------------------------------------------------------------------------
+Test set: es.uv.modelo.AccesoBDTest
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 15, Errors: 4, Skipped: 0, Time elapsed: 0.66 s <<< FAILURE! - in es.uv.modelo.AccesoBDTest
+testAddHistorialPacienteTodoCorrectoBD  Time elapsed: 0.054 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at es.uv.modelo.AccesoBDTest.testAddHistorialPacienteTodoCorrectoBD(AccesoBDTest.java:62)
+
+testObtenerTrabajadoresBD  Time elapsed: 0.542 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <[es.uv.modelo.Trabajador@77128536, es.uv.modelo.Trabajador@58326051]>
+	at es.uv.modelo.AccesoBDTest.testObtenerTrabajadoresBD(AccesoBDTest.java:255)
+
+testObtenerPacientesBD  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <[de barranquilla]>
+	at es.uv.modelo.AccesoBDTest.testObtenerPacientesBD(AccesoBDTest.java:242)
+
+testAbrirConexionBD  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at es.uv.modelo.AccesoBDTest.testAbrirConexionBD(AccesoBDTest.java:177)
+
+testAddHistorialPacienteFechaPosteriorBD  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at es.uv.modelo.AccesoBDTest.testAddHistorialPacienteFechaPosteriorBD(AccesoBDTest.java:78)
+
+testObtenerPacientesDelDiaBD  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.add(Object)" because "expResult" is null
+	at es.uv.modelo.AccesoBDTest.testObtenerPacientesDelDiaBD(AccesoBDTest.java:142)
+
+testComprobarAcceso  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "es.uv.modelo.AccesoBD.comprobarAcceso()" because "instance" is null
+	at es.uv.modelo.AccesoBDTest.testComprobarAcceso(AccesoBDTest.java:189)
+
+testAddHistorialPacienteSinEnfermedadBD  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at es.uv.modelo.AccesoBDTest.testAddHistorialPacienteSinEnfermedadBD(AccesoBDTest.java:110)
+
+testObtenerEnfermedadesBD  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <[es.uv.modelo.Enfermedad@36328d33, es.uv.modelo.Enfermedad@2c4d1ac, es.uv.modelo.Enfermedad@7f0d96f2]>
+	at es.uv.modelo.AccesoBDTest.testObtenerEnfermedadesBD(AccesoBDTest.java:215)
+
+testCerrarConexionBD  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "es.uv.modelo.AccesoBD.cerrarConexionBD()" because "instance" is null
+	at es.uv.modelo.AccesoBDTest.testCerrarConexionBD(AccesoBDTest.java:202)
+
+testObtenerMedicamentosPacienteBD  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.add(Object)" because "expResult" is null
+	at es.uv.modelo.AccesoBDTest.testObtenerMedicamentosPacienteBD(AccesoBDTest.java:161)
+
+testObtenerVisitasBD  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <[]>
+	at es.uv.modelo.AccesoBDTest.testObtenerVisitasBD(AccesoBDTest.java:296)
+
+testObtenerMedicamentosBD  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <[]>
+	at es.uv.modelo.AccesoBDTest.testObtenerMedicamentosBD(AccesoBDTest.java:229)
+
+testAddHistorialPacienteFechaAnteriorBD  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at es.uv.modelo.AccesoBDTest.testAddHistorialPacienteFechaAnteriorBD(AccesoBDTest.java:94)
+
+testObtenerTratamientoBD  Time elapsed: 0.01 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <[]>
+	at es.uv.modelo.AccesoBDTest.testObtenerTratamientoBD(AccesoBDTest.java:283)
+
+testLoginTrabajador  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <es.uv.modelo.Trabajador@554e218>
+	at es.uv.modelo.AccesoBDTest.testLoginTrabajador(AccesoBDTest.java:270)
+
+testAddHistorialPacienteNoExisteEnfermedadBD  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at es.uv.modelo.AccesoBDTest.testAddHistorialPacienteNoExisteEnfermedadBD(AccesoBDTest.java:126)
+
+testObtenerHistorialBD  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <es.uv.modelo.HistorialPaciente@29ca3d04>
+	at es.uv.modelo.AccesoBDTest.testObtenerHistorialBD(AccesoBDTest.java:45)
+
+testGetInstance  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <es.uv.modelo.AccesoBD@b2c5e07>
+	at es.uv.modelo.AccesoBDTest.testGetInstance(AccesoBDTest.java:21)
+
