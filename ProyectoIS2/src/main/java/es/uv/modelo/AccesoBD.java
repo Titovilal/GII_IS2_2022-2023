@@ -65,9 +65,8 @@ public final class AccesoBD {
     public static List<Enfermedad> obtenerEnfermedadesBD() { //select all
         abrirConexionBD();
         ArrayList<Enfermedad> enfermedades = new ArrayList<>();
-        try {
+        try(Statement s = conexionBD.createStatement()) {
             String con;
-            Statement s = conexionBD.createStatement();
 
             con = "SELECT idEnfermedad,sintomas,contagiosa FROM enfermedades";
             ResultSet resultados = s.executeQuery(con);
@@ -93,9 +92,8 @@ public final class AccesoBD {
      * @return Historial del paciente con el dni correspondente
      */
     public static HistorialPaciente obtenerHistorialBD(String dni) {
-        try {
+        try(Statement s = conexionBD.createStatement()) {
             abrirConexionBD();
-            Statement s = conexionBD.createStatement();
             String selectQuery
                     = "SELECT DNI, apellidos, nombre, fechaAlta"
                     + " FROM pacientes p INNER JOIN historial h ON p.idPaciente = h.idPaciente"
@@ -144,12 +142,11 @@ public final class AccesoBD {
      * @return
      */
     public static boolean addHistorialPacienteBD(String dni, String fecha, String enfermedad) {
-        try {
+        try(Statement s = conexionBD.createStatement()) {
             if (esFechaFutura(fecha)) {
                 return false;
             } else {
                 abrirConexionBD();
-                Statement s = conexionBD.createStatement();
                 String updateQuery
                         = "INSERT INTO historial( idPaciente, fechaAlta, idEnfermedad) VALUES("
                         + "(SELECT idPaciente FROM pacientes p WHERE p.DNI = '" + dni + "'), "
