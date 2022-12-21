@@ -2,8 +2,12 @@ package es.uv.modelo;
 
 public class Medicamento {
 
-    private int idMedicamento, unidades;
-    private String nombre, alergias, efectosSecunadarios, dosis;
+    private int idMedicamento;
+    private int unidades;
+    private String nombre;
+    private String alergias;
+    private String efectosSecunadarios;
+    private String dosis;
 
     public Medicamento() {
     }
@@ -29,7 +33,7 @@ public class Medicamento {
         return nombre;
     }
 
-    public void setNombre(String alergias) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
     

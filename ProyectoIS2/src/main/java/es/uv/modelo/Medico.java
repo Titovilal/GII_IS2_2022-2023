@@ -14,7 +14,8 @@ package es.uv.modelo;
 public class Medico implements InterTrabajador {
 
     private int id;
-    private String usuario,contra;
+    private String usuario;
+    private String contra;
     private Boolean esMedico;
     
     

@@ -2,8 +2,11 @@ package es.uv.modelo;
 
 public class Paciente {
 
-    private int idPaciente, habitacion;
-    private String dni, apellidos, sintomas;
+    private int idPaciente;
+    private int habitacion;
+    private String dni;
+    private String apellidos;
+    private String sintomas;
 
     public Paciente() {
     }

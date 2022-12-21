@@ -11,7 +11,9 @@ import java.util.Date;
  * @author scast
  */
 public class Visita {
-    private int idVisita, idTrabajador, idPaciente;
+    private int idVisita;
+    private int idTrabajador;
+    private int idPaciente;
     private Date fecha;
 
     public Visita() {
