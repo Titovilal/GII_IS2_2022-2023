@@ -19,7 +19,11 @@ import java.awt.event.ActionListener;
 
 public class VentanaEnfermera extends javax.swing.JFrame {
 
-    int x, y, xMouse, yMouse;
+    int x;
+    int y;
+    int xMouse;
+    int yMouse;
+    
 
     public VentanaEnfermera() {
         initComponents();

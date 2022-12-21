@@ -8,6 +8,7 @@ public class Enfermera extends Trabajador implements InterTrabajador {
     private List<Paciente> aux; //Lista auxiliar hasta que se pueda pasar información a la base de datos
 
     public Enfermera() {
+        //Constructor
     }
 
     public void crearPaciente(int idPaciente, int habitacion, String dni, String apellidos, String sintomas) {
