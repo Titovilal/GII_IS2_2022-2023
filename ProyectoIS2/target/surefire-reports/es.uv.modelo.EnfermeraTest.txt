@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: es.uv.modelo.EnfermeraTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in es.uv.modelo.EnfermeraTest
-testCrearPaciente  Time elapsed: 0 s  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in es.uv.modelo.EnfermeraTest
+testCrearPaciente  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "java.util.List.add(Object)" because "this.aux" is null
 	at es.uv.modelo.EnfermeraTest.testCrearPaciente(EnfermeraTest.java:24)
 

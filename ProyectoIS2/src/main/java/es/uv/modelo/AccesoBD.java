@@ -36,7 +36,7 @@ public final class AccesoBD {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conexionBD = DriverManager.getConnection(nombreConexionBD, "root", ""); //por defecto user: root, contra:""
-                System.out.println("conexión con éxito");
+                System.err.println("conexión con éxito");
                 res = true;
             } catch (Exception e) {
                 System.out.println("error conectando a base de datos"); // por algun motivo, a netbeans no le gusta el system.err
@@ -50,13 +50,13 @@ public final class AccesoBD {
         return conexionBD != null;
     }
 
-    public void cerrarConexionBD() {
+    public static void cerrarConexionBD() {
         if (conexionBD != null) {
             try {
                 conexionBD.close();
                 conexionBD = null;
             } catch (Exception e) {
-                System.out.println("error comprobando producto");
+                System.err.println("error comprobando producto");
             }
         }
     }
@@ -79,7 +79,7 @@ public final class AccesoBD {
                 enfermedades.add(enf);
             }
         } catch (Exception e) {
-            System.out.println("error obteniendo lista enfermedades");
+            System.err.println("error obteniendo lista enfermedades");
         }
         return enfermedades;
     }
@@ -200,7 +200,7 @@ public final class AccesoBD {
                 medicamentos.add(m);
             }
         } catch (Exception e) {
-            System.out.println("error obteniendo medicamentos");
+            System.err.println("error obteniendo medicamentos");
         }
         return medicamentos;
     }
@@ -223,7 +223,7 @@ public final class AccesoBD {
                 medicamentos.add(resultados.getString("nombre"));
             }
         } catch (Exception e) {
-            System.out.println("error obteniendo medicamentos del paciente");
+            System.err.println("error obteniendo medicamentos del paciente");
         }
         return medicamentos;
     }
@@ -248,7 +248,7 @@ public final class AccesoBD {
                 pacientes.add(p);
             }
         } catch (Exception e) {
-            System.out.println("error obteniendo pacientes");
+            System.err.println("error obteniendo pacientes");
         }
         return pacientes;
     }
@@ -273,7 +273,7 @@ public final class AccesoBD {
                 pacientes.add(p);
             }
         } catch (Exception e) {
-            System.out.println("error obteniendo pacientes");
+            System.err.println("error obteniendo pacientes");
         }
         return pacientes;
     }
@@ -297,7 +297,7 @@ public final class AccesoBD {
                 trabajadores.add(t);
             }
         } catch (Exception e) {
-            System.out.println("error obteniendo trabajadores");
+            System.err.println("error obteniendo trabajadores");
         }
         return trabajadores;
     }
@@ -319,7 +319,7 @@ public final class AccesoBD {
             t.setUsuario(resultados.getString("usuario"));
             t.setContrasenya(resultados.getString("contra"));
         } catch (Exception e) {
-            System.out.println("error realizando login");
+            System.err.println("error realizando login");
         }
 
         return t;
@@ -344,7 +344,7 @@ public final class AccesoBD {
                 tratamientos.add(t);
             }
         } catch (Exception e) {
-            System.out.println("error obteniendo tratamientos");
+            System.err.println("error obteniendo tratamientos");
         }
         return tratamientos;
     }
@@ -368,7 +368,7 @@ public final class AccesoBD {
                 visitas.add(v);
             }
         } catch (Exception e) {
-            System.out.println("error obteniendo visitas");
+            System.err.println("error obteniendo visitas");
         }
         return visitas;
     }

@@ -14,11 +14,11 @@ testSetContrasenya  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: The test case is a prototype.
 	at es.uv.modelo.MedicoTest.testSetContrasenya(MedicoTest.java:97)
 
-testGetUsuario  Time elapsed: 0 s  <<< FAILURE!
+testGetUsuario  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <> but was: <null>
 	at es.uv.modelo.MedicoTest.testGetUsuario(MedicoTest.java:55)
 
-testGetContrasenya  Time elapsed: 0.001 s  <<< FAILURE!
+testGetContrasenya  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <> but was: <null>
 	at es.uv.modelo.MedicoTest.testGetContrasenya(MedicoTest.java:82)
 
