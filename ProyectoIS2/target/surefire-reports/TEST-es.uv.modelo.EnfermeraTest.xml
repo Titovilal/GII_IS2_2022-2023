@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="es.uv.modelo.EnfermeraTest" time="0.001" tests="3" errors="2" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="es.uv.modelo.EnfermeraTest" time="0" tests="3" errors="2" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\raul\Documents\NetBeansProjects\GIT\ProyectoISII\GII_IS2_2022-2023\ProyectoIS2\target\test-classes;C:\Users\raul\Documents\NetBeansProjects\GIT\ProyectoISII\GII_IS2_2022-2023\ProyectoIS2\target\classes;C:\Users\raul\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\raul\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\raul\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\raul\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\raul\.m2\repository\com\mysql\mysql-connector-j\8.0.31\mysql-connector-j-8.0.31.jar;C:\Users\raul\.m2\repository\com\google\protobuf\protobuf-java\3.19.4\protobuf-java-3.19.4.jar;C:\Users\raul\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\raul\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\raul\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\raul\.m2\repository\org\sonarsource\sonarqube\sonar-plugin-api\8.0\sonar-plugin-api-8.0.jar;"/>
+    <property name="java.class.path" value="C:\Users\gasco\Documents\NetBeansProjects\GII_IS2_2022-2023\ProyectoIS2\target\test-classes;C:\Users\gasco\Documents\NetBeansProjects\GII_IS2_2022-2023\ProyectoIS2\target\classes;C:\Users\gasco\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\gasco\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\gasco\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\gasco\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\gasco\.m2\repository\com\mysql\mysql-connector-j\8.0.31\mysql-connector-j-8.0.31.jar;C:\Users\gasco\.m2\repository\com\google\protobuf\protobuf-java\3.19.4\protobuf-java-3.19.4.jar;C:\Users\gasco\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\gasco\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\gasco\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\gasco\.m2\repository\org\sonarsource\sonarqube\sonar-plugin-api\8.0\sonar-plugin-api-8.0.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -14,50 +14,50 @@
     <property name="java.vm.specification.version" value="17"/>
     <property name="user.country" value="ES"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
-    <property name="sun.java.command" value="C:\Users\raul\AppData\Local\Temp\surefire4189601253104207894\surefirebooter2244594815893459414.jar C:\Users\raul\AppData\Local\Temp\surefire4189601253104207894 2022-12-21T12-29-15_180-jvmRun1 surefire930842824020001532tmp surefire_013080693190942684045tmp"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.4.1\bin"/>
+    <property name="sun.java.command" value="C:\Users\gasco\AppData\Local\Temp\surefire12261499333522126742\surefirebooter1952336191861051501.jar C:\Users\gasco\AppData\Local\Temp\surefire12261499333522126742 2022-12-21T12-43-24_873-jvmRun1 surefire13545197091564009586tmp surefire_014184967422724357199tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\raul\Documents\NetBeansProjects\GIT\ProyectoISII\GII_IS2_2022-2023\ProyectoIS2\target\test-classes;C:\Users\raul\Documents\NetBeansProjects\GIT\ProyectoISII\GII_IS2_2022-2023\ProyectoIS2\target\classes;C:\Users\raul\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\raul\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\raul\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\raul\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\raul\.m2\repository\com\mysql\mysql-connector-j\8.0.31\mysql-connector-j-8.0.31.jar;C:\Users\raul\.m2\repository\com\google\protobuf\protobuf-java\3.19.4\protobuf-java-3.19.4.jar;C:\Users\raul\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\raul\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\raul\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\raul\.m2\repository\org\sonarsource\sonarqube\sonar-plugin-api\8.0\sonar-plugin-api-8.0.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\gasco\Documents\NetBeansProjects\GII_IS2_2022-2023\ProyectoIS2\target\test-classes;C:\Users\gasco\Documents\NetBeansProjects\GII_IS2_2022-2023\ProyectoIS2\target\classes;C:\Users\gasco\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\gasco\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\gasco\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\gasco\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\gasco\.m2\repository\com\mysql\mysql-connector-j\8.0.31\mysql-connector-j-8.0.31.jar;C:\Users\gasco\.m2\repository\com\google\protobuf\protobuf-java\3.19.4\protobuf-java-3.19.4.jar;C:\Users\gasco\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\gasco\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\gasco\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\gasco\.m2\repository\org\sonarsource\sonarqube\sonar-plugin-api\8.0\sonar-plugin-api-8.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="C:\Users\raul"/>
+    <property name="user.home" value="C:\Users\gasco"/>
     <property name="user.language" value="es"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2021-09-14"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-17"/>
+    <property name="java.version.date" value="2022-08-18"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17.0.4.1"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\raul\Documents\NetBeansProjects\GIT\ProyectoISII\GII_IS2_2022-2023\ProyectoIS2"/>
-    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="basedir" value="C:\Users\gasco\Documents\NetBeansProjects\GII_IS2_2022-2023\ProyectoIS2"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\raul\AppData\Local\Temp\surefire4189601253104207894\surefirebooter2244594815893459414.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\gasco\AppData\Local\Temp\surefire12261499333522126742\surefirebooter1952336191861051501.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="17+35-LTS-2724"/>
-    <property name="user.name" value="raul"/>
+    <property name="java.runtime.version" value="17.0.4.1+1-LTS-2"/>
+    <property name="user.name" value="Miguel"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="file.encoding" value="Cp1252"/>
+    <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-12.5\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
-    <property name="localRepository" value="C:\Users\raul\.m2\repository"/>
+    <property name="maven.ext.class.path" value="C:\netbeans-15-bin\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="localRepository" value="C:\Users\gasco\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
-    <property name="java.io.tmpdir" value="C:\Users\raul\AppData\Local\Temp\"/>
-    <property name="java.version" value="17"/>
-    <property name="user.dir" value="C:\Users\raul\Documents\NetBeansProjects\GIT\ProyectoISII\GII_IS2_2022-2023\ProyectoIS2"/>
+    <property name="java.io.tmpdir" value="C:\Users\gasco\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.4.1"/>
+    <property name="user.dir" value="C:\Users\gasco\Documents\NetBeansProjects\GII_IS2_2022-2023\ProyectoIS2"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\raul\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17.0.4.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\MATLAB\R2021b\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\gasco\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\clisp-2.48;C:\Program Files (x86)\clisp-2.48;C:\Program Files\Java\jdk-17.0.4.1\bin;C:\Program Files\apache-maven-3.8.6\bin;;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="17+35-LTS-2724"/>
+    <property name="java.vm.version" value="17.0.4.1+1-LTS-2"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testCrearPaciente" classname="es.uv.modelo.EnfermeraTest" time="0.001">
+  <testcase name="testCrearPaciente" classname="es.uv.modelo.EnfermeraTest" time="0">
     <error message="Cannot invoke &quot;java.util.List.add(Object)&quot; because &quot;this.aux&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "java.util.List.add(Object)" because "this.aux" is null
 	at es.uv.modelo.EnfermeraTest.testCrearPaciente(EnfermeraTest.java:24)
 </error>

@@ -184,9 +184,8 @@ public final class AccesoBD {
     public static List<Medicamento> obtenerMedicamentosBD() { //select all
         abrirConexionBD();
         ArrayList<Medicamento> medicamentos = new ArrayList<>();
-        try {
+        try (Statement s = conexionBD.createStatement()) {
             String con;
-            Statement s = conexionBD.createStatement();
 
             con = "SELECT idMedicamento,unidades,alergias,efectosSecundarios FROM medicamentos";
             ResultSet resultados = s.executeQuery(con);
@@ -210,9 +209,8 @@ public final class AccesoBD {
     public static List<String> obtenerMedicamentosPacienteBD(String idPaciente) {
         abrirConexionBD();
         ArrayList<String> medicamentos = new ArrayList<>();
-        try {
+        try(Statement s = conexionBD.createStatement()) {
             String con;
-            Statement s = conexionBD.createStatement();
 
             con = "SELECT mm.nombre FROM enfermedadespaciente ep "
                     + "INNER JOIN tratamientos tt ON ep.idEnfermedad = tt.idEnfermedad "
@@ -232,9 +230,8 @@ public final class AccesoBD {
     public static List<Paciente> obtenerPacientesBD() { //select all
         abrirConexionBD();
         ArrayList<Paciente> pacientes = new ArrayList<>();
-        try {
+        try(Statement s = conexionBD.createStatement()) {
             String con;
-            Statement s = conexionBD.createStatement();
 
             con = "SELECT idPaciente,DNI,apellidos,habitacion,sintomas FROM pacientes";
             ResultSet resultados = s.executeQuery(con);
@@ -257,9 +254,8 @@ public final class AccesoBD {
     public static List<Paciente> obtenerPacientesDelDiaBD() { //Te quedas solo con los pacientes que tengan habitación y sintomas
         abrirConexionBD();
         ArrayList<Paciente> pacientes = new ArrayList<>();
-        try {
+        try(Statement s = conexionBD.createStatement()) {
             String con;
-            Statement s = conexionBD.createStatement();
 
             con = "SELECT idPaciente,DNI,apellidos,habitacion,sintomas FROM pacientes WHERE habitacion!=\"null\" AND sintomas!=\"null\"";
             ResultSet resultados = s.executeQuery(con);
@@ -282,9 +278,8 @@ public final class AccesoBD {
     public static List<Trabajador> obtenerTrabajadoresBD() { //select all
         abrirConexionBD();
         ArrayList<Trabajador> trabajadores = new ArrayList<>();
-        try {
+        try(Statement s = conexionBD.createStatement()) {
             String con;
-            Statement s = conexionBD.createStatement();
 
             con = "SELECT idTrabajador,medico,usuario,contra FROM trabajadores";
             ResultSet resultados = s.executeQuery(con);
@@ -307,8 +302,7 @@ public final class AccesoBD {
         abrirConexionBD();
         Trabajador t = new Trabajador();
 
-        try {
-            Statement s = conexionBD.createStatement();
+        try(Statement s = conexionBD.createStatement()) {
             String con = "SELECT idTrabajador,medico,usuario,contra FROM trabajadores WHERE usuario='" + usuario + "' AND contra ='" + contra + "'";
 
             ResultSet resultados = s.executeQuery(con);
@@ -329,9 +323,8 @@ public final class AccesoBD {
     public static List<Tratamiento> obtenerTratamientoBD() { //select all
         abrirConexionBD();
         ArrayList<Tratamiento> tratamientos = new ArrayList<>();
-        try {
+        try(Statement s = conexionBD.createStatement()) {
             String con;
-            Statement s = conexionBD.createStatement();
 
             con = "SELECT idTratamiento,idEnfermedad,idMedicamento,dosis FROM tratamiento";
             ResultSet resultados = s.executeQuery(con);
@@ -353,9 +346,8 @@ public final class AccesoBD {
     public static List<Visita> obtenerVisitasBD() { //select all
         abrirConexionBD();
         ArrayList<Visita> visitas = new ArrayList<>();
-        try {
+        try(Statement s = conexionBD.createStatement()) {
             String con;
-            Statement s = conexionBD.createStatement();
 
             con = "SELECT idVisitas,idTrabajador,idPaciente,fecha FROM visitas";
             ResultSet resultados = s.executeQuery(con);

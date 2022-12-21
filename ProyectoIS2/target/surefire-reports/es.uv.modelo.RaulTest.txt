@@ -1,16 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: es.uv.modelo.RaulTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in es.uv.modelo.RaulTest
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in es.uv.modelo.RaulTest
 testConexiónBD  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at es.uv.modelo.RaulTest.testConexiónBD(RaulTest.java:21)
 
-testObtenerEnfermedadesBD  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <[es.uv.modelo.Enfermedad@4961f6af, es.uv.modelo.Enfermedad@5aebe890]> but was: <[]>
+testObtenerEnfermedadesBD  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[es.uv.modelo.Enfermedad@e70f13a, es.uv.modelo.Enfermedad@3d3e5463]> but was: <[]>
 	at es.uv.modelo.RaulTest.testObtenerEnfermedadesBD(RaulTest.java:37)
 
-testLoginTrabajador  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <es.uv.modelo.Trabajador@75db5df9> but was: <es.uv.modelo.Trabajador@707194ba>
+testLoginTrabajador  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <es.uv.modelo.Trabajador@49964d75> but was: <es.uv.modelo.Trabajador@528c868>
 	at es.uv.modelo.RaulTest.testLoginTrabajador(RaulTest.java:52)
 
