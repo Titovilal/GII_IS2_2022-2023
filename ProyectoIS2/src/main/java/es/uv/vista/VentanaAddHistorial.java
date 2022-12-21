@@ -4,11 +4,14 @@ import es.uv.modelo.AccesoBD;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 
-public class VM_AddHistorialPaciente extends javax.swing.JFrame {
+public class VentanaAddHistorial extends javax.swing.JFrame {
 
-    private int x, y, xMouse, yMouse;
+    private int xMouseCurrent;
+    private int yMouseCurrent;
+    private int xMouse;
+    private int yMouse;
 
-    public VM_AddHistorialPaciente() {
+    public VentanaAddHistorial() {
         initComponents();
         buttonAceptar.setActionCommand("addHistorial");
     }
@@ -358,9 +361,9 @@ public class VM_AddHistorialPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_panelSalirMouseReleased
 
     private void panelBarraSuperiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperiorMouseDragged
-        x = evt.getXOnScreen();
-        y = evt.getYOnScreen();
-        this.setLocation(x - xMouse, y - yMouse);
+        xMouseCurrent = evt.getXOnScreen();
+        yMouseCurrent = evt.getYOnScreen();
+        this.setLocation(xMouseCurrent - xMouse, yMouseCurrent - yMouse);
     }//GEN-LAST:event_panelBarraSuperiorMouseDragged
 
     private void panelBarraSuperiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperiorMousePressed

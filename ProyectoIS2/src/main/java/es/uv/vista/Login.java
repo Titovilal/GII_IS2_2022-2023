@@ -8,7 +8,10 @@ import java.awt.event.KeyEvent;
 
 public class Login extends javax.swing.JFrame {
 
-    int xMouse, yMouse, x, y;
+    private int xMouseCurrent;
+    private int yMouseCurrent;
+    private int xMouse;
+    private int yMouse;
     VentanaEnfermera e;
     VentanaMedico m;
 
@@ -264,9 +267,9 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelBarraSuperiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperiorMouseDragged
-        x = evt.getXOnScreen();
-        y = evt.getYOnScreen();
-        this.setLocation(x - xMouse, y - yMouse);
+        xMouseCurrent = evt.getXOnScreen();
+        yMouseCurrent = evt.getYOnScreen();
+        this.setLocation(xMouseCurrent - xMouse, yMouseCurrent - yMouse);
     }//GEN-LAST:event_panelBarraSuperiorMouseDragged
 
     private void panelBarraSuperiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperiorMousePressed

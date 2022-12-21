@@ -32,10 +32,13 @@ import javax.swing.JPanel;
 public class VentanaMedico extends javax.swing.JFrame {
 
     //Variables para habilitar la movilidad de la ventana
-    private int x, xMouse, yMouse, y;
+    private int xMouseCurrent;
+    private int yMouseCurrent;
+    private int xMouse;
+    private int yMouse;
 
     //Ventana interna
-    private VM_AddHistorialPaciente frameAddHistorial;
+    private VentanaAddHistorial frameAddHistorial;
     boolean ultimaConsultaCorrecta = false;
     private HistorialPaciente ultimoHistorial;
 
@@ -63,7 +66,7 @@ public class VentanaMedico extends javax.swing.JFrame {
 
         //Inicializar los componentes
         initComponents();
-        frameAddHistorial = new VM_AddHistorialPaciente();
+        frameAddHistorial = new VentanaAddHistorial();
 
         panelBase.setLayout(new BorderLayout());
         panelBase.add(panelPacientesDelDia);
@@ -1238,9 +1241,9 @@ public class VentanaMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_panelSalirMouseReleased
 
     private void panelBarraSuperiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperiorMouseDragged
-        x = evt.getXOnScreen();
-        y = evt.getYOnScreen();
-        this.setLocation(x - xMouse, y - yMouse);
+        xMouseCurrent = evt.getXOnScreen();
+        yMouseCurrent = evt.getYOnScreen();
+        this.setLocation(xMouseCurrent - xMouse, yMouseCurrent - yMouse);
     }//GEN-LAST:event_panelBarraSuperiorMouseDragged
 
     private void panelBarraSuperiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperiorMousePressed
