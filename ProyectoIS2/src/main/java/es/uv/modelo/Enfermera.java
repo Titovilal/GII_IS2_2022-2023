@@ -13,16 +13,17 @@ public class Enfermera extends Trabajador implements InterTrabajador {
     public void crearPaciente(int idPaciente, int habitacion, String dni, String apellidos, String sintomas) {
         aux.add(new Paciente(idPaciente, habitacion, dni, apellidos, sintomas));
     }
-    public Paciente devolverPacienteCreado()
-    {return aux.get(0);}
+
+    public Paciente devolverPacienteCreado() {
+        return aux.get(0);
+    }
 
     public List<Medicamento> comprobarBotiquin(int num, AccesoBD bd) {
 
         List<Medicamento> medicamentos = bd.obtenerMedicamentosBD();
-        Iterator<Medicamento> it = medicamentos.listIterator();
-        while (it.hasNext()) {
-            if (it.next().getUnidades() >= num) {
-                medicamentos.remove(it);
+        for (Medicamento medicamento : medicamentos) {
+            if (medicamento.getUnidades() >= num) {
+                medicamentos.remove(medicamento);
             }
         }
         return medicamentos;
