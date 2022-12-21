@@ -77,6 +77,7 @@ public final class AccesoBD {
                 enf.setContagiosa(resultados.getBoolean("contagiosa"));
                 enfermedades.add(enf);
             }
+            s.close();
         } catch (Exception e) {
             System.err.println("error obteniendo lista enfermedades");
         }
