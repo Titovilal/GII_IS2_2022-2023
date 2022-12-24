@@ -2,6 +2,7 @@ package es.uv.modelo;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class HistorialPaciente {
 
@@ -27,14 +28,15 @@ public class HistorialPaciente {
     private String apellidosPaciente; 
     private String dniPaciente;
     //Variables de la tabla historialPaciente
-    private int idHistorial, idPaciente;
-    private ArrayList<ParFechaEnfermedad> paresFechaEnfermedad;
+    private int idHistorial;
+    private int idPaciente;
+    private List<ParFechaEnfermedad> paresFechaEnfermedad;
 
     public HistorialPaciente() {
         paresFechaEnfermedad = new ArrayList<>();
     }
 
-    public HistorialPaciente(int idHistorial, int idPaciente, Date fechaAlta, ArrayList<ParFechaEnfermedad> paresFechaEnfermedad) {
+    public HistorialPaciente(int idHistorial, int idPaciente, List<ParFechaEnfermedad> paresFechaEnfermedad) {
         this.idHistorial = idHistorial;
         this.idPaciente = idPaciente;
         this.paresFechaEnfermedad = paresFechaEnfermedad;
@@ -56,11 +58,11 @@ public class HistorialPaciente {
         this.dniPaciente = dniPaciente;
     }
 
-    public ArrayList<ParFechaEnfermedad> getParesFechaEnfermedad() {
+    public List<ParFechaEnfermedad> getParesFechaEnfermedad() {
         return paresFechaEnfermedad;
     }
 
-    public void setParesFechaEnfermedad(ArrayList<ParFechaEnfermedad> paresFechaEnfermedad) {
+    public void setParesFechaEnfermedad(List<ParFechaEnfermedad> paresFechaEnfermedad) {
         this.paresFechaEnfermedad = paresFechaEnfermedad;
     }
 
