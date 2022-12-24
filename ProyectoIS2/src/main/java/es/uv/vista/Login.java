@@ -294,10 +294,9 @@ public class Login extends javax.swing.JFrame {
         e = new VentanaEnfermera();
         m = new VentanaMedico();
 
-        Trabajador t = new Trabajador();
+        Trabajador t = AccesoBD.loginTrabajador(tfUsuario.getText(), tfContra.getText());
 
-        t = AccesoBD.loginTrabajador(tfUsuario.getText(), tfContra.getText());
-        if (!(t.getEsMedico()==null)) {
+        if (t.getEsMedico() != null) {
             if (t.getEsMedico()) {
                 m.setVisible(true);
                 this.setVisible(false);
@@ -308,25 +307,6 @@ public class Login extends javax.swing.JFrame {
         } else {
             txtIniciar.setText("usuario o contraseña incorrecta");
         }
-        /* VentanaEnfermera e = new VentanaEnfermera();
-        VentanaMedico m = new VentanaMedico();
-        int loggin = tipoLogin(tfUsuario.getText(), tfContra.getText() + ""); //tfContra deberia usar el método getPassword, para compararlo con la contraseña almacenada
-        System.out.println(""+  tfContra.getPassword());
-        if (loggin == 1) {
-            m.setVisible(true);
-            this.setVisible(false);
-        } else {
-            if (loggin == 2) {
-                e.setVisible(true);
-                this.setVisible(false);
-            } else {
-                txtError.setForeground(Color.red);
-                txtError.setText("nombre o contraseña incorrecta");
-            }
-        } */
- /* m.setVisible(true);
-        e.setVisible(true);
-        this.setVisible(false); */
     }//GEN-LAST:event_buttonAccederActionPerformed
 
     private void panelSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseEntered
@@ -372,26 +352,29 @@ public class Login extends javax.swing.JFrame {
         return tipo;
 
     }
-    
-    public String enfermera_getDNI(){
+
+    public String enfermeraGetDni() {
         return e.getDNI();
     }
-    public String enfermera_getNombre(){
+
+    public String enfermeraGetNombre() {
         return e.getNombre();
     }
-    public String enfermera_getApellidos(){
+
+    public String enfermeraGetApellidos() {
         return e.getApellidos();
     }
-    public int enfermera_getHabitacion(){
+
+    public int enferemeraGetHabitacion() {
         return e.getHabitacion();
     }
-    public String enfermera_getSintomas(){
-            return e.getSintomas();
+
+    public String enfermeraGetSintomas() {
+        return e.getSintomas();
     }
-    
+
     //Action Listeners
-    public void setActionListener(ActionListener al)
-    {
+    public void setActionListener(ActionListener al) {
         e.setActionListener(al);
     }
 

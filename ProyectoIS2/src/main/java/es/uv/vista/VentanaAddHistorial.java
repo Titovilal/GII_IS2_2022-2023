@@ -6,8 +6,6 @@ import java.awt.event.ActionListener;
 
 public class VentanaAddHistorial extends javax.swing.JFrame {
 
-    private int xMouseCurrent;
-    private int yMouseCurrent;
     private int xMouse;
     private int yMouse;
 
@@ -361,8 +359,8 @@ public class VentanaAddHistorial extends javax.swing.JFrame {
     }//GEN-LAST:event_panelSalirMouseReleased
 
     private void panelBarraSuperiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperiorMouseDragged
-        xMouseCurrent = evt.getXOnScreen();
-        yMouseCurrent = evt.getYOnScreen();
+        int xMouseCurrent = evt.getXOnScreen();
+        int yMouseCurrent = evt.getYOnScreen();
         this.setLocation(xMouseCurrent - xMouse, yMouseCurrent - yMouse);
     }//GEN-LAST:event_panelBarraSuperiorMouseDragged
 

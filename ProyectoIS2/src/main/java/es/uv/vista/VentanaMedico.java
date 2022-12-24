@@ -87,7 +87,7 @@ public class VentanaMedico extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent ae) {
             if (ae.getActionCommand().equals("addHistorial")) {
-                
+
                 if (frameAddHistorial.addHistorialBD()) {
                     frameAddHistorial.setVisible(false);
                     textBuscarDNI.setText(frameAddHistorial.getDNI());
@@ -143,9 +143,9 @@ public class VentanaMedico extends javax.swing.JFrame {
      *
      * @param id (int) Identificador de la enfermedad
      */
-    public void MostrarEnfermedades(int id) {
-        Vector<DefaultListModel> modelos;
-        modelos = new Vector<>();
+    public void mostrarEnfermedades(int id) {
+        
+        Vector<DefaultListModel> modelos = new Vector<>();;
 
         for (int i = 0; i < 2; i++) {
             modelos.add(new DefaultListModel());
@@ -1329,7 +1329,7 @@ public class VentanaMedico extends javax.swing.JFrame {
      * @param evt
      */
     private void buttonBuscarEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuscarEnfermedadActionPerformed
-        MostrarEnfermedades(Integer.valueOf(textBuscarEnfermedad.getText()));
+        mostrarEnfermedades(Integer.valueOf(textBuscarEnfermedad.getText()));
 
     }//GEN-LAST:event_buttonBuscarEnfermedadActionPerformed
 
