@@ -17,6 +17,11 @@ public final class AccesoBD {
 
     private static AccesoBD instanciaUnica = null;
     private static Connection conexionBD = null;
+    private static final String NOMBRE = "nombre";
+    private static final String APELLIDOS = "apellidos";
+    private static final String SINTOMAS = "sintomas";
+    private static final String ID_PACIENTE = "idPaciente";
+    private static final String ID_TRABAJADOR = "idTrabajador";
 
     public static AccesoBD getInstance() {
         if (instanciaUnica == null) {
@@ -73,7 +78,7 @@ public final class AccesoBD {
             while (resultados.next()) {
                 Enfermedad enf = new Enfermedad();
                 enf.setIdEnfermedad(resultados.getInt("idEnfermedad"));
-                enf.setSintomas(resultados.getString("sintomas"));
+                enf.setSintomas(resultados.getString(SINTOMAS));
                 enf.setContagiosa(resultados.getBoolean("contagiosa"));
                 enfermedades.add(enf);
             }
@@ -125,10 +130,10 @@ public final class AccesoBD {
         while (resultados.next()) {
             if (primeraEscritura) {
                 h.setDniPaciente(resultados.getString("DNI"));
-                h.setApellidosPaciente(resultados.getString("apellidos"));
+                h.setApellidosPaciente(resultados.getString(APELLIDOS));
                 primeraEscritura = false;
             }
-            h.addParFechaEnfermedad(resultados.getDate("fechaAlta"), resultados.getString("nombre"));
+            h.addParFechaEnfermedad(resultados.getDate("fechaAlta"), resultados.getString(NOMBRE));
         }
         return h;
     }
@@ -190,7 +195,7 @@ public final class AccesoBD {
             while (resultados.next()) {
                 Medicamento m = new Medicamento();
                 m.setIdMedicamento(resultados.getInt("idMedicamento"));
-                m.setNombre(resultados.getString("nombre"));
+                m.setNombre(resultados.getString(NOMBRE));
                 m.setUnidades(resultados.getInt("unidades"));
                 m.setAlergias(resultados.getString("alergias"));
                 m.setEfectosSecunadarios(resultados.getString("efectosSecundarios"));
@@ -216,7 +221,7 @@ public final class AccesoBD {
                     + "WHERE ep.idPaciente = " + idPaciente;
             ResultSet resultados = s.executeQuery(con);
             while (resultados.next()) {
-                medicamentos.add(resultados.getString("nombre"));
+                medicamentos.add(resultados.getString(NOMBRE));
             }
         } catch (Exception e) {
             Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
@@ -235,11 +240,11 @@ public final class AccesoBD {
             ResultSet resultados = s.executeQuery(con);
             while (resultados.next()) {
                 Paciente p = new Paciente();
-                p.setIdPaciente(resultados.getInt("idPaciente"));
+                p.setIdPaciente(resultados.getInt(ID_PACIENTE));
                 p.setDni(resultados.getString("DNI"));
-                p.setApellidos(resultados.getString("apellidos"));
+                p.setApellidos(resultados.getString(APELLIDOS));
                 p.setHabitacion(resultados.getInt("habitacion"));
-                p.setSintomas(resultados.getString("sintomas"));
+                p.setSintomas(resultados.getString(SINTOMAS));
                 pacientes.add(p);
             }
         } catch (Exception e) {
@@ -259,11 +264,11 @@ public final class AccesoBD {
             ResultSet resultados = s.executeQuery(con);
             while (resultados.next()) {
                 Paciente p = new Paciente();
-                p.setIdPaciente(resultados.getInt("idPaciente"));
+                p.setIdPaciente(resultados.getInt(ID_PACIENTE));
                 p.setDni(resultados.getString("DNI"));
-                p.setApellidos(resultados.getString("apellidos"));
+                p.setApellidos(resultados.getString(APELLIDOS));
                 p.setHabitacion(resultados.getInt("habitacion"));
-                p.setSintomas(resultados.getString("sintomas"));
+                p.setSintomas(resultados.getString(SINTOMAS));
                 pacientes.add(p);
             }
         } catch (Exception e) {
@@ -283,7 +288,7 @@ public final class AccesoBD {
             ResultSet resultados = s.executeQuery(con);
             while (resultados.next()) {
                 Trabajador t = new Trabajador();
-                t.setIdTrabajador(resultados.getInt("idTrabajador"));
+                t.setIdTrabajador(resultados.getInt(ID_TRABAJADOR));
                 t.setEsMedico(resultados.getBoolean("medico"));
                 t.setUsuario(resultados.getString("usuario"));
                 t.setContrasenya(resultados.getString("contra"));
@@ -306,7 +311,7 @@ public final class AccesoBD {
             ResultSet resultados = s.executeQuery(con);
 
             resultados.next();
-            t.setIdTrabajador(resultados.getInt("idTrabajador"));
+            t.setIdTrabajador(resultados.getInt(ID_TRABAJADOR));
             t.setEsMedico(resultados.getBoolean("medico"));
             t.setUsuario(resultados.getString("usuario"));
             t.setContrasenya(resultados.getString("contra"));
@@ -352,8 +357,8 @@ public final class AccesoBD {
             while (resultados.next()) {
                 Visita v = new Visita();
                 v.setIdVisita(resultados.getInt("idVisitas"));
-                v.setIdTrabajador(resultados.getInt("idTrabajador"));
-                v.setIdPaciente(resultados.getInt("idPaciente"));
+                v.setIdTrabajador(resultados.getInt(ID_TRABAJADOR));
+                v.setIdPaciente(resultados.getInt(ID_PACIENTE));
                 v.setFecha(resultados.getDate("fecha"));
                 visitas.add(v);
             }
