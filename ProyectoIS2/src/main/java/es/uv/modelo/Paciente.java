@@ -59,6 +59,7 @@ public class Paciente {
         this.sintomas = sintomas;
     }
 
+    @Override
     public String toString() {
         return apellidos;
     }

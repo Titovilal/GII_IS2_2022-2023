@@ -1,6 +1,5 @@
 package es.uv.modelo;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Enfermera extends Trabajador implements InterTrabajador {
@@ -31,8 +30,6 @@ public class Enfermera extends Trabajador implements InterTrabajador {
     }
 
     public List<Medicamento> medicamentosDiarios(Paciente p, AccesoBD bd) {
-        List<Medicamento> medicamentos = bd.obtenerMedicamentosBD();
-        Iterator<Medicamento> it = medicamentos.listIterator();
-        return medicamentos;
+        return bd.obtenerMedicamentosBD();
     }
 }

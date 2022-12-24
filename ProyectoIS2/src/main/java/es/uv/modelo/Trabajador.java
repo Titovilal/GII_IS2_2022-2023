@@ -5,7 +5,8 @@ import java.util.List;
 public class Trabajador {
 
     private int idTrabajador;
-    private String usuario, contra;
+    private String usuario;
+    private String contra;
     private Boolean esMedico;
     private Enfermera enfermera;
 
@@ -18,21 +19,21 @@ public class Trabajador {
         this.usuario = usuario;
         this.contra = contrasenya;
         this.esMedico = esMedico;
-        if (!esMedico)//Enfermera
+        if (Boolean.FALSE.equals(esMedico))//Enfermera
         {
             enfermera = new Enfermera();
         }
     }
 
     public void crearPaciente(int idPaciente, int habitacion, String dni, String apellidos, String sintomas) {
-        if (!esMedico)//Enfermera
+        if (Boolean.FALSE.equals(esMedico))//Enfermera
         {
             enfermera.crearPaciente(idPaciente, habitacion, dni, apellidos, sintomas);
         }
     }
 
     public List<Medicamento> comprobarBotiquin(int num, AccesoBD bd) {
-        if (!esMedico)//Enfermera
+        if (Boolean.FALSE.equals(esMedico))//Enfermera
         {
             return enfermera.comprobarBotiquin(num, bd);
         }
@@ -40,7 +41,7 @@ public class Trabajador {
     }
 
     public List<Medicamento> medicamentosDiarios(Paciente p, AccesoBD bd) {
-        if (!esMedico)//Enfermera
+        if (Boolean.FALSE.equals(esMedico))//Enfermera
         {
             return enfermera.medicamentosDiarios(p, bd);
         }
