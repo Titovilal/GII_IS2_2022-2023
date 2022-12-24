@@ -36,7 +36,7 @@ public final class AccesoBD {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conexionBD = DriverManager.getConnection(nombreConexionBD, "root", ""); //por defecto user: root, contra:""
-//                logger.log("conexión con éxito");
+                Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, "Conexion con exito");
                 res = true;
             } catch (Exception e) {
 //                System.out.println("error conectando a base de datos"); // por algun motivo, a netbeans no le gusta el system.err
@@ -56,7 +56,7 @@ public final class AccesoBD {
                 conexionBD.close();
                 conexionBD = null;
             } catch (SQLException e) {
-//                logger.log("error comprobando producto");
+                Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }
@@ -78,7 +78,7 @@ public final class AccesoBD {
                 enfermedades.add(enf);
             }
         } catch (Exception e) {
-//            System.err.println("error obteniendo lista enfermedades");
+            Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
         }
         return enfermedades;
     }
@@ -197,7 +197,7 @@ public final class AccesoBD {
                 medicamentos.add(m);
             }
         } catch (Exception e) {
-            System.err.println("error obteniendo medicamentos");
+            Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
         }
         return medicamentos;
     }
@@ -219,7 +219,7 @@ public final class AccesoBD {
                 medicamentos.add(resultados.getString("nombre"));
             }
         } catch (Exception e) {
-            System.err.println("error obteniendo medicamentos del paciente");
+            Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
         }
         return medicamentos;
     }
@@ -243,7 +243,7 @@ public final class AccesoBD {
                 pacientes.add(p);
             }
         } catch (Exception e) {
-            System.err.println("error obteniendo pacientes");
+            Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
         }
         return pacientes;
     }
@@ -267,7 +267,7 @@ public final class AccesoBD {
                 pacientes.add(p);
             }
         } catch (Exception e) {
-            System.err.println("error obteniendo pacientes");
+            Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
         }
         return pacientes;
     }
@@ -290,7 +290,7 @@ public final class AccesoBD {
                 trabajadores.add(t);
             }
         } catch (Exception e) {
-            System.err.println("error obteniendo trabajadores");
+            Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
         }
         return trabajadores;
     }
@@ -311,7 +311,7 @@ public final class AccesoBD {
             t.setUsuario(resultados.getString("usuario"));
             t.setContrasenya(resultados.getString("contra"));
         } catch (Exception e) {
-            System.err.println("error realizando login");
+            Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
         }
 
         return t;
@@ -335,7 +335,7 @@ public final class AccesoBD {
                 tratamientos.add(t);
             }
         } catch (Exception e) {
-            System.err.println("error obteniendo tratamientos");
+            Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
         }
         return tratamientos;
     }
@@ -358,7 +358,7 @@ public final class AccesoBD {
                 visitas.add(v);
             }
         } catch (Exception e) {
-            System.err.println("error obteniendo visitas");
+            Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, e);
         }
         return visitas;
     }
