@@ -19,8 +19,6 @@ import java.awt.event.ActionListener;
 
 public class VentanaEnfermera extends javax.swing.JFrame {
 
-    private int xMouseCurrent;
-    private int yMouseCurrent;
     private int xMouse;
     private int yMouse;
     
@@ -822,8 +820,8 @@ public class VentanaEnfermera extends javax.swing.JFrame {
     }//GEN-LAST:event_panelCerrarSesionMouseReleased
 
     private void panelBarraSuperior1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraSuperior1MouseDragged
-        xMouseCurrent = evt.getXOnScreen();
-        yMouseCurrent = evt.getYOnScreen();
+        int xMouseCurrent = evt.getXOnScreen();
+        int yMouseCurrent = evt.getYOnScreen();
         this.setLocation(xMouseCurrent - xMouse, yMouseCurrent - yMouse);
     }//GEN-LAST:event_panelBarraSuperior1MouseDragged
 
